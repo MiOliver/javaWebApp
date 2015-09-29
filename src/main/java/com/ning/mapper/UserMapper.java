@@ -1,4 +1,4 @@
-package com.ning.IDao;
+package com.ning.mapper;
 
 import com.ning.domain.User;
 
