@@ -1,6 +1,6 @@
 #忽略所有 .a 结尾的文件
 #*.a
-
+.gitignore
 # 但 lib.a 除外
 #!lib.a
 
@@ -15,6 +15,10 @@
 
 # 忽略target目录
 /target
+# 忽略logs目录
+/logs
+
+.idea/
 
 
 

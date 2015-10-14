@@ -1,6 +1,11 @@
 package com.ning.domain;
 
-public class User {
+import java.io.Serializable;
+
+public class User  implements Serializable {
+    private static final long serialVersionUID = -7898194272883238670L;
+
+    public static final String OBJECT_KEY = "USER";
     private Integer id;
 
     private String userName;
@@ -39,5 +44,9 @@ public class User {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public String getObjectKey() {
+        return OBJECT_KEY;
     }
 }

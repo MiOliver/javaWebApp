@@ -1,9 +1,13 @@
 package com.ning.controller;
 
 
+import com.ning.domain.User;
+import com.ning.serviceimpl.UserServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,13 +15,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
+
+
 /*There must be a Controller annotation or the application will doesn't work .*/
 @Controller
 public class BaseController {
     private static int counter = 0;
     private static final String VIEW_INDEX = "index";
     private static final String ADDVIEW = "add";
+    private static final String TEST = "test";
     private static final Logger logger = LoggerFactory.getLogger(BaseController.class);
+    @Autowired
+    private UserServiceImpl userService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String welcome(ModelMap model) {
@@ -54,6 +64,15 @@ public class BaseController {
     @RequestMapping(value = "/add",method = RequestMethod.GET)
     public String add(){
         return ADDVIEW;
+    }
+
+    @RequestMapping(value = "/test",method = RequestMethod.GET)
+    public String test(){
+        User user =new User();
+        user.setId(1);
+        user.setAge(23);
+        userService.put(user);
+        return TEST;
     }
 
     /***
