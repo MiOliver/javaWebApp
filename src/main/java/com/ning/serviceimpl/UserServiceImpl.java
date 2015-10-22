@@ -3,6 +3,7 @@ package com.ning.serviceimpl;
 import com.ning.domain.User;
 import com.ning.mapper.UserMapper;
 import com.ning.services.IUserService;
+import org.codehaus.jackson.node.ObjectNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.BoundValueOperations;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -20,7 +21,7 @@ public class UserServiceImpl{
     @Autowired
     private UserMapper userDao;
     @Autowired
-    RedisTemplate<String, User> redisTemplate;
+    RedisTemplate<String, Object> redisTemplate;
 
     private static final String KEY="TEST";
 
@@ -32,10 +33,14 @@ public class UserServiceImpl{
 
     public void put(User user) {
 //        redisTemplate.opsForHash().put(user.getObjectKey(), user.getId(), user);
-        BoundValueOperations<String,User> opt = redisTemplate.boundValueOps(KEY);
+        BoundValueOperations<String,Object> opt = redisTemplate.boundValueOps(KEY);
         opt.set(user);
     }
 
+    public void test(){
+        BoundValueOperations<String,Object> opt = redisTemplate.boundValueOps(KEY);
+        opt.set("test");
+    }
     public void delete(User key) {
         redisTemplate.opsForHash().delete(key.getObjectKey(), key.getId());
     }

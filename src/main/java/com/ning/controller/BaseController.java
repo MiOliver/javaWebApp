@@ -74,6 +74,7 @@ public class BaseController {
         user.setId(1);
         user.setAge(23);
         userService.put(user);
+        userService.test();
         return TEST;
     }
 

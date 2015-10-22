@@ -2,19 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1e9c070-c648-4071-a5a1-dac5540fc2af" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ning/domain/ElecInvoiceRecord.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/test.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-redis.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ning/controller/BaseController.java" afterPath="$PROJECT_DIR$/src/main/java/com/ning/controller/BaseController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CounterWebApp.iml" afterPath="$PROJECT_DIR$/CounterWebApp.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CounterWebApp.ipr" afterPath="$PROJECT_DIR$/CounterWebApp.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CounterWebApp.iws" afterPath="$PROJECT_DIR$/CounterWebApp.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ning/services/IUserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/ning/services/IUserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ning/mapper/UserMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/ning/mapper/UserMapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ning/serviceimpl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/ning/serviceimpl/UserServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-dao.xml" afterPath="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-dao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-service.xml" afterPath="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-service.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generatorConfig.xml" afterPath="$PROJECT_DIR$/generatorConfig.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config/spring/springmvc.xml" afterPath="$PROJECT_DIR$/src/main/resources/config/spring/springmvc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/redis.properties" afterPath="$PROJECT_DIR$/src/main/resources/redis.properties" />
     </list>
     <ignored path="CounterWebApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -107,6 +100,21 @@
   <component name="DebuggerManager">
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/ning/controller/BaseController.java" line="75" class="com.ning.controller.BaseController" package="com.ning.controller">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/ning/serviceimpl/UserServiceImpl.java" line="41" class="com.ning.serviceimpl.UserServiceImpl" package="com.ning.serviceimpl">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -232,7 +240,7 @@
       <file leaf-file-name="springmvc.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/springmvc.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="46" selection-start="1032" selection-end="1032" vertical-scroll-proportion="-12.6" vertical-offset="0" max-vertical-offset="483">
+            <state line="14" column="57" selection-start="985" selection-end="985" vertical-scroll-proportion="-10.72" vertical-offset="26" max-vertical-offset="483">
               <folding />
             </state>
           </provider>
@@ -242,6 +250,24 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-service.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="12" column="64" selection-start="844" selection-end="844" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="441">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="applicationContext-transtion.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-transtion.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="17" selection-start="1282" selection-end="1282" vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="504">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="83" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="1806">
               <folding />
             </state>
           </provider>
@@ -259,17 +285,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ElecInvoiceRecord.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/domain/ElecInvoiceRecord.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="28" selection-start="325" selection-end="325" vertical-scroll-proportion="0.5222025" vertical-offset="0" max-vertical-offset="1050">
-              <folding>
-                <element signature="e#349#350#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
@@ -279,19 +294,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="succ.jsp" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="succ.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/succ.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="7" selection-start="342" selection-end="342" vertical-scroll-proportion="-10.5" vertical-offset="0" max-vertical-offset="483">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mvc-dispatcher-servlet.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="64" selection-start="532" selection-end="532" vertical-scroll-proportion="-7.56" vertical-offset="0" max-vertical-offset="504">
+            <state line="7" column="65" selection-start="213" selection-end="213" vertical-scroll-proportion="0.26296958" vertical-offset="0" max-vertical-offset="559">
               <folding />
             </state>
           </provider>
@@ -335,10 +341,12 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/test.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/config/spring/springmvc.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/ning/mapper/UserMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-dao.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/ning/services/IUserService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-service.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/ning/controller/BaseController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/redis.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-dao.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-redis.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/ning/serviceimpl/UserServiceImpl.java" />
       </list>
     </option>
@@ -841,6 +849,9 @@
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/config/spring" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/config/mybatis" />
       <recent name="$PROJECT_DIR$/src/main/resources/config/spring" />
@@ -1301,12 +1312,12 @@
       <workItem from="1444309856557" duration="1571000" />
       <workItem from="1444875906013" duration="1144000" />
       <workItem from="1444914903479" duration="1815000" />
-      <workItem from="1445479374253" duration="6564000" />
+      <workItem from="1445479374253" duration="11195000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39637000" />
+    <option name="totallyTimeSpent" value="44268000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1337,7 +1348,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39918947" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37284702" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928064" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1351,6 +1362,7 @@
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2498618" sideWeight="0.5005066" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36372846" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="CVS" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1359,7 +1371,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Aspects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928064" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="EJB" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1436,18 +1447,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config/mybatis/mybatis.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="16" selection-start="315" selection-end="315" vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="273" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/serviceimpl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="43" selection-start="524" selection-end="524" vertical-scroll-proportion="0.0" vertical-offset="70" max-vertical-offset="630">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/controller/BaseController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="51" selection-start="866" selection-end="866" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="882">
@@ -1485,7 +1484,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="30" selection-start="86" selection-end="86" vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="462">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1499,7 +1498,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="31" selection-start="130" selection-end="130" vertical-scroll-proportion="0.0" vertical-offset="189" max-vertical-offset="378">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1536,7 +1535,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="25" selection-start="70" selection-end="78" vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="462">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1545,7 +1544,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="17" selection-start="116" selection-end="116" vertical-scroll-proportion="0.0" vertical-offset="189" max-vertical-offset="378">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1577,13 +1576,6 @@
     <entry file="jar://$MAVEN_REPOSITORY$/commons-dbcp/commons-dbcp/1.2.2/commons-dbcp-1.2.2.jar!/org/apache/commons/dbcp/BasicDataSource.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="57" column="29" selection-start="2406" selection-end="2406" vertical-scroll-proportion="0.3501006" vertical-offset="1002" max-vertical-offset="4137" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="59" selection-start="1166" selection-end="1166" vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="1806">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/ning/test/TestMyBatis.java">
@@ -1639,20 +1631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="48" selection-start="2700" selection-end="2700" vertical-scroll-proportion="0.49570817" vertical-offset="1071" max-vertical-offset="6405">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="64" selection-start="532" selection-end="532" vertical-scroll-proportion="-7.56" vertical-offset="0" max-vertical-offset="504">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/config/mybatis/mybatis.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="21" selection-start="298" selection-end="298" vertical-scroll-proportion="0.19516729" vertical-offset="0" max-vertical-offset="538">
@@ -1674,25 +1652,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/springmvc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="46" selection-start="1032" selection-end="1032" vertical-scroll-proportion="-12.6" vertical-offset="0" max-vertical-offset="483">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-transtion.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="17" selection-start="1282" selection-end="1282" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/mapper/UserMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="17" selection-start="135" selection-end="135" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1701,73 +1665,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="17" selection-start="163" selection-end="163" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="399">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-dao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="84" selection-start="2246" selection-end="2246" vertical-scroll-proportion="0.0" vertical-offset="588" max-vertical-offset="1617">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-service.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="64" selection-start="844" selection-end="844" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="441">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/redis.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="24" selection-start="138" selection-end="138" vertical-scroll-proportion="0.19516729" vertical-offset="0" max-vertical-offset="538">
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/1.0.0.RELEASE/spring-data-redis-1.0.0.RELEASE.jar!/org/springframework/data/redis/core/HashOperations.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="32" selection-start="641" selection-end="641" vertical-scroll-proportion="0.9005848" vertical-offset="0" max-vertical-offset="777">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/domain/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="19" selection-start="1011" selection-end="1011" vertical-scroll-proportion="0.0" vertical-offset="365" max-vertical-offset="945">
-          <folding>
-            <element signature="e#990#991#0" expanded="true" />
-            <element signature="e#1023#1024#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/controller/BaseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="0" selection-start="2692" selection-end="2692" vertical-scroll-proportion="0.33271375" vertical-offset="1102" max-vertical-offset="1890">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/serviceimpl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="81" selection-start="1055" selection-end="1055" vertical-scroll-proportion="0.33271375" vertical-offset="367" max-vertical-offset="945">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/1.0.0.RELEASE/spring-data-redis-1.0.0.RELEASE.jar!/org/springframework/data/redis/core/RedisTemplate.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="67" selection-start="6962" selection-end="6982" vertical-scroll-proportion="0.35" vertical-offset="2429" max-vertical-offset="3129">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/succ.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="7" selection-start="342" selection-end="342" vertical-scroll-proportion="-10.5" vertical-offset="0" max-vertical-offset="483">
           <folding />
         </state>
       </provider>
@@ -1786,12 +1691,120 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/1.0.0.RELEASE/spring-data-redis-1.0.0.RELEASE.jar!/org/springframework/data/redis/core/RedisTemplate.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="13" selection-start="178" selection-end="178" vertical-scroll-proportion="0.21" vertical-offset="0" max-vertical-offset="3129">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="42" selection-start="693" selection-end="693" vertical-scroll-proportion="0.4684015" vertical-offset="0" max-vertical-offset="538">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/domain/ElecInvoiceRecord.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="28" selection-start="325" selection-end="325" vertical-scroll-proportion="0.5222025" vertical-offset="0" max-vertical-offset="1050">
           <folding>
             <element signature="e#349#350#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="19" selection-start="1011" selection-end="1011" vertical-scroll-proportion="0.0" vertical-offset="365" max-vertical-offset="945">
+          <folding>
+            <element signature="e#990#991#0" expanded="true" />
+            <element signature="e#1023#1024#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="223" column="17" selection-start="7449" selection-end="7454" vertical-scroll-proportion="-3.7166667" vertical-offset="4460" max-vertical-offset="6405">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/redis.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="24" selection-start="138" selection-end="138" vertical-scroll-proportion="0.14383562" vertical-offset="0" max-vertical-offset="730">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/1.0.0.RELEASE/spring-data-redis-1.0.0.RELEASE.jar!/org/springframework/data/redis/serializer/StringRedisSerializer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="13" selection-start="184" selection-end="184" vertical-scroll-proportion="-4.2" vertical-offset="0" max-vertical-offset="441">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/springmvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="57" selection-start="985" selection-end="985" vertical-scroll-proportion="-10.72" vertical-offset="26" max-vertical-offset="483">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-transtion.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="17" selection-start="1282" selection-end="1282" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="83" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="1806">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/controller/BaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="63" selection-start="2591" selection-end="2591" vertical-scroll-proportion="0.0" vertical-offset="693" max-vertical-offset="1911">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-redis.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="60" selection-start="1685" selection-end="1685" vertical-scroll-proportion="1.1052631" vertical-offset="0" max-vertical-offset="1533">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-dao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="0" selection-start="2517" selection-end="2517" vertical-scroll-proportion="0.98366606" vertical-offset="529" max-vertical-offset="1239">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-service.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="64" selection-start="844" selection-end="844" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="441">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/serviceimpl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="82" selection-start="1020" selection-end="1020" vertical-scroll-proportion="0.1443124" vertical-offset="440" max-vertical-offset="1029">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/succ.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="65" selection-start="213" selection-end="213" vertical-scroll-proportion="0.26296958" vertical-offset="0" max-vertical-offset="559">
+          <folding />
         </state>
       </provider>
     </entry>
