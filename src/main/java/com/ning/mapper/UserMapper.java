@@ -1,7 +1,9 @@
 package com.ning.mapper;
 
 import com.ning.domain.User;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
 

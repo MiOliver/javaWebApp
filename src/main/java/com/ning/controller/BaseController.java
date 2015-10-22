@@ -19,7 +19,7 @@ import javax.annotation.Resource;
 
 
 /*There must be a Controller annotation or the application will doesn't work .*/
-@Controller
+@Controller("baseController")
 public class BaseController {
     private static int counter = 0;
     private static final String VIEW_INDEX = "index";
@@ -28,6 +28,8 @@ public class BaseController {
     private static final Logger logger = LoggerFactory.getLogger(BaseController.class);
     @Autowired
     private UserServiceImpl userService;
+
+    private User user;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String welcome(ModelMap model) {
@@ -68,7 +70,7 @@ public class BaseController {
 
     @RequestMapping(value = "/test",method = RequestMethod.GET)
     public String test(){
-        User user =new User();
+        user =new User();
         user.setId(1);
         user.setAge(23);
         userService.put(user);
@@ -87,6 +89,14 @@ public class BaseController {
             }
         }
         return true;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
 

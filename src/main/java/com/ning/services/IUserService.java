@@ -5,6 +5,7 @@ package com.ning.services;
  */
 
 import com.ning.domain.User;
+import org.springframework.stereotype.Service;
 
 
 public interface IUserService {

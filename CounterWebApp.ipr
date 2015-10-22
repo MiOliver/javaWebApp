@@ -56,6 +56,8 @@
             <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.6.2" />
             <element id="library" level="project" name="Maven: org.hibernate:hibernate-validator:4.2.0.Final" />
             <element id="library" level="project" name="Maven: javax.validation:validation-api:1.0.0.GA" />
+            <element id="library" level="project" name="Maven: redis.clients:jedis:2.0.0" />
+            <element id="library" level="project" name="Maven: org.springframework.data:spring-data-redis:1.0.0.RELEASE" />
           </element>
         </element>
       </root>
@@ -113,6 +115,10 @@
     <option name="RELEASE_TAG" />
     <option name="LOG_MESSAGE" />
     <option name="CHECKOUT_AFTER_IMPORT" value="true" />
+  </component>
+  <component name="JRebel Project data">
+    <option name="privateKey" value="3082025c020100028181008af6f756eaee7a08b7d174ae1b46d923a873d7141292bdb7900eb653686c0a3dabb33d079fb3b5ae6b37fd0d23f7e51cf163a0a2ae59b1ae7e00378fbbbf756e7e61152fb6a8a52e91c5188b5b72c7eb337fcfdb6754f88b49c2bd77e47a81a3d31242b923ee77f7553830c9cb42956e76a9219a479b291f1e335cfa6e666be502030100010281804830656adc9e47fcd168d8c13d603f9abb7e79e36e8696518e5f662dcc181bf5cf854c15f2cb8b7cf12be3a3f8e4653bf4d5f973a938e509ad60f57c105f34640e994121686b54545feb0c4fc0d405364294003f8c75d45c32c81976513dfb9c1ec3f2fa685cf0b7e694e12bbf43b09363d88eb9be268cf624cc58ddbbb351dd024100c936b112eff7326446327c4dda83d2616f16ba42857fb92acb2f56eff5d8eea1d281a56050848dd6a95b16a28a938dcedaddfedf9b91891536eb84b10bafd90b024100b0cd4d5c6e878b59dad8658d7e9e80284393df13b50b5430ca38247c041abe726c3e37e4496434e8eb78f1dfd83858055bd557c11082aa409de8daa3c00d44cf0240551f4307fce679b5fc106d8fce0a885cd9cf269aefb919cfa5c77022f1c1852a86507c72e37d4037f8cb6526fc32f201f98b82c07c22b4787a1466bd337180030241008d26bb168a5fc88f2a3b0d8893883344f1fec260576ffdfd1dd508bbc2031ffcf6120e494196b0ef2bdf592b9ed20ce3ea573f4231ce3fe26aaf96ae990b7edd02402b85c34923ebe19e0a6496771a97b5170071e8358e0dcda2176276f4558a8a3ceadf3ee17abf3181f542bb63b465e0ddf5ca01c2008d51bd43efa7ac6b5ccc58" />
+    <option name="publicKey" value="308189028181008af6f756eaee7a08b7d174ae1b46d923a873d7141292bdb7900eb653686c0a3dabb33d079fb3b5ae6b37fd0d23f7e51cf163a0a2ae59b1ae7e00378fbbbf756e7e61152fb6a8a52e91c5188b5b72c7eb337fcfdb6754f88b49c2bd77e47a81a3d31242b923ee77f7553830c9cb42956e76a9219a479b291f1e335cfa6e666be50203010001" />
   </component>
   <component name="JUnitProjectSettings">
     <option name="TEST_RUNNER" value="UI" />
@@ -602,6 +608,17 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-log4j12/1.7.7/slf4j-log4j12-1.7.7-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: org.springframework.data:spring-data-redis:1.0.0.RELEASE">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/1.0.0.RELEASE/spring-data-redis-1.0.0.RELEASE.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/1.0.0.RELEASE/spring-data-redis-1.0.0.RELEASE-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/1.0.0.RELEASE/spring-data-redis-1.0.0.RELEASE-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: org.springframework:spring-aop:3.1.2.RELEASE">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/3.1.2.RELEASE/spring-aop-3.1.2.RELEASE.jar!/" />
@@ -743,6 +760,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/3.1.2.RELEASE/spring-webmvc-3.1.2.RELEASE-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: redis.clients:jedis:2.0.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.0.0/jedis-2.0.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.0.0/jedis-2.0.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.0.0/jedis-2.0.0-sources.jar!/" />
       </SOURCES>
     </library>
   </component>
