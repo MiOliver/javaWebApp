@@ -25,6 +25,17 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
+    <filter>
+        <filter-name>testFilter</filter-name>
+        <filter-class>com.ning.filter.TestFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>testFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    
+
 
     <!--配置springmvc-->      <!-- freemarker配置 -->
     <servlet>
@@ -118,6 +129,15 @@
         <filter-name>CharacterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+    <servlet>
+        <servlet-name>temServlet</servlet-name>
+        <servlet-class>com.ning.web.TemServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>temServlet</servlet-name>
+        <url-pattern>/servlet</url-pattern>
+    </servlet-mapping>
 
     <!--<servlet>-->
         <!--<servlet-name>mvc-dispatcher</servlet-name>-->
