@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.BoundValueOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import java.util.*;
 
 import javax.annotation.Resource;
 
@@ -47,6 +48,14 @@ public class UserServiceImpl{
 
     public User get(User key) {
         return (User) redisTemplate.opsForHash().get(key.getObjectKey(), key.getId());
+    }
+
+    public void addUser(User user){
+        userDao.insertSelective(user);
+    }
+
+    public List<User> getUserList(){
+        return userDao.getUserList();
     }
 
 }

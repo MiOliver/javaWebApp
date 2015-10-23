@@ -9,27 +9,31 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.annotation.Resource;
-
+import javax.servlet.http.HttpServletRequest;
+import java.util.*;
 
 /*There must be a Controller annotation or the application will doesn't work .*/
-@Controller("baseController")
+@Controller
 public class BaseController {
     private static int counter = 0;
     private static final String VIEW_INDEX = "index";
     private static final String ADDVIEW = "add";
+    private static final String USERLIST = "user_list";
     private static final String TEST = "test";
     private static final Logger logger = LoggerFactory.getLogger(BaseController.class);
     @Autowired
     private UserServiceImpl userService;
 
     private User user;
+    private List<User> userList;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String welcome(ModelMap model) {
@@ -63,18 +67,43 @@ public class BaseController {
         return new ModelAndView("index");
     }
 
-    @RequestMapping(value = "/add",method = RequestMethod.GET)
-    public String add(){
+    @RequestMapping(value = "/addview",method = RequestMethod.GET)
+    public String addview(){
         return ADDVIEW;
     }
 
+    @RequestMapping(value = "/adduser",method = RequestMethod.POST)
+    public ModelAndView add(HttpServletRequest request){
+        System.out.println(request.getParameter("userName"));
+        System.out.println(request.getParameter("password"));
+        User user =new User();
+        user.setUserName(request.getParameter("userName"));
+        user.setPassword(request.getParameter("password"));
+        user.setAge(Integer.valueOf(request.getParameter("age")));
+        userService.addUser(user);
+        userList= userService.getUserList();
+        ModelAndView mav = new ModelAndView(USERLIST);
+        //将参数返回给页面
+        mav.addObject(userList);
+        return mav;
+    }
+
+    @RequestMapping(value = "/user_list",method = RequestMethod.GET)
+    public String userlist(Model model){
+        userList= userService.getUserList();
+        model.addAttribute(userList);
+        return USERLIST;
+    }
+
+
     @RequestMapping(value = "/test",method = RequestMethod.GET)
-    public String test(){
+    public String test(ModelMap model){
         user =new User();
         user.setId(1);
         user.setAge(23);
         userService.put(user);
         userService.test();
+        model.addAttribute(user);
         return TEST;
     }
 
@@ -98,6 +127,14 @@ public class BaseController {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
     }
 }
 

@@ -2,12 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1e9c070-c648-4071-a5a1-dac5540fc2af" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-redis.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/freemarker/views/add.ftl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-springmvc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/freemarker/views/index.ftl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/freemarker/views/user_list.ftl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user_list.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ning/controller/BaseController.java" afterPath="$PROJECT_DIR$/src/main/java/com/ning/controller/BaseController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CounterWebApp.iml" afterPath="$PROJECT_DIR$/CounterWebApp.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CounterWebApp.ipr" afterPath="$PROJECT_DIR$/CounterWebApp.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CounterWebApp.iws" afterPath="$PROJECT_DIR$/CounterWebApp.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ning/mapper/UserMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/ning/mapper/UserMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/com/ning/mapping/UserMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/com/ning/mapping/UserMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ning/serviceimpl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/ning/serviceimpl/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-dao.xml" afterPath="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-dao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/redis.properties" afterPath="$PROJECT_DIR$/src/main/resources/redis.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/add.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config/spring/springmvc.xml" afterPath="$PROJECT_DIR$/src/main/resources/config/spring/springmvc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
     </list>
     <ignored path="CounterWebApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -98,38 +109,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/ning/controller/BaseController.java" line="75" class="com.ning.controller.BaseController" package="com.ning.controller">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/ning/serviceimpl/UserServiceImpl.java" line="41" class="com.ning.serviceimpl.UserServiceImpl" package="com.ning.serviceimpl">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <exception_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <field_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <method_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
@@ -237,67 +217,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="springmvc.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/springmvc.xml">
+      <file leaf-file-name="applicationContext-dao.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-dao.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="57" selection-start="985" selection-end="985" vertical-scroll-proportion="-10.72" vertical-offset="26" max-vertical-offset="483">
+            <state line="12" column="33" selection-start="719" selection-end="719" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1239">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="applicationContext-service.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-service.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="64" selection-start="844" selection-end="844" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="441">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="applicationContext-transtion.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-transtion.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="17" selection-start="1282" selection-end="1282" vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="504">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="web.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="83" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="1806">
+            <state line="19" column="68" selection-start="951" selection-end="951" vertical-scroll-proportion="0.46349746" vertical-offset="126" max-vertical-offset="3213">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/domain/User.java">
+      <file leaf-file-name="redis.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/redis.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="19" selection-start="1011" selection-end="1011" vertical-scroll-proportion="0.0" vertical-offset="365" max-vertical-offset="945">
-              <folding>
-                <element signature="e#990#991#0" expanded="true" />
-                <element signature="e#1023#1024#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="45" selection-start="324" selection-end="324" vertical-scroll-proportion="-9.1" vertical-offset="0" max-vertical-offset="504">
+            <state line="5" column="24" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="273">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="succ.jsp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/succ.jsp">
+      <file leaf-file-name="user_list.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user_list.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="65" selection-start="213" selection-end="213" vertical-scroll-proportion="0.26296958" vertical-offset="0" max-vertical-offset="559">
+            <state line="7" column="0" selection-start="148" selection-end="429" vertical-scroll-proportion="-3.4" vertical-offset="45" max-vertical-offset="609">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_list.ftl" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/freemarker/views/user_list.ftl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="28" selection-start="85" selection-end="85" vertical-scroll-proportion="-4.2" vertical-offset="0" max-vertical-offset="504">
               <folding />
             </state>
           </provider>
@@ -330,24 +289,32 @@
         <option value="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-transtion.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/ning/test/TestMyBatis.java" />
         <option value="$PROJECT_DIR$/src/main/resources/spring-mybatis.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/config/mybatis/mybatis.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/succ.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/add.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/ning/domain/ElecInvoiceRecord.java" />
         <option value="$PROJECT_DIR$/generatorConfig.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/test.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/config/spring/springmvc.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ning/mapper/UserMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ning/services/IUserService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-service.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ning/controller/BaseController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/redis.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-dao.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-redis.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/add.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ning/mapper/UserMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/com/ning/mapping/UserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/ning/serviceimpl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user_list.jsp" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/freemaker/index.ftl" />
+        <option value="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-freemaker.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-springmvc.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/config/spring/springmvc.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/freemarker/views/user_list.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/freemarker/views/add.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ning/controller/BaseController.java" />
       </list>
     </option>
   </component>
@@ -434,6 +401,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -537,6 +506,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CounterWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javaWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="freemarker" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -818,8 +821,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="ProjectViewSettings">
@@ -853,6 +854,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources/config/spring" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/freemarker/views" />
       <recent name="$PROJECT_DIR$/src/main/resources/config/mybatis" />
       <recent name="$PROJECT_DIR$/src/main/resources/config/spring" />
     </key>
@@ -1312,12 +1314,14 @@
       <workItem from="1444309856557" duration="1571000" />
       <workItem from="1444875906013" duration="1144000" />
       <workItem from="1444914903479" duration="1815000" />
-      <workItem from="1445479374253" duration="11195000" />
+      <workItem from="1445479374253" duration="12642000" />
+      <workItem from="1445499310707" duration="10043000" />
+      <workItem from="1445565664662" duration="3911000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44268000" />
+    <option name="totallyTimeSpent" value="59669000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1341,7 +1345,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="JRebel Executor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="JRebel Executor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1355,12 +1359,12 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29381967" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928064" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2498618" sideWeight="0.49949342" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2498618" sideWeight="0.5005066" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2498618" sideWeight="0.5005066" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36372846" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1447,83 +1451,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/controller/BaseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="51" selection-start="866" selection-end="866" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="882">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mybatis.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="70" selection-start="2256" selection-end="2256" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="1449">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-transtion.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="62" selection-start="1047" selection-end="1047" vertical-scroll-proportion="0.0" vertical-offset="231" max-vertical-offset="504">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="48" selection-start="949" selection-end="949" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5670">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/mapper/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="30" selection-start="86" selection-end="86" vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="462">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/ning/test/TestMyBatis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="50" selection-start="1117" selection-end="1117" vertical-scroll-proportion="0.0" vertical-offset="317" max-vertical-offset="924" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/services/IUserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="31" selection-start="130" selection-end="130" vertical-scroll-proportion="0.0" vertical-offset="189" max-vertical-offset="378">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/serviceimpl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="47" selection-start="333" selection-end="333" vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="609">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mybatis.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="73" selection-start="2751" selection-end="2751" vertical-scroll-proportion="0.0" vertical-offset="1092" max-vertical-offset="1449">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generatorConfig.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="76" selection-start="1485" selection-end="1485" vertical-scroll-proportion="0.0" vertical-offset="609" max-vertical-offset="861">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="48" selection-start="949" selection-end="949" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5670">
@@ -1552,7 +1479,9 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/serviceimpl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="41" selection-start="515" selection-end="515" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="630">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1593,25 +1522,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="632" />
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/3.1.2.RELEASE/spring-context-3.1.2.RELEASE.jar!/org/springframework/ui/ModelMap.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="165" selection-end="165" vertical-scroll-proportion="0.11744966" vertical-offset="0" max-vertical-offset="1113" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mybatis.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="1273" selection-end="1273" vertical-scroll-proportion="0.4055794" vertical-offset="0" max-vertical-offset="1449">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/add.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="27" selection-start="339" selection-end="339" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="609">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/logs/ssm.log">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="932" />
@@ -1619,9 +1529,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="932">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="932" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/generatorConfig.xml">
@@ -1638,29 +1546,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/ning/mapping/UserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.1710037" vertical-offset="630" max-vertical-offset="1827">
-          <folding>
-            <marker date="1443528391705" expanded="true" signature="-1:-1" placeholder="select from ..user_t..." />
-            <marker date="1443528391705" expanded="true" signature="-1:-1" placeholder="delete from ..." />
-            <marker date="1443528391705" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-            <marker date="1443528391705" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-            <marker date="1443528391705" expanded="true" signature="-1:-1" placeholder="update user_..." />
-            <marker date="1443528391705" expanded="true" signature="-1:-1" placeholder="update user_..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/mapper/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="17" selection-start="135" selection-end="135" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/services/IUserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="17" selection-start="163" selection-end="163" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="399">
@@ -1672,138 +1557,252 @@
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/1.0.0.RELEASE/spring-data-redis-1.0.0.RELEASE.jar!/org/springframework/data/redis/core/HashOperations.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="32" selection-start="641" selection-end="641" vertical-scroll-proportion="0.9005848" vertical-offset="0" max-vertical-offset="777">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="45" selection-start="324" selection-end="324" vertical-scroll-proportion="-9.1" vertical-offset="0" max-vertical-offset="504">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/test.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="35" selection-start="334" selection-end="334" vertical-scroll-proportion="0.55159473" vertical-offset="0" max-vertical-offset="533">
-          <folding />
-        </state>
+        <state line="23" column="32" selection-start="641" selection-end="641" vertical-scroll-proportion="0.9005848" vertical-offset="0" max-vertical-offset="777" />
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/1.0.0.RELEASE/spring-data-redis-1.0.0.RELEASE.jar!/org/springframework/data/redis/core/RedisTemplate.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="178" selection-end="178" vertical-scroll-proportion="0.21" vertical-offset="0" max-vertical-offset="3129">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="42" selection-start="693" selection-end="693" vertical-scroll-proportion="0.4684015" vertical-offset="0" max-vertical-offset="538">
-          <folding />
-        </state>
+        <state line="6" column="13" selection-start="178" selection-end="178" vertical-scroll-proportion="0.21" vertical-offset="0" max-vertical-offset="3129" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/domain/ElecInvoiceRecord.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="28" selection-start="325" selection-end="325" vertical-scroll-proportion="0.5222025" vertical-offset="0" max-vertical-offset="1050">
           <folding>
-            <element signature="e#349#350#0" expanded="true" />
+            <element signature="e#349#350#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/domain/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="19" selection-start="1011" selection-end="1011" vertical-scroll-proportion="0.0" vertical-offset="365" max-vertical-offset="945">
-          <folding>
-            <element signature="e#990#991#0" expanded="true" />
-            <element signature="e#1023#1024#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="223" column="17" selection-start="7449" selection-end="7454" vertical-scroll-proportion="-3.7166667" vertical-offset="4460" max-vertical-offset="6405">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/redis.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="24" selection-start="138" selection-end="138" vertical-scroll-proportion="0.14383562" vertical-offset="0" max-vertical-offset="730">
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/1.0.0.RELEASE/spring-data-redis-1.0.0.RELEASE.jar!/org/springframework/data/redis/serializer/StringRedisSerializer.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="184" selection-end="184" vertical-scroll-proportion="-4.2" vertical-offset="0" max-vertical-offset="441">
+        <state line="6" column="13" selection-start="184" selection-end="184" vertical-scroll-proportion="-4.2" vertical-offset="0" max-vertical-offset="441" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/ning/mapping/UserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="11" selection-start="2874" selection-end="2874" vertical-scroll-proportion="0.77067083" vertical-offset="1270" max-vertical-offset="1911">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/springmvc.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/domain/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="57" selection-start="985" selection-end="985" vertical-scroll-proportion="-10.72" vertical-offset="26" max-vertical-offset="483">
+        <state line="49" column="19" selection-start="1011" selection-end="1011" vertical-scroll-proportion="0.0" vertical-offset="262" max-vertical-offset="903">
+          <folding>
+            <element signature="e#364#365#0" expanded="false" />
+            <element signature="e#389#390#0" expanded="false" />
+            <element signature="e#426#427#0" expanded="false" />
+            <element signature="e#454#455#0" expanded="false" />
+            <element signature="e#489#490#0" expanded="false" />
+            <element signature="e#520#521#0" expanded="false" />
+            <element signature="e#676#677#0" expanded="false" />
+            <element signature="e#707#708#0" expanded="false" />
+            <element signature="e#859#860#0" expanded="false" />
+            <element signature="e#885#886#0" expanded="false" />
+            <element signature="e#924#925#0" expanded="false" />
+            <element signature="e#954#955#0" expanded="false" />
+            <element signature="e#990#991#0" expanded="false" />
+            <element signature="e#1023#1024#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/mapper/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="29" selection-start="442" selection-end="442" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="588">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/test.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="35" selection-start="334" selection-end="334" vertical-scroll-proportion="0.4811784" vertical-offset="0" max-vertical-offset="611" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/succ.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="35" selection-start="298" selection-end="298" vertical-scroll-proportion="-9.1" vertical-offset="0" max-vertical-offset="483" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/serviceimpl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="37" selection-start="1694" selection-end="1694" vertical-scroll-proportion="0.6677215" vertical-offset="775" max-vertical-offset="1407">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="360" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="504">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-transtion.xml">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/3.1.2.RELEASE/spring-webmvc-3.1.2.RELEASE.jar!/org/springframework/web/servlet/view/freemarker/FreeMarkerConfigurer.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="17" selection-start="1282" selection-end="1282" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
-          <folding />
-        </state>
+        <state line="6" column="13" selection-start="190" selection-end="190" vertical-scroll-proportion="0.18292683" vertical-offset="0" max-vertical-offset="588" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context-support/3.1.2.RELEASE/spring-context-support-3.1.2.RELEASE.jar!/org/springframework/ui/freemarker/FreeMarkerConfigurationFactory.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="83" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="1806">
-          <folding />
-        </state>
+        <state line="23" column="16" selection-start="1117" selection-end="1117" vertical-scroll-proportion="0.3466899" vertical-offset="263" max-vertical-offset="1407" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/controller/BaseController.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/3.1.2.RELEASE/spring-context-3.1.2.RELEASE.jar!/org/springframework/ui/Model.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="63" selection-start="2591" selection-end="2591" vertical-scroll-proportion="0.0" vertical-offset="693" max-vertical-offset="1911">
+        <state line="9" column="33" selection-start="298" selection-end="298" vertical-scroll-proportion="0.4318766" vertical-offset="0" max-vertical-offset="525" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/3.1.2.RELEASE/spring-webmvc-3.1.2.RELEASE.jar!/org/springframework/web/servlet/view/freemarker/FreeMarkerView.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="13" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="1449">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-redis.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="60" selection-start="1685" selection-end="1685" vertical-scroll-proportion="1.1052631" vertical-offset="0" max-vertical-offset="1533">
+        <state line="10" column="54" selection-start="665" selection-end="665" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1533">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-dao.xml">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="0" selection-start="2517" selection-end="2517" vertical-scroll-proportion="0.98366606" vertical-offset="529" max-vertical-offset="1239">
+        <state line="8" column="38" selection-start="474" selection-end="474" vertical-scroll-proportion="-2.8" vertical-offset="0" max-vertical-offset="6552">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/3.1.2.RELEASE/spring-context-3.1.2.RELEASE.jar!/org/springframework/ui/ModelMap.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="43" selection-start="1323" selection-end="1323" vertical-scroll-proportion="-6.28" vertical-offset="431" max-vertical-offset="1113">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/3.1.2.RELEASE/spring-core-3.1.2.RELEASE.jar!/org/springframework/util/Assert.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="23" selection-start="615" selection-end="615" vertical-scroll-proportion="-6.28" vertical-offset="179" max-vertical-offset="1365">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="15" selection-start="945" selection-end="945" vertical-scroll-proportion="0.46437347" vertical-offset="0" max-vertical-offset="814">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/3.1.2.RELEASE/spring-context-3.1.2.RELEASE.jar!/org/springframework/ui/ExtendedModelMap.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="51" selection-start="370" selection-end="370" vertical-scroll-proportion="0.21649484" vertical-offset="0" max-vertical-offset="776">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-service.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="64" selection-start="844" selection-end="844" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="441">
+        <state line="5" column="101" selection-start="630" selection-end="630" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="441">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/serviceimpl/UserServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-transtion.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="82" selection-start="1020" selection-end="1020" vertical-scroll-proportion="0.1443124" vertical-offset="440" max-vertical-offset="1029">
+        <state line="12" column="62" selection-start="1110" selection-end="1110" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/succ.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/springmvc.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="65" selection-start="213" selection-end="213" vertical-scroll-proportion="0.26296958" vertical-offset="0" max-vertical-offset="559">
+        <state line="13" column="29" selection-start="4" selection-end="1153" vertical-scroll-proportion="0.4954628" vertical-offset="0" max-vertical-offset="551">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mybatis.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="1273" selection-end="1273" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="1449">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user_list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="148" selection-end="429" vertical-scroll-proportion="-3.4" vertical-offset="45" max-vertical-offset="609">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/freemarker/views/add.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="7" selection-start="351" selection-end="351" vertical-scroll-proportion="0.66853935" vertical-offset="0" max-vertical-offset="534">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/freemarker/views/user_list.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="28" selection-start="85" selection-end="85" vertical-scroll-proportion="-4.2" vertical-offset="0" max-vertical-offset="504">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="44" selection-start="530" selection-end="530" vertical-scroll-proportion="0.6235955" vertical-offset="108" max-vertical-offset="672">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ning/controller/BaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="68" selection-start="3484" selection-end="3484" vertical-scroll-proportion="2.2340426" vertical-offset="630" max-vertical-offset="2898">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/redis.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="24" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="273">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-dao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="33" selection-start="719" selection-end="719" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1239">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/freemarker/views/index.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="45" selection-start="312" selection-end="312" vertical-scroll-proportion="0.4883721" vertical-offset="0" max-vertical-offset="559">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-springmvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="59" selection-start="1379" selection-end="1379" vertical-scroll-proportion="0.8862479" vertical-offset="3" max-vertical-offset="1470">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="68" selection-start="951" selection-end="951" vertical-scroll-proportion="0.46349746" vertical-offset="126" max-vertical-offset="3213">
           <folding />
         </state>
       </provider>

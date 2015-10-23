@@ -9,11 +9,16 @@
 
     <display-name>Counter  Web  Application </display-name>
 
-
     <!--设置spring 配置文件的位置-->
+    <!--classpath:config/spring/applicationContext-*.xml;  使用通配符会导致applicationContext-springmvc.xml设置两次 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:config/spring/applicationContext-*.xml</param-value>
+        <param-value>
+            classpath:config/spring/applicationContext-dao.xml;
+            classpath:config/spring/applicationContext-redis.xml;
+            classpath:config/spring/applicationContext-service.xml;
+            classpath:config/spring/applicationContext-transtion.xml
+        </param-value>
     </context-param>
     <!--配置spring listener-->
     <listener>
@@ -21,21 +26,83 @@
     </listener>
 
 
-    <!--配置springmvc-->
+    <!--配置springmvc-->      <!-- freemarker配置 -->
     <servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!--<init-param>-->
+            <!--<param-name>contextConfigLocation</param-name>-->
+            <!--&lt;!&ndash;springmvc配置文件位置&ndash;&gt;-->
+            <!--<param-value>classpath:config/spring/springmvc.xml</param-value>-->
+        <!--</init-param>-->
+
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <!--springmvc配置文件位置-->
-            <param-value>classpath:config/spring/springmvc.xml</param-value>
+            <param-value>classpath:config/spring/applicationContext-springmvc.xml</param-value>
         </init-param>
+
+        <init-param>
+            <param-name>NoCache</param-name>
+            <param-value>true</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>detectAllHandlerMappings</param-name>
+            <param-value>false</param-value>
+        </init-param>
+
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>*.htm</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>*.html</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>*.do</url-pattern>
+
+    </servlet-mapping>
+
+    <!-- 欢迎页 -->
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+
+    <!-- 程序出错跳转地址 -->
+
+    <error-page>
+        <error-code>403</error-code>
+        <location>/error.do</location>
+    </error-page>
+
+    <error-page>
+        <error-code>401</error-code>
+        <location>/error.do</location>
+    </error-page>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error.do</location>
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error.do</location>
+    </error-page>
 
 
     <!--解决POST乱码问题-->

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/mvc
+     http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+     http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!-- 默认注解映射支持 -->
+    <mvc:annotation-driven></mvc:annotation-driven>
+    <!-- 自动扫描包 -->
+    <context:component-scan base-package="com.ning.controller"/>
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
+
+    <!-- InternalResourceViewResolver默认的就是JstlView所以这里就不用配置viewClass了 -->
+
+    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+
+        <!-- 渲染页面前缀 -->
+        <!--<property name="prefix" value=""></property>-->
+
+        <!-- 渲染页面后缀 -->
+        <property name="suffix" value=".ftl"></property>
+        <property name="contentType" value="textml; charset=UTF-8"/>
+        <property name="exposeSessionAttributes" value="true" />
+        <property name="exposeSpringMacroHelpers" value="true" />
+
+        <!-- 渲染视图的基类，可以作为全局公用属性的输出和渲染 -->
+        <!--<property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"></property>-->
+
+    </bean>
+
+
+    <!--<mvc:annotation-driven />-->
+
+    <!-- 渲染全局配置 -->
+
+    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+
+        <property name="templateLoaderPath" value="/WEB-INF/freemarker/views"/>
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="tag_syntax">auto_detect</prop>
+                <prop key="template_update_delay">0</prop>
+                <prop key="defaultEncoding">UTF-8</prop>
+                <prop key="url_escaping_charset">UTF-8</prop>
+                <prop key="locale">en_US</prop>
+                <prop key="boolean_format">true,false</prop>
+                <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+                <prop key="date_format">yyyy-MM-dd</prop>
+                <prop key="time_format">HH:mm:ss</prop>
+                <prop key="number_format">0.######</prop>
+                <prop key="whitespace_stripping">true</prop>
+
+            </props>
+        </property>
+
+    </bean>
+</beans>
