@@ -51,6 +51,7 @@ public class TemServlet extends HttpServlet {
         resp.setContentType("text/html;charset=UTF-8");
         resp.sendRedirect("/addview");
         logger.info("temservlet call");
+        logger.debug("With params: time: {}, name: {}", System.nanoTime(), "Bingo");
         PrintWriter out = resp.getWriter();
         try {
             // Write some content
