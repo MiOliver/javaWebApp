@@ -13,10 +13,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class ManageController {
 
     private static final String PAGE_MANAGE="manage";
+    private static final String LOGIN="login";
 
     @RequestMapping(value = "manage",method= RequestMethod.GET)
      public String base(Model model){
         model.addAttribute("admin","admin");
         return PAGE_MANAGE;
+    }
+    @RequestMapping(value = "login",method= RequestMethod.GET)
+    public String login(Model model){
+        return LOGIN;
     }
 }
