@@ -44,15 +44,42 @@
     <div id="content" class="row-fluid">
         <div class="span9 main">
             <h3>add blogs</h3>
-
+            <hr>
             <form>
-                <input type="text" placeholder="title">
-                <br/>
-                <input type="text" placeholder="content">
-                <br/>
-                <input type="text" placeholder="tags">
-                <br/>
-                <button type="submit" class="btn">Submit</button>
+                <table>
+                    <tr>
+                        <td width="80">
+                            <label>博客标题:</label>
+                        </td>
+                        <td>
+                            <input type="text" placeholder="title">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>博客内容:</label>
+                        </td>
+                        <td>
+                            <textarea title="content"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>博客标签</label>
+                        </td>
+                        <td>
+                            <input type="text" placeholder="tags">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="submit" class="btn">Submit</button>
+                        </td>
+                    </tr>
+
+                </table>
+
+
             </form>
 
         </div>

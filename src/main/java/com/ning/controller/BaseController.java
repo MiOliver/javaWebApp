@@ -129,12 +129,6 @@ public class BaseController {
         this.user = user;
     }
 
-    public List<User> getUserList() {
-        return userList;
-    }
 
-    public void setUserList(List<User> userList) {
-        this.userList = userList;
-    }
 }
 

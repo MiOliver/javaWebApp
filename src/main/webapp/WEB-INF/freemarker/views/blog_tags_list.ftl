@@ -34,43 +34,45 @@
     <div class="navbar navbar-inverse">
         <div class="navbar-inner nav-collapse" style="height: auto;">
             <ul class="nav">
-                <li class="active"><a href="/index">Home</a></li>
-                <li><a href="/addblog">Page One</a></li>
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Page One</a></li>
                 <li><a href="#">Page Two</a></li>
-            </ul>
-            <ul class="pagination-right" >
-                <li><label>test</label> </li>
             </ul>
         </div>
     </div>
     <div id="content" class="row-fluid">
         <div class="span9 main">
-            <h3>User login</h3>
-            <hr>
-            <table >
-                <tr  >
-                    <td width="80">
-                        <span style="color:red;">*</span>username:
-                    </td>
-                    <td>
-                        <input type="text"/>
-                    </td>
-                </tr>
-                <tr >
-                    <td>
-                        <span style="color:red;">*</span>password:
-                    </td>
-                    <td>
-                        <input type="text"/>
-                    </td>
-                </tr>
-                <tr >
-                    <td colspan="2"><button type="button" class="btn btn-success">登  录</button> </td>
-                </tr>
+            <table>
+                <th>ID</th>
+                <th>一级分类</th>
+                <th>名称</th>
+                <#if (tagsList?size>0)>
+                    <#list tagsList as tag>
+                        <tr>
+                            <td>tag.id</td>
+                            <td>tag.firstClassify</td>
+                            <td>tag.tagName</td>
+                        </tr>
+                    </#list>
+                <#else >
+                    <tr>
+                        <td colspan="3">没有记录</td>
+
+                    </tr>
+                </#if>
+
+
             </table>
 
         </div>
-
+        <div class="span3 sidebar">
+            <h2>Sidebar</h2>
+            <ul class="nav nav-tabs nav-stacked">
+                <li><a href="#">Another Link 1</a></li>
+                <li><a href="#">Another Link 2</a></li>
+                <li><a href="#">Another Link 3</a></li>
+            </ul>
+        </div>
     </div>
 </div>
 
