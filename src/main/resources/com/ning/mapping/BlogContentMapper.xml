@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ning.mapper.BlogContentMapper" >
+  <resultMap id="BaseResultMap" type="com.ning.domain.BlogContent" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="blog_title" property="blogTitle" jdbcType="VARCHAR" />
+    <result column="blog_content" property="blogContent" jdbcType="VARCHAR" />
+    <result column="blog_category" property="blogCategory" jdbcType="VARCHAR" />
+    <result column="tags" property="tags" jdbcType="BIGINT" />
+    <result column="visit_count" property="visitCount" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="VARCHAR" />
+    <result column="create_person" property="createPerson" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, blog_title, blog_content, blog_category, tags, visit_count, create_time, update_time, 
+    create_person
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from blog_content
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from blog_content
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ning.domain.BlogContent" >
+    insert into blog_content (id, blog_title, blog_content, 
+      blog_category, tags, visit_count, 
+      create_time, update_time, create_person
+      )
+    values (#{id,jdbcType=BIGINT}, #{blogTitle,jdbcType=VARCHAR}, #{blogContent,jdbcType=VARCHAR}, 
+      #{blogCategory,jdbcType=VARCHAR}, #{tags,jdbcType=BIGINT}, #{visitCount,jdbcType=BIGINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=VARCHAR}, #{createPerson,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ning.domain.BlogContent" >
+    insert into blog_content
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="blogTitle != null" >
+        blog_title,
+      </if>
+      <if test="blogContent != null" >
+        blog_content,
+      </if>
+      <if test="blogCategory != null" >
+        blog_category,
+      </if>
+      <if test="tags != null" >
+        tags,
+      </if>
+      <if test="visitCount != null" >
+        visit_count,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="createPerson != null" >
+        create_person,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="blogTitle != null" >
+        #{blogTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="blogContent != null" >
+        #{blogContent,jdbcType=VARCHAR},
+      </if>
+      <if test="blogCategory != null" >
+        #{blogCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null" >
+        #{tags,jdbcType=BIGINT},
+      </if>
+      <if test="visitCount != null" >
+        #{visitCount,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createPerson != null" >
+        #{createPerson,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ning.domain.BlogContent" >
+    update blog_content
+    <set >
+      <if test="blogTitle != null" >
+        blog_title = #{blogTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="blogContent != null" >
+        blog_content = #{blogContent,jdbcType=VARCHAR},
+      </if>
+      <if test="blogCategory != null" >
+        blog_category = #{blogCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null" >
+        tags = #{tags,jdbcType=BIGINT},
+      </if>
+      <if test="visitCount != null" >
+        visit_count = #{visitCount,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createPerson != null" >
+        create_person = #{createPerson,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ning.domain.BlogContent" >
+    update blog_content
+    set blog_title = #{blogTitle,jdbcType=VARCHAR},
+      blog_content = #{blogContent,jdbcType=VARCHAR},
+      blog_category = #{blogCategory,jdbcType=VARCHAR},
+      tags = #{tags,jdbcType=BIGINT},
+      visit_count = #{visitCount,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=VARCHAR},
+      create_person = #{createPerson,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

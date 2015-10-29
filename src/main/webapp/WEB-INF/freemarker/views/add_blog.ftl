@@ -45,14 +45,14 @@
         <div class="span9 main">
             <h3>add blogs</h3>
             <hr>
-            <form>
-                <table>
+            <form action="/createBlog">
+                <table align="center">
                     <tr>
                         <td width="80">
                             <label>博客标题:</label>
                         </td>
                         <td>
-                            <input type="text" placeholder="title">
+                            <input type="text" style="width: 500px" placeholder="title" name="blogTitle">
                         </td>
                     </tr>
                     <tr>
@@ -60,7 +60,7 @@
                             <label>博客内容:</label>
                         </td>
                         <td>
-                            <textarea title="content"></textarea>
+                            <textarea title="content" style="width: 500px" placeholder="content" name="blogContent" ></textarea>
                         </td>
                     </tr>
                     <tr>
@@ -68,15 +68,29 @@
                             <label>博客标签</label>
                         </td>
                         <td>
-                            <input type="text" placeholder="tags">
+                            <input type="text" style="width: 500px" placeholder="tags">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>博客类别</label>
+                        </td>
+                        <td>
+                            <select>
+                                <option selected="selected">选择博客类别</option>
+                                <#if (cateList?size > 0)>
+                                    <#list cateList as category >
+                                        <option  name="blogCategory" >${category.categoryTitle}</option>
+                                    </#list>
+                                </#if>
+                            </select>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <button type="submit" class="btn">Submit</button>
+                            <button type="submit" class="btn">创  建</button>
                         </td>
                     </tr>
-
                 </table>
 
 

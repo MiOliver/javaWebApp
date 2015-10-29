@@ -20,4 +20,5 @@ public interface BlogTagMapper {
     int updateByPrimaryKey(BlogTag record);
 
     List<BlogTag> getListByPage();
+
 }
