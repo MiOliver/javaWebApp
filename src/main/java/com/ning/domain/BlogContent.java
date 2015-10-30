@@ -11,7 +11,7 @@ public class BlogContent {
 
     private String blogCategory;
 
-    private Long tags;
+    private String tags;
 
     private Long visitCount;
 
@@ -53,11 +53,11 @@ public class BlogContent {
         this.blogCategory = blogCategory;
     }
 
-    public Long getTags() {
+    public String getTags() {
         return tags;
     }
 
-    public void setTags(Long tags) {
+    public void setTags(String tags) {
         this.tags = tags;
     }
 

@@ -41,12 +41,12 @@ public class BlogController {
         tagsList=blogService.getTagList();
         return BLOGTAGSLIST;
     }
-    @RequestMapping(value = "/createBlog", method = RequestMethod.GET)
-    public String createBlog(BlogContent blog){
-        System.out.println(blog.getBlogCategory());
-        System.out.println(blog.getBlogTitle());
-        tagsList=blogService.getTagList();
-        return "index";
+    @RequestMapping(value = "/createBlog", method = RequestMethod.POST)
+    public ModelAndView createBlog(BlogContent blog){
+        if(blog!=null){
+            blogService.createBlog(blog);
+        }
+        return new ModelAndView("redirect:/index");
     }
 
 

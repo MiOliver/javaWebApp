@@ -1,7 +1,9 @@
 package com.ning.controller;
 
 
+import com.ning.domain.BlogContent;
 import com.ning.domain.User;
+import com.ning.serviceimpl.BlogServiceImpl;
 import com.ning.serviceimpl.UserServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,25 +25,39 @@ import java.util.*;
 /*There must be a Controller annotation or the application will doesn't work .*/
 @Controller
 public class BaseController {
+
+    @Autowired
+    private UserServiceImpl userService;
+    @Autowired
+    private BlogServiceImpl blogService;
+
     private static int counter = 0;
     private static final String VIEW_INDEX = "index";
     private static final String ADDVIEW = "add";
     private static final String USERLIST = "user_list";
     private static final String TEST = "test";
     private static final Logger logger = LoggerFactory.getLogger(BaseController.class);
-    @Autowired
-    private UserServiceImpl userService;
 
     private User user;
     private List<User> userList;
+    private List<BlogContent> blogList;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/dd", method = RequestMethod.GET)
     public String welcome(ModelMap model) {
         model.addAttribute("message", "Welcome");
         model.addAttribute("counter", ++counter);
         logger.debug("[Welcome counter :{}", counter);
         return VIEW_INDEX;//返回index.jsp
     }
+
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public ModelAndView indexpage(ModelMap model) {
+        ModelAndView mv=new ModelAndView(VIEW_INDEX);
+        blogList=blogService.getBlogList();
+        mv.addObject("blogList",blogList);
+        return mv;
+    }
+
 
     @RequestMapping(value = "/{name}", method = RequestMethod.GET)
     public String welcome(@PathVariable String name, ModelMap model) {

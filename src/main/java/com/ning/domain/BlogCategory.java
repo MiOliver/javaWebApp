@@ -11,7 +11,7 @@ public class BlogCategory {
 
     private String updateTime;
 
-    private Long createPerson;
+    private String createPerson;
 
     public Long getCategoryId() {
         return categoryId;
@@ -45,11 +45,11 @@ public class BlogCategory {
         this.updateTime = updateTime == null ? null : updateTime.trim();
     }
 
-    public Long getCreatePerson() {
+    public String getCreatePerson() {
         return createPerson;
     }
 
-    public void setCreatePerson(Long createPerson) {
+    public void setCreatePerson(String createPerson) {
         this.createPerson = createPerson;
     }
 }

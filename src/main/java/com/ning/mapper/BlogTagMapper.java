@@ -1,5 +1,6 @@
 package com.ning.mapper;
 
+import com.ning.domain.BlogContent;
 import com.ning.domain.BlogTag;
 import org.springframework.stereotype.Repository;
 import java.util.List;

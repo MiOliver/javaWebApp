@@ -2,43 +2,41 @@
 <html lang="zh-CN">
 <meta charset="utf-8">
 <head>
-    <title>Twitter Bootstrap Tutorial - A responsive layout tutorial</title>
-    <link href="/resources/css/bootstrap.css" type="text/css" rel="stylesheet">
-    <link href="/resources/css/docs.css" type="text/css" rel="stylesheet">
-    <link href="/resources/css/prettify.css" type="text/css" rel="stylesheet">
-    <style type="text/css">
-        body {
-            background-color: #CCC;
-        }
-        #content {
-            background-color: #FFF;
-            border-radius: 5px;
-        }
-        #content .main {
-            padding: 20px;
-        }
-        #content .sidebar {
-            padding: 10px;
-        }
-        #content p {
-            line-height: 30px;
-        }
-    </style>
+    <title>Twitter Bootstrap Tutorial </title>
+    <#--<link href="/resources/css/bootstrap-combined.min.css" rel="stylesheet">-->
+    <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
-
-    <form>
-        <input type="text" placeholder="title">
-        <br/>
-        <input type="text" placeholder="content">
-        <br/>
-        <input type="text" placeholder="tags">
-        <br/>
-        <button type="submit" class="btn">Submit</button>
-    </form>
+    <div class="row show-grid" >
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">.col-md-8</div>
+        <div class="col-md-4">.col-md-4</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4">.col-md-4</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">.col-md-6</div>
+        <div class="col-md-6">.col-md-6</div>
+    </div>
 
 </div>
 
-
-</body></html>
+</body>
+</html>

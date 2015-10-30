@@ -3,6 +3,8 @@ package com.ning.mapper;
 
 import com.ning.domain.BlogContent;
 
+import java.util.List;
+
 public interface BlogContentMapper {
     int deleteByPrimaryKey(Long id);
 
@@ -15,4 +17,6 @@ public interface BlogContentMapper {
     int updateByPrimaryKeySelective(BlogContent record);
 
     int updateByPrimaryKey(BlogContent record);
+
+    List<BlogContent> getBlogListByPage();
 }

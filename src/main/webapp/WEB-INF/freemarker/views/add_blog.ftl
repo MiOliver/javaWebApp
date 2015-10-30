@@ -45,7 +45,7 @@
         <div class="span9 main">
             <h3>add blogs</h3>
             <hr>
-            <form action="/createBlog">
+            <form action="/createBlog" method="post">
                 <table align="center">
                     <tr>
                         <td width="80">
@@ -68,7 +68,7 @@
                             <label>博客标签</label>
                         </td>
                         <td>
-                            <input type="text" style="width: 500px" placeholder="tags">
+                            <input type="text" style="width: 500px" placeholder="tags" name="tags">
                         </td>
                     </tr>
                     <tr>
@@ -76,11 +76,11 @@
                             <label>博客类别</label>
                         </td>
                         <td>
-                            <select>
-                                <option selected="selected">选择博客类别</option>
+                            <select name="blogCategory">
+                                <option selected >选择博客类别</option>
                                 <#if (cateList?size > 0)>
                                     <#list cateList as category >
-                                        <option  name="blogCategory" >${category.categoryTitle}</option>
+                                        <option >${category.categoryTitle}</option>
                                     </#list>
                                 </#if>
                             </select>
