@@ -19,7 +19,7 @@ public class BlogContent {
 
     private String updateTime;
 
-    private Long createPerson;
+    private String createPerson;
 
     public Long getId() {
         return id;
@@ -85,11 +85,11 @@ public class BlogContent {
         this.updateTime = updateTime == null ? null : updateTime.trim();
     }
 
-    public Long getCreatePerson() {
+    public String getCreatePerson() {
         return createPerson;
     }
 
-    public void setCreatePerson(Long createPerson) {
+    public void setCreatePerson(String createPerson) {
         this.createPerson = createPerson;
     }
 }

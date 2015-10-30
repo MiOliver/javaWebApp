@@ -145,6 +145,12 @@ public class BaseController {
         this.user = user;
     }
 
+    public List<BlogContent> getBlogList() {
+        return blogList;
+    }
 
+    public void setBlogList(List<BlogContent> blogList) {
+        this.blogList = blogList;
+    }
 }
 

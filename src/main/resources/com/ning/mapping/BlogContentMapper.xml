@@ -122,7 +122,7 @@
         update_time = #{updateTime,jdbcType=VARCHAR},
       </if>
       <if test="createPerson != null" >
-        create_person = #{createPerson,jdbcType=BIGINT},
+        create_person = #{createPerson,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}

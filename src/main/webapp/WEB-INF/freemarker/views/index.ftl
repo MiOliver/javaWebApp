@@ -44,16 +44,15 @@
     </div>
     <div id="content" class="row-fluid">
         <div class="span9 main" >
-            <h2>Main Content Section</h2>
-            <#if (blogList?size > 0)!>
+            <#if blogList?size &gt; 0>
                 <#list blogList as blog >
-                  <div class="span10 " style="background-color: #f5f5f5">
-                      <h3>${blog.blogTitle}</h3>
+                  <div >
+                      <a href="/blogdatial?id=${blog.id}"> <h3>${blog.blogTitle}</h3> </a>
                       <p>${blog.createTime?string('yyyy-MM-dd HH:mm:ss')}</p>
                       <p>${blog.blogContent}</p>
                       <span>${blog.tags}</span>
                   </div>
-                   <div class="span10 " style="background-color: white;height:30px"></div>
+                  <div style="background-color: white;height:30px"></div>
                 </#list>
             </#if>
 

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -26,6 +27,7 @@ public class BlogController {
 
     private static final String ADDBLOG ="add_blog";
     private static final String BLOGTAGSLIST ="blog_tags_list";
+    private static final String BLOGDETAIL ="blog_detail";
     private List<BlogTag> tagsList;
     private List<BlogCategory> cateList;
 
@@ -48,6 +50,17 @@ public class BlogController {
         }
         return new ModelAndView("redirect:/index");
     }
+    @RequestMapping(value = "/blogdatial", method = RequestMethod.GET)
+    public ModelAndView blogDetail(HttpServletRequest request){
+        String id=request.getParameter("id").toString();
+        if(id!=null && (!id.isEmpty())){
+            blog = blogService.getBlogbyId(Long.valueOf(id));
+        }
+        ModelAndView mv =new ModelAndView(BLOGDETAIL);
+        mv.addObject("blog",blog);
+        return mv;
+    }
+
 
 
     public List<BlogTag> getTagsList() {
