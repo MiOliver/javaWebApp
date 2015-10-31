@@ -4,7 +4,7 @@
 <#--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
 <head>
     <title>Twitter Bootstrap Tutorial </title>
-<link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="/resources/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
         body {
@@ -14,17 +14,18 @@
 </head>
 <body>
 <div class="container">
+    <h1>Oliver's Blogs</h1>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-            <div class="navbar-header">
+            <div class="navbar-header" >
                 <a class="navbar-brand" href="#">
-                    <img alt="Brand" src="...">
+                    <img alt="Brand" src="/resources/img/Dolphin.png" width="25" height="25">
                 </a>
             </div>
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
+                <li><a href="#">About</a></li>
             </ul>
         </div>
 

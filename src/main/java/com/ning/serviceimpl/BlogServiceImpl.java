@@ -35,12 +35,18 @@ public class BlogServiceImpl {
         return blogCategoryMapper.getCateList();
     }
 
-    public void createBlog(BlogContent blog){
-        blogContentMapper.insertSelective(blog);
+    public int createBlog(BlogContent blog){
+        return blogContentMapper.insertSelective(blog);
     }
     public BlogContent getBlogbyId(Long id){
         BlogContent blog=blogContentMapper.selectByPrimaryKey(id);
         return blog;
+    }
+
+    public void updateBlog(BlogContent blog){
+        if(blog!=null){
+            blogContentMapper.updateByPrimaryKey(blog);
+        }
     }
 
 }

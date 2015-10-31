@@ -58,6 +58,13 @@ public class BaseController {
         return mv;
     }
 
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public ModelAndView mainPage(ModelMap model) {
+        ModelAndView mv=new ModelAndView(VIEW_INDEX);
+        blogList=blogService.getBlogList();
+        mv.addObject("blogList",blogList);
+        return mv;
+    }
 
     @RequestMapping(value = "/{name}", method = RequestMethod.GET)
     public String welcome(@PathVariable String name, ModelMap model) {

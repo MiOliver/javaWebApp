@@ -8,10 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by ning on 15-10-25.
@@ -25,42 +29,67 @@ public class BlogController {
 
     private BlogContent blog;
 
-    private static final String ADDBLOG ="add_blog";
-    private static final String BLOGTAGSLIST ="blog_tags_list";
-    private static final String BLOGDETAIL ="blog_detail";
+    private static final String ADDBLOG = "add_blog";
+    private static final String BLOGTAGSLIST = "blog_tags_list";
+    private static final String BLOGDETAIL = "blog_detail";
     private List<BlogTag> tagsList;
     private List<BlogCategory> cateList;
+    private Map<String, Object> map;
 
     @RequestMapping(value = "/addblog", method = RequestMethod.GET)
-    public ModelAndView blogCategoryView(){
-        cateList=blogService.getCateList();
+    public ModelAndView blogCategoryView() {
+        cateList = blogService.getCateList();
         ModelAndView modelAndView = new ModelAndView(ADDBLOG);
-        modelAndView.addObject("cateList",cateList);
+        modelAndView.addObject("cateList", cateList);
         return modelAndView;
     }
+
     @RequestMapping(value = "/tagslist", method = RequestMethod.GET)
-    public String blogTagList(){
-        tagsList=blogService.getTagList();
+    public String blogTagList() {
+        tagsList = blogService.getTagList();
         return BLOGTAGSLIST;
     }
-    @RequestMapping(value = "/createBlog", method = RequestMethod.POST)
-    public ModelAndView createBlog(BlogContent blog){
-        if(blog!=null){
-            blogService.createBlog(blog);
+
+    @RequestMapping(value = "/createblog", method = RequestMethod.POST,  headers="Accept=application/json")
+    public  @ResponseBody Object createBlog(BlogContent blog, HttpServletRequest request, HttpServletResponse response) {
+        map = new HashMap<String, Object>();
+        if (blog != null) {
+            if (blogService.createBlog(blog) > 0) {
+                map.put("msg", "成功");
+            } else {
+                System.out.println("失败");
+                map.put("msg", "失败");
+            }
         }
-        return new ModelAndView("redirect:/index");
+        return map;
     }
-    @RequestMapping(value = "/blogdatial", method = RequestMethod.GET)
-    public ModelAndView blogDetail(HttpServletRequest request){
-        String id=request.getParameter("id").toString();
-        if(id!=null && (!id.isEmpty())){
+//    @RequestMapping(value = "/createblog", method = RequestMethod.POST, produces = "application/json")
+//    public @ResponseBody String createBlog(BlogContent blog, HttpServletResponse response) {
+//        String result="";
+//        if (blog != null) {
+//            if (blogService.createBlog(blog) > 0) {
+//                result = "添加成功";
+//            } else {
+//                System.out.println("失败");
+//                result = "添加失败";
+//            }
+//        }
+//        return result;
+//    }
+
+
+    @RequestMapping(value = "/blogdetail", method = RequestMethod.GET)
+    public ModelAndView blogDetail(HttpServletRequest request) {
+        String id = request.getParameter("id").toString();
+        if (id != null && (!id.isEmpty())) {
             blog = blogService.getBlogbyId(Long.valueOf(id));
         }
-        ModelAndView mv =new ModelAndView(BLOGDETAIL);
-        mv.addObject("blog",blog);
+        blog.setVisitCount(blog.getVisitCount() + 1);
+        blogService.updateBlog(blog);
+        ModelAndView mv = new ModelAndView(BLOGDETAIL);
+        mv.addObject("blog", blog);
         return mv;
     }
-
 
 
     public List<BlogTag> getTagsList() {
@@ -85,5 +114,13 @@ public class BlogController {
 
     public void setBlog(BlogContent blog) {
         this.blog = blog;
+    }
+
+    public Map<String, Object> getMap() {
+        return map;
+    }
+
+    public void setMap(Map<String, Object> map) {
+        this.map = map;
     }
 }

@@ -1,30 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
      http://www.springframework.org/schema/mvc
-     http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+     http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
      http://www.springframework.org/schema/aop
-     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+     http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
      http://www.springframework.org/schema/context
-     http://www.springframework.org/schema/context/spring-context.xsd">
+     http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
 
     <!-- 默认注解映射支持 -->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven>
+        <!--<mvc:message-converters register-defaults="false">-->
+        <!--&lt;!&ndash; 避免IE执行AJAX时,返回JSON出现下载文件 &ndash;&gt;-->
+        <!--<bean id="fastJsonHttpMessageConverter"-->
+        <!--class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">-->
+        <!--<property name="supportedMediaTypes">-->
+        <!--<list>-->
+        <!--&lt;!&ndash; 这里顺序不能反，一定先写text/html,不然ie下出现下载提示 &ndash;&gt;-->
+        <!--<value>text/html;charset=UTF-8</value>-->
+        <!--<value>application/json;charset=UTF-8</value>-->
+        <!--</list>-->
+        <!--</property>-->
+        <!--</bean>-->
+        <!--</mvc:message-converters>-->
+    </mvc:annotation-driven>
+
 
     <!-- 对静态资源文件的访问 方案二 （二选一） -->
-    <mvc:resources mapping="/img/**" location="/resources/img/" cache-period="2147483646" />
-    <mvc:resources mapping="/js/**" location="/resources/js/" cache-period="2147483646" />
-    <mvc:resources mapping="/css/**" location="/resources/css/" cache-period="2147483646"  />
+    <mvc:resources mapping="/img/**" location="/resources/img/" cache-period="2147483646"/>
+    <mvc:resources mapping="/js/**" location="/resources/js/" cache-period="2147483646"/>
+    <mvc:resources mapping="/css/**" location="/resources/css/" cache-period="2147483646"/>
     <!--<mvc:default-servlet-handler />-->
     <!-- 自动扫描包 -->
     <context:component-scan base-package="com.ning.controller"/>
-    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="stringHttpMessageConverter"/>
+                <ref bean="jsonHttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="stringHttpMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <bean class="org.springframework.http.MediaType">
+                    <constructor-arg index="0" value="text"/>
+                    <constructor-arg index="1" value="plain"/>
+                    <constructor-arg index="2" value="UTF-8"/>
+                </bean>
+                <bean class="org.springframework.http.MediaType">
+                    <constructor-arg index="0" value="*"/>
+                    <constructor-arg index="1" value="*"/>
+                    <constructor-arg index="2" value="UTF-8"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+    <bean id="jsonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
 
-    <!-- InternalResourceViewResolver默认的就是JstlView所以这里就不用配置viewClass了 -->
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">-->
+    <!--<property name="messageConverters">-->
+    <!--<list >-->
+    <!--<ref bean="mappingJacksonHttpMessageConverter" />-->
+    <!--</list>-->
+    <!--</property>-->
+    <!--</bean>-->
+    <!--<bean id="mappingJacksonHttpMessageConverter"-->
+    <!--class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
+    <!--<property name="supportedMediaTypes">-->
+    <!--<list>-->
+    <!--<value>text/html;charset=UTF-8</value>-->
+    <!--</list>-->
+    <!--</property>-->
+    <!--</bean>-->
 
     <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
 
@@ -34,8 +88,8 @@
         <!-- 渲染页面后缀 -->
         <property name="suffix" value=".ftl"></property>
         <property name="contentType" value="textml; charset=UTF-8"/>
-        <property name="exposeSessionAttributes" value="true" />
-        <property name="exposeSpringMacroHelpers" value="true" />
+        <property name="exposeSessionAttributes" value="true"/>
+        <property name="exposeSpringMacroHelpers" value="true"/>
 
         <!-- 渲染视图的基类，可以作为全局公用属性的输出和渲染 -->
         <!--<property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"></property>-->
@@ -68,7 +122,6 @@
         </property>
 
     </bean>
-
 
 
 </beans>

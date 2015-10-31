@@ -7,6 +7,19 @@
     <#--<link href="/resources/css/bootstrap-combined.min.css" rel="stylesheet">-->
     <#--<link href="/resources/css/bootstrap.min.css" rel="stylesheet">-->
     <link href="/resources/css/bootstrap.css" rel="stylesheet">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <script type="text/javascript">
+        function checkBlogText(){
+            var html = $("#test").val();
+            console.log(html.length);
+            console.log(typeof html);
+            if(html.length>0){
+                console.log(html);
+            }
+            alert("stop");
+            return false;
+        }
+    </script>
     <style type="text/css">
         body {
             background-color: #CCC;
@@ -59,6 +72,9 @@
                     vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis
                     dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil
                     imperdiet doming id quod mazim placerat facer possim assum.</p>
+
+            <input type="text" id="test">
+            <button value="test" onclick="checkBlogText()"> 提交</button>
         </div>
         <div class=".col-xs-6 col-md-3">
             <div>
