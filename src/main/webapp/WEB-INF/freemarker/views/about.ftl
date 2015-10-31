@@ -3,7 +3,7 @@
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 <#--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
 <head>
-    <title>Oliver's Blogs</title>
+    <title>Twitter Bootstrap Tutorial </title>
     <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="/resources/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
@@ -23,9 +23,9 @@
                 </a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/index">Home</a></li>
+                <li><a href="/index">Home</a></li>
                 <li><a href="/addblog">Link</a></li>
-                <li><a href="/about">About</a></li>
+                <li class="active"><a href="/about">About</a></li>
             </ul>
         </div>
 
@@ -33,24 +33,26 @@
 
     <div class="row" style="background-color: white;border-radius:5px;line-height: 30px;padding: 20px;  ">
         <div class=".col-xs-6 col-md-9">
-            <#--<h2>content</h2>-->
-            <#--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut-->
-                <#--laoreet dolore magna aliquam erat volutpat. Ut wi快递费si enim ad minim veniam, quis nostrud exerci tation-->
-                <#--ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor-->
-                <#--in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at-->
-                <#--vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis-->
-                <#--dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil-->
-                <#--imperdiet doming id quod mazim placerat facer possim assum.</p>-->
+            <h2>content</h2>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat. Ut wi快递费si enim ad minim veniam, quis nostrud exerci tation
+                ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor
+                in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at
+                vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis
+                dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil
+                imperdiet doming id quod mazim placerat facer possim assum.</p>
 
-        <#if blogList?size &gt; 0>
-            <#list blogList as blog >
-                <div >
-                    <a href="/blogdetail?id=${blog.id}"> <h3>${blog.blogTitle}</h3> </a>
-                    <p> <span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;${blog.createTime?string('yyyy-MM-dd HH:mm:ss')}&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;${blog.createPerson}&nbsp;&nbsp;&nbsp;</p>
-                    <p>${blog.blogContent}</p>
-                </div>
-            </#list>
-        </#if>
+            <address>
+                <strong>Twitter, Inc.</strong><br>
+                795 Folsom Ave, Suite 600<br>
+                San Francisco, CA 94107<br>
+                <abbr title="Phone">P:</abbr> (123) 456-7890
+            </address>
+
+            <address>
+                <strong>Oliver</strong><br>
+                <a href="mailto:#">tianxingzhe1990@gmail.com</a>
+            </address>
         </div>
         <div class=".col-xs-6 col-md-3">
             <div>

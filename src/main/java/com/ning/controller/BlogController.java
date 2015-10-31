@@ -32,6 +32,7 @@ public class BlogController {
     private static final String ADDBLOG = "add_blog";
     private static final String BLOGTAGSLIST = "blog_tags_list";
     private static final String BLOGDETAIL = "blog_detail";
+    private static final String ABOUT = "about";
     private List<BlogTag> tagsList;
     private List<BlogCategory> cateList;
     private Map<String, Object> map;
@@ -48,6 +49,11 @@ public class BlogController {
     public String blogTagList() {
         tagsList = blogService.getTagList();
         return BLOGTAGSLIST;
+    }
+
+    @RequestMapping(value = "/about", method = RequestMethod.GET)
+    public String about() {
+        return ABOUT;
     }
 
     @RequestMapping(value = "/createblog", method = RequestMethod.POST,  headers="Accept=application/json")

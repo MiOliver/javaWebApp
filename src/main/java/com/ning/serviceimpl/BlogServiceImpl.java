@@ -9,6 +9,8 @@ import com.ning.mapper.BlogTagMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by ning on 10/29/15.
@@ -30,6 +32,18 @@ public class BlogServiceImpl {
     public List<BlogContent> getBlogList(){
         return blogContentMapper.getBlogListByPage();
     }
+
+    public List<BlogContent> getFixBlogList(List<BlogContent> list){
+        for(BlogContent blogContent:list){
+            String regex="<p.*?>(.*?)</p> ";
+            Pattern p = Pattern.compile(regex);
+            Matcher m=p.matcher(blogContent.getBlogContent());
+            System.out.println(m.group(1));
+        }
+        return list;
+    }
+
+
 
     public List<BlogCategory> getCateList(){
         return blogCategoryMapper.getCateList();

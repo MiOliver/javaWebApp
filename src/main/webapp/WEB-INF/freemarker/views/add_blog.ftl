@@ -4,19 +4,21 @@
 <#--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
 <head>
     <title>Twitter Bootstrap Tutorial </title>
-    <#--<link href="/resources/css/bootstrap.min.css" rel="stylesheet">-->
-    <link href="/resources/css/bootstrap.css" rel="stylesheet">
-
     <#--<!-- include libraries(jQuery, bootstrap, fontawesome) &ndash;&gt;-->
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <link href="/resources/css/bootstrap.css" rel="stylesheet">
+    <script src="/resources/js/bootstrap.js"  type="text/javascript" ></script>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" />
 
     <!-- include summernote css/js-->
     <link href="/resources/css/summernote.css" rel="stylesheet" />
     <script src="/resources/js/summernote.js"></script>
 
+    <script src="/resources/js/bootstrap-dialog.min.js"  type="text/javascript" ></script>
+    <link href="/resources/css/bootstrap-dialog.min.css" rel="stylesheet">
+
     <#--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" />-->
-    <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/resources/js/bootstrap.js"></script>
 
 
 
@@ -26,6 +28,10 @@
         }
     </style>
     <script type="text/javascript">
+        function refreshPage()
+        {
+            window.location.reload();
+        }
         $(document).ready(
                 function() {
              $('#summernote').summernote();
@@ -49,11 +55,29 @@
                 url:"/createblog",
                 error: function(XMLHttpRequest, error, errorThrown){
                     console.log("error "+error+": "+errorThrown);
-                    alert(error);
-                    alert(errorThrown);
+                    BootstrapDialog.show({
+                        message: '博客添加成功!'
+                    });
+//                    alert(errorThrown);
                 },
                 success:function(data){
-                    alert("success:"+data.msg);
+//                    BootstrapDialog.show({
+//                        message: '博客添加成功!'
+//                    });
+//                    BootstrapDialog.alert('博客添加成功!');
+                    BootstrapDialog.show({
+                        title: '提示',
+                        message: '博客添加成功!',
+                        buttons: [{
+                            label: '确定',
+                            action: function(dialog) {
+                                refreshPage();
+                            }
+                        }]
+                    });
+
+
+
                 }
             });
             return false;
@@ -72,15 +96,15 @@
                 </a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">About</a></li>
+                <li ><a href="/index">Home</a></li>
+                <li class="active"><a href="/addblog">Link</a></li>
+                <li><a href="/about">About</a></li>
             </ul>
         </div>
 
     </nav>
 
-    <div class="row" style="background-color: white;border-radius:5px;line-height: 30px;padding: 20px;  ">
+    <div class="row" style="background-color: white;border-radius:5px;padding: 20px;  ">
         <div class=" col-md-10">
 
             <div style="padding: 30px;">

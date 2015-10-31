@@ -5,9 +5,16 @@
 <head>
     <title>Twitter Bootstrap Tutorial </title>
     <#--<link href="/resources/css/bootstrap-combined.min.css" rel="stylesheet">-->
-    <#--<link href="/resources/css/bootstrap.min.css" rel="stylesheet">-->
-    <link href="/resources/css/bootstrap.css" rel="stylesheet">
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+
+    <link href="/resources/css/bootstrap.css" rel="stylesheet">
+    <script src="/resources/js/bootstrap.js"  type="text/javascript" ></script>
+
+
+    <script src="/resources/js/bootstrap-dialog.min.js"  type="text/javascript" ></script>
+    <link href="/resources/css/bootstrap-dialog.min.css" rel="stylesheet">
+
+
     <script type="text/javascript">
         function checkBlogText(){
             var html = $("#test").val();
@@ -16,8 +23,12 @@
             if(html.length>0){
                 console.log(html);
             }
-            alert("stop");
+            BootstrapDialog.alert('I want banana!');
+            BootstrapDialog.show({
+                message: 'Hi Apple!'
+            });
             return false;
+
         }
     </script>
     <style type="text/css">
@@ -41,6 +52,10 @@
         /*#content p {*/
             /*line-height: 30px;*/
         /*}*/
+
+         .login-dialog .modal-dialog {
+             width: 300px;
+         }
     </style>
 </head>
 <body>

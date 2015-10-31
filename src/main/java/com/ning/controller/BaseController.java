@@ -54,6 +54,7 @@ public class BaseController {
     public ModelAndView indexpage(ModelMap model) {
         ModelAndView mv=new ModelAndView(VIEW_INDEX);
         blogList=blogService.getBlogList();
+//        blogList=blogService.getFixBlogList(blogList);
         mv.addObject("blogList",blogList);
         return mv;
     }
