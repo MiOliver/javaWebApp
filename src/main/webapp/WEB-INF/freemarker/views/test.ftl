@@ -61,17 +61,24 @@
 <body>
 <div class="container">
 
+    <h1>Oliver's Blogs</h1>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-            <div class="navbar-header">
+            <div class="navbar-header" >
                 <a class="navbar-brand" href="#">
-                    <img alt="Brand" src="...">
+                    <img alt="Brand" src="/resources/img/Dolphin.png" width="25" height="25">
                 </a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
+                <li class="active"><a href="/index">Home</a></li>
+                <li><a href="/addblog">Link</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right ">
+                <li ><a href="#"><img width="20" height="20" src="/resources/img/animals.png">&nbsp;&nbsp;Oliver</a></li>
+                <#--<li><a href="/addblog">Link</a></li>-->
+                <#--<li><a href="/about">About</a></li>-->
             </ul>
         </div>
 

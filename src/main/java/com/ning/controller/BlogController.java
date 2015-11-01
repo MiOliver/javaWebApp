@@ -46,9 +46,11 @@ public class BlogController {
     }
 
     @RequestMapping(value = "/tagslist", method = RequestMethod.GET)
-    public String blogTagList() {
+    public ModelAndView blogTagList() {
         tagsList = blogService.getTagList();
-        return BLOGTAGSLIST;
+        ModelAndView modelAndView = new ModelAndView(BLOGTAGSLIST);
+        modelAndView.addObject("tagsList", tagsList);
+        return modelAndView;
     }
 
     @RequestMapping(value = "/about", method = RequestMethod.GET)

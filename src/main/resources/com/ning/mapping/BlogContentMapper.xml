@@ -6,6 +6,7 @@
     <result column="blog_title" property="blogTitle" jdbcType="VARCHAR" />
     <result column="blog_content" property="blogContent" jdbcType="VARCHAR" />
     <result column="blog_category" property="blogCategory" jdbcType="VARCHAR" />
+    <result column="blog_img_src" property="blogImgSrc" jdbcType="VARCHAR" />
     <result column="tags" property="tags" jdbcType="VARCHAR" />
     <result column="visit_count" property="visitCount" jdbcType="BIGINT" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
@@ -51,6 +52,9 @@
       <if test="blogCategory != null" >
         blog_category,
       </if>
+      <if test="blogImgSrc != null" >
+        blog_img_src,
+      </if>
       <if test="tags != null" >
         tags,
       </if>
@@ -80,6 +84,9 @@
       <if test="blogCategory != null" >
         #{blogCategory,jdbcType=VARCHAR},
       </if>
+      <if test="blogImgSrc != null" >
+        #{blogImgSrc,jdbcType=VARCHAR},
+      </if>
       <if test="tags != null" >
         #{tags,jdbcType=VARCHAR},
       </if>
@@ -108,6 +115,9 @@
       </if>
       <if test="blogCategory != null" >
         blog_category = #{blogCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="blogImgSrc != null" >
+        blog_img_src = #{blogImgSrc,jdbcType=VARCHAR},
       </if>
       <if test="tags != null" >
         tags = #{tags,jdbcType=VARCHAR},

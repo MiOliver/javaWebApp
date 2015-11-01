@@ -11,6 +11,8 @@ public class BlogContent {
 
     private String blogCategory;
 
+    private String blogImgSrc;
+
     private String tags;
 
     private Long visitCount;
@@ -91,5 +93,13 @@ public class BlogContent {
 
     public void setCreatePerson(String createPerson) {
         this.createPerson = createPerson;
+    }
+
+    public String getBlogImgSrc() {
+        return blogImgSrc;
+    }
+
+    public void setBlogImgSrc(String blogImgSrc) {
+        this.blogImgSrc = blogImgSrc;
     }
 }

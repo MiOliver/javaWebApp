@@ -35,10 +35,13 @@ public class BlogServiceImpl {
 
     public List<BlogContent> getFixBlogList(List<BlogContent> list){
         for(BlogContent blogContent:list){
-            String regex="<p.*?>(.*?)</p> ";
+            String regex="(<p.*?>.*?</p>)";
             Pattern p = Pattern.compile(regex);
             Matcher m=p.matcher(blogContent.getBlogContent());
-            System.out.println(m.group(1));
+            if(m.find()){
+                System.out.println(m.group(1));
+                blogContent.setBlogContent(m.group(1));
+            }
         }
         return list;
     }

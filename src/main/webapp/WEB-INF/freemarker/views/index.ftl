@@ -47,22 +47,24 @@
                 <div >
                     <a href="/blogdetail?id=${blog.id}"> <h3>${blog.blogTitle}</h3> </a>
                     <p> <span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;${blog.createTime?string('yyyy-MM-dd HH:mm:ss')}&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;${blog.createPerson}&nbsp;&nbsp;&nbsp;</p>
-                    <p>${blog.blogContent}</p>
+                    <img src=" ${blog.blogImgSrc}" height="70" width="70" style="float: right">${blog.blogContent}
                 </div>
             </#list>
         </#if>
         </div>
         <div class=".col-xs-6 col-md-3">
             <div>
-                <h2>Sidebar</h2>
+                <h3>最近文章</h3>
                 <ul class="nav-tabs-justified">
-                    <li><a href="#">Another Link 1</a></li>
-                    <li><a href="#">Another Link 2</a></li>
-                    <li><a href="#">Another Link 3</a></li>
+                <#if blogList?size &gt; 0>
+                    <#list blogList as blog >
+                        <li><a href="/blogdetail?id=${blog.id}">${blog.blogTitle}</a></li>
+                    </#list>
+                </#if>
                 </ul>
             </div>
             <div>
-                <h2>Sidebar</h2>
+                <h3>最多访问</h3>
                 <ul class="nav-tabs-justified">
                     <li><a href="#">Another Link 1</a></li>
                     <li><a href="#">Another Link 2</a></li>
