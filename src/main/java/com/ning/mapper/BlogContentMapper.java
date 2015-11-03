@@ -2,6 +2,7 @@ package com.ning.mapper;
 
 
 import com.ning.domain.BlogContent;
+import com.xiaomi.platform.xmybatis.plugins.Pagination;
 
 import java.util.List;
 
@@ -18,5 +19,5 @@ public interface BlogContentMapper {
 
     int updateByPrimaryKey(BlogContent record);
 
-    List<BlogContent> getBlogListByPage();
+    List<BlogContent> getBlogListByPage(Pagination pagination);
 }

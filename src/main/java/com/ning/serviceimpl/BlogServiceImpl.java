@@ -6,6 +6,7 @@ import com.ning.domain.BlogTag;
 import com.ning.mapper.BlogCategoryMapper;
 import com.ning.mapper.BlogContentMapper;
 import com.ning.mapper.BlogTagMapper;
+import com.xiaomi.platform.xmybatis.plugins.Pagination;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -29,8 +30,8 @@ public class BlogServiceImpl {
         return blogTagMapper.getListByPage();
     }
 
-    public List<BlogContent> getBlogList(){
-        return blogContentMapper.getBlogListByPage();
+    public List<BlogContent> getBlogList(Pagination page){
+        return blogContentMapper.getBlogListByPage(page);
     }
 
     public List<BlogContent> getFixBlogList(List<BlogContent> list){

@@ -1,7 +1,35 @@
-<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE configuration         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-config.dtd">
-<configuration>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//ibatis.apache.org//DTD Config 3.1//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-config.dtd">
+
     <!--<mappers>-->
         <!--<mapper resource="com/ning/mapping/UserMapper.xml" />-->
     <!--</mappers>-->
+<configuration>
+    <!-- 分页配置，默认拦击包括ByPage字段方法名称的查询方法，“*”表示拦截所有方法-->
+    <properties>
+        <property name="dialect" value="mysql" />
+    </properties>
+    <settings>
+        <setting name="lazyLoadingEnabled" value="false" />
+    </settings>
+    <plugins>
+        <!-- 过时的，暂时保留 -->
+        <!--
+          <plugin interceptor="com.xiaomi.xms.plugins.interceptor.PaginationInterceptor">
+              <property name="invokeMethodName" value=".*ByPage.*"/>
+          </plugin>
+         -->
+
+        <!-- 新的分页拦截器，暂时先保留旧的 -->
+        <plugin interceptor="com.xiaomi.platform.xmybatis.plugins.interceptor.PaginationInterceptor">
+            <property name="invokeMethodName" value=".*ByPage.*"/>
+        </plugin>
+
+        <plugin interceptor="com.ning.web.SqlTimeCostInterceptor">
+        </plugin>
+
+    </plugins>
+
 </configuration>

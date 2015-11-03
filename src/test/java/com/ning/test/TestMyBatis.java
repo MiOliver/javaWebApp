@@ -23,8 +23,7 @@ import javax.annotation.Resource;
 public class TestMyBatis {
     private static Logger logger = Logger.getLogger(TestMyBatis.class);
 //    private ApplicationContext ac = null;
-    @Resource
-    private IUserService userService;
+
 
 //    @Before
 //    public void before() {
@@ -32,11 +31,4 @@ public class TestMyBatis {
 //        userService = (IUserService) ac.getBean("userService");
 //    }
 
-    @Test
-    public void test1() {
-        User user = userService.getUserById(1);
-        // System.out.println(user.getUserName());
-        // logger.info("值："+user.getUserName());
-        logger.info(JSON.toJSONString(user));
-    }
 }

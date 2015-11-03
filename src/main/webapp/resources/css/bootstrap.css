@@ -6797,4 +6797,33 @@ button.close {
     display: none !important;
   }
 }
+
+#pager .page li {
+    border: 1px solid #CCCCCC;
+    cursor: pointer;
+    float: left;
+    line-height: 25px;
+    list-style-type: none;
+    margin-left: 5px;
+    padding: 2px 8px;
+}
+
+#pager .page .pgCurrent {
+    background-color: #EEEEEE;
+    border: 1px solid #FF6B10;
+    font-weight: bold;
+}
+#pager .page {
+    font-size: 12px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+    float:right;
+}
+.page {
+    color: #333333;
+    line-height: 32px;
+    display: inline-block;
+}
 /*# sourceMappingURL=bootstrap.css.map */

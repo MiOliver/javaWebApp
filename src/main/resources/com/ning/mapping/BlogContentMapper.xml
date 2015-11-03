@@ -151,6 +151,6 @@
   </update>
 
   <select id="getBlogListByPage" resultMap="BaseResultMap" resultType="list">
-      select * from blog_content
+      select * from blog_content  order by create_time desc
   </select>
 </mapper>
