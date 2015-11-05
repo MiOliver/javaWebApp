@@ -48,7 +48,7 @@
                     'tags': tags,
                     'blogCategory': blogCategory,
                     'blogImgSrc': blogImgSrc,
-                    'blogContent': blogContent,
+                    'blogContent': blogContent
                 },
                 type: "post",
                 dataType: 'json',

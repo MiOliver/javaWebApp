@@ -56,6 +56,11 @@ public class BlogServiceImpl {
     public int createBlog(BlogContent blog){
         return blogContentMapper.insertSelective(blog);
     }
+
+    public int deleteBlog(Long id){
+        return blogContentMapper.deleteByPrimaryKey(id);
+    }
+
     public BlogContent getBlogbyId(Long id){
         BlogContent blog=blogContentMapper.selectByPrimaryKey(id);
         return blog;

@@ -71,6 +71,20 @@ public class BlogController {
         }
         return map;
     }
+    @RequestMapping(value = "/deleteblog", method = RequestMethod.POST)
+    public  @ResponseBody Object deteleBlog(BlogContent blog, HttpServletRequest request, HttpServletResponse response) {
+        String id =request.getParameter("id");
+        map = new HashMap<String, Object>();
+        if (blog != null) {
+            if (blogService.deleteBlog(Long.valueOf(id)) > 0) {
+                map.put("msg", "成功删除");
+            } else {
+                System.out.println("失败");
+                map.put("msg", "删除失败");
+            }
+        }
+        return map;
+    }
 //    @RequestMapping(value = "/createblog", method = RequestMethod.POST, produces = "application/json")
 //    public @ResponseBody String createBlog(BlogContent blog, HttpServletResponse response) {
 //        String result="";
