@@ -4,6 +4,7 @@ import com.ning.domain.BlogCategory;
 import com.ning.domain.BlogContent;
 import com.ning.domain.BlogTag;
 import com.ning.serviceimpl.BlogServiceImpl;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,6 +38,7 @@ public class BlogController {
     private List<BlogCategory> cateList;
     private Map<String, Object> map;
 
+    @RequiresRoles("admin")
     @RequestMapping(value = "/addblog", method = RequestMethod.GET)
     public ModelAndView blogCategoryView() {
         cateList = blogService.getCateList();
@@ -85,20 +87,6 @@ public class BlogController {
         }
         return map;
     }
-//    @RequestMapping(value = "/createblog", method = RequestMethod.POST, produces = "application/json")
-//    public @ResponseBody String createBlog(BlogContent blog, HttpServletResponse response) {
-//        String result="";
-//        if (blog != null) {
-//            if (blogService.createBlog(blog) > 0) {
-//                result = "添加成功";
-//            } else {
-//                System.out.println("失败");
-//                result = "添加失败";
-//            }
-//        }
-//        return result;
-//    }
-
 
     @RequestMapping(value = "/blogdetail", method = RequestMethod.GET)
     public ModelAndView blogDetail(HttpServletRequest request) {

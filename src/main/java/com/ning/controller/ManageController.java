@@ -2,6 +2,8 @@ package com.ning.controller;
 
 import com.ning.domain.BlogContent;
 import com.ning.serviceimpl.BlogServiceImpl;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +27,7 @@ public class ManageController extends BaseController{
     private static final String PAGE_MANAGE="manage";
     private static final String LOGIN="login";
     private static final String BLOGMANAGE="blog_manage";
+    private static final String LOGOUT="logoutsucc";
 
     @Autowired
     private BlogServiceImpl blogService;
@@ -34,10 +37,38 @@ public class ManageController extends BaseController{
         model.addAttribute("admin","admin");
         return PAGE_MANAGE;
     }
-    @RequestMapping(value = "login",method= RequestMethod.GET)
-    public String login(Model model){
-        return LOGIN;
+
+    @RequestMapping(value = "/login" )
+    public String showLoginForm(HttpServletRequest req, Model model) {
+        String exceptionClassName = (String)req.getAttribute("shiroLoginFailure");
+        String error = null;
+        if(UnknownAccountException.class.getName().equals(exceptionClassName)) {
+            error = "用户名/密码错误";
+        } else if(IncorrectCredentialsException.class.getName().equals(exceptionClassName)) {
+            error = "用户名/密码错误";
+        }
+//        else{
+//            return "redirect:index";
+//        }
+        else if(exceptionClassName != null) {
+            error = "其他错误：" + exceptionClassName;
+        }
+        model.addAttribute("error", error);
+        return "login";
     }
+
+    @RequestMapping(value = "/logoutsucc",method= RequestMethod.GET)
+    public String logout(Model model){
+        return LOGOUT;
+    }
+
+
+//    @RequestMapping(value = "logincheck",method= RequestMethod.POST)
+//    public String logincheck(Model model){
+//        return LOGIN;
+//    }
+
+
     @RequestMapping(value = "blogManage",method= RequestMethod.GET)
     public ModelAndView blogManage(){
         ModelAndView mv=new ModelAndView(BLOGMANAGE);

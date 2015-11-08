@@ -4,8 +4,6 @@ package com.ning.controller;
 import com.ning.domain.BlogContent;
 import com.ning.domain.User;
 import com.ning.serviceimpl.BlogServiceImpl;
-import com.ning.serviceimpl.UserServiceImpl;
-import com.xiaomi.platform.xmybatis.plugins.Pagination;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,8 +23,7 @@ import java.util.*;
 @Controller
 public class MainController extends BaseController{
 
-    @Autowired
-    private UserServiceImpl userService;
+
     @Autowired
     private BlogServiceImpl blogService;
 
@@ -71,32 +68,18 @@ public class MainController extends BaseController{
     public ModelAndView mainPage(ModelMap model) {
         ModelAndView mv=new ModelAndView(VIEW_INDEX);
         blogList=blogService.getBlogList(page);
+        blogList=blogService.getFixBlogList(blogList);
+        mv.addObject("displayPageBar",displayPageBar);
+        mv.addObject("page",page);
         mv.addObject("blogList",blogList);
-        return mv;
-    }
 
-    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
-    public String welcome(@PathVariable String name, ModelMap model) {
-        model.addAttribute("message", "Welcome " + name);
-        model.addAttribute("counter", ++counter);
-        logger.debug("[Welcome counter :{}", counter);
-        return VIEW_INDEX;//返回index.jsp
-    }
-
-    @RequestMapping(value = "/succ", method = RequestMethod.POST)
-    public ModelAndView login(String username, String password) {
-    //验证传递过来的参数是否正确，否则返回到登陆页面。
-        if (this.checkParams(new String[]{username, password})) {
-            System.out.println("success");
-            //指定要返回的页面为succ.jsp
-            ModelAndView mav = new ModelAndView("succ");
-            //将参数返回给页面
-            mav.addObject("username", username);
-            mav.addObject("password", password);
-            return mav;
+        if (blogList != null && blogList.size() > 0) {
+            this.setDisplayPageBar(true);
+        } else {
+            blogList = null;
+            this.setDisplayPageBar(false);
         }
-        System.out.println("error");
-        return new ModelAndView("index");
+        return mv;
     }
 
     @RequestMapping(value = "/addview",method = RequestMethod.GET)
@@ -106,14 +89,7 @@ public class MainController extends BaseController{
 
     @RequestMapping(value = "/adduser",method = RequestMethod.POST)
     public ModelAndView add(HttpServletRequest request){
-        System.out.println(request.getParameter("userName"));
-        System.out.println(request.getParameter("password"));
-        User user =new User();
-        user.setUserName(request.getParameter("userName"));
-        user.setPassword(request.getParameter("password"));
-        user.setAge(Integer.valueOf(request.getParameter("age")));
-        userService.addUser(user);
-        userList= userService.getUserList();
+
         ModelAndView mav = new ModelAndView(USERLIST);
         //将参数返回给页面
         mav.addObject(userList);
@@ -122,19 +98,14 @@ public class MainController extends BaseController{
 
     @RequestMapping(value = "/user_list",method = RequestMethod.GET)
     public String userlist(Model model){
-        userList= userService.getUserList();
-        model.addAttribute(userList);
+
         return USERLIST;
     }
 
 
     @RequestMapping(value = "/test",method = RequestMethod.GET)
     public String test(ModelMap model){
-        user =new User();
-        user.setId(1);
-        user.setAge(23);
-        userService.put(user);
-        userService.test();
+
         model.addAttribute(user);
         return TEST;
     }

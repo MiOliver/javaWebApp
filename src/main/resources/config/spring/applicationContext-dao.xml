@@ -12,7 +12,7 @@
     <!-- 引入配置文件 -->
     <bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="locations" value="classpath:*.properties" />
+        <property name="locations" value="classpath:/config/jdbc.properties" />
     </bean>
 
     <!--设置数据源-->
@@ -48,6 +48,60 @@
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.ning.mapper"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSession"/>
+    </bean>
+
+    <!-- Base DAO -->
+    <bean id="baseDao" abstract="true">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- DAO -->
+    <bean id="permissionDao" class="com.ning.dao.PermissionDaoImpl" parent="baseDao"/>
+    <bean id="roleDao" class="com.ning.dao.RoleDaoImpl" parent="baseDao"/>
+    <bean id="userDao" class="com.ning.dao.UserDaoImpl" parent="baseDao"/>
+
+    <!-- Service -->
+    <bean id="permissionService" class="com.ning.services.PermissionServiceImpl">
+        <property name="permissionDao" ref="permissionDao"/>
+    </bean>
+
+    <bean id="roleService" class="com.ning.services.RoleServiceImpl">
+        <property name="roleDao" ref="roleDao"/>
+    </bean>
+
+    <bean id="passwordHelper" class="com.ning.services.PasswordHelper">
+        <property name="algorithmName" value="md5"/>
+        <property name="hashIterations" value="2"/>
+    </bean>
+
+    <bean id="userService" class="com.ning.services.UserServiceImpl">
+        <property name="userDao" ref="userDao"/>
+        <property name="passwordHelper" ref="passwordHelper"/>
+    </bean>
+
+
+    <!-- 缓存管理器 使用Ehcache实现 -->
+    <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+        <property name="cacheManagerConfigFile" value="classpath:ehcache.xml"/>
+    </bean>
+
+    <!-- 凭证匹配器 -->
+    <bean id="credentialsMatcher" class="com.ning.credentials.RetryLimitHashedCredentialsMatcher">
+        <constructor-arg ref="cacheManager"/>
+        <property name="hashAlgorithmName" value="md5"/>
+        <property name="hashIterations" value="2"/>
+        <property name="storedCredentialsHexEncoded" value="true"/>
+    </bean>
+
+    <!-- Realm实现 -->
+    <bean id="userRealm" class="com.ning.realm.UserRealm">
+        <property name="userService" ref="userService"/>
+        <property name="credentialsMatcher" ref="credentialsMatcher"/>
+        <property name="cachingEnabled" value="true"/>
+        <property name="authenticationCachingEnabled" value="true"/>
+        <property name="authenticationCacheName" value="authenticationCache"/>
+        <property name="authorizationCachingEnabled" value="true"/>
+        <property name="authorizationCacheName" value="authorizationCache"/>
     </bean>
 
 

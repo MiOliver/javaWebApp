@@ -4,7 +4,7 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+     http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
      http://www.springframework.org/schema/mvc
      http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
      http://www.springframework.org/schema/aop
@@ -29,6 +29,10 @@
         <!--</bean>-->
         <!--</mvc:message-converters>-->
     </mvc:annotation-driven>
+
+    <!--<mvc:view-controller path="/" view-name="index"/>-->
+
+
 
 
     <!-- 对静态资源文件的访问 方案二 （二选一） -->
@@ -80,8 +84,18 @@
     <!--</property>-->
     <!--</bean>-->
 
-    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
 
+    <!-- 默认的视图解析器 在上边的解析错误时使用 (默认使用html)- -->
+    <bean id="defaultViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.InternalResourceView"/>
+        <property name="contentType" value="text/html"/>
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+        <property name="order" value="1"/>
+    </bean>
+
+    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
         <!-- 渲染页面前缀 -->
         <!--<property name="prefix" value=""></property>-->
 
@@ -90,6 +104,9 @@
         <property name="contentType" value="textml; charset=UTF-8"/>
         <property name="exposeSessionAttributes" value="true"/>
         <property name="exposeSpringMacroHelpers" value="true"/>
+        <property name="exposeRequestAttributes" value="true" />
+        <property name="cache" value="true" />
+        <property name="order" value="0"/>
 
         <!-- 渲染视图的基类，可以作为全局公用属性的输出和渲染 -->
         <!--<property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"></property>-->
@@ -123,5 +140,13 @@
 
     </bean>
 
+    <aop:config proxy-target-class="true"></aop:config>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+    <!-- 控制器异常处理 -->
+    <bean id="exceptionHandlerExceptionResolver" class="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver">
+    </bean>
+    <bean class="com.ning.web.exception.DefaultExceptionHandler"/>
 
 </beans>

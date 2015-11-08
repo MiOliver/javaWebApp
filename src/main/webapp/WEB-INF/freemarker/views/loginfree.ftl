@@ -47,27 +47,35 @@
         <div class="span9 main">
             <h3>User login</h3>
             <hr>
-            <table >
-                <tr  >
-                    <td width="80">
-                        <span style="color:red;">*</span>username:
-                    </td>
-                    <td>
-                        <input type="text"/>
-                    </td>
-                </tr>
-                <tr >
-                    <td>
-                        <span style="color:red;">*</span>password:
-                    </td>
-                    <td>
-                        <input type="text"/>
-                    </td>
-                </tr>
-                <tr >
-                    <td colspan="2"><button type="button" class="btn btn-success">登  录</button> </td>
-                </tr>
-            </table>
+
+            <form action="" method="post">
+                <table >
+                    <tr  >
+                        <td width="80">
+                            <span style="color:red;">*</span>用户名:
+                        </td>
+                        <td>
+                            <input type="text" name="username"><br/>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td>
+                            <span style="color:red;">*</span>密  码:
+                        </td>
+                        <td>
+                            <input type="password" name="password"><br/>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td colspan="2"><input type="submit" class="btn btn-success" value="登  录"></input> </td>
+                    </tr>
+                </table>
+                <#--用户名：<input type="text" name="username"><br/>-->
+                <#--密码：<input type="password" name="password"><br/>-->
+                <#--<input type="submit" value="登录">-->
+            </form>
+
+
 
         </div>
 
