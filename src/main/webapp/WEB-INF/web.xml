@@ -1,5 +1,4 @@
-<!DOCTYPE web-app PUBLIC
-        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+<!DOCTYPE web-app PUBLIC  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
         "http://java.sun.com/dtd/web-app_2_3.dtd" >
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -17,8 +16,6 @@
             classpath:config/spring/applicationContext-redis.xml;
             classpath:config/spring/applicationContext-service.xml;
             classpath:config/spring/applicationContext-transtion.xml;
-            <!--classpath:spring-beans.xml;-->
-            classpath:spring-shiro-web.xml
         </param-value>
     </context-param>
 
@@ -223,6 +220,11 @@
     <!--<listener>-->
     <!--<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>-->
     <!--</listener>-->
+
+    <!--<session-config>-->
+        <!--&lt;!&ndash; Disables URL-based sessions (no more 'jsessionid' in the URL using Tomcat) &ndash;&gt;-->
+        <!--<tracking-mode>COOKIE</tracking-mode>-->
+    <!--</session-config>-->
 
 
 </web-app>

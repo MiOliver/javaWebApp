@@ -4,6 +4,7 @@ package com.ning.realm;
 import com.ning.domain.User;
 import com.ning.services.UserService;
 import org.apache.shiro.authc.*;
+import org.apache.shiro.authc.credential.PasswordService;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -18,6 +19,8 @@ import org.apache.shiro.util.ByteSource;
 public class UserRealm extends AuthorizingRealm {
 
     private UserService userService;
+
+    private PasswordService passwordService;
 
     public void setUserService(UserService userService) {
         this.userService = userService;
@@ -37,6 +40,8 @@ public class UserRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 
+
+
         String username = (String)token.getPrincipal();
 
         User user = userService.findByUsername(username);
@@ -50,10 +55,12 @@ public class UserRealm extends AuthorizingRealm {
         }
 
         //交给AuthenticatingRealm使用CredentialsMatcher进行密码匹配，如果觉得人家的不好可以自定义实现
+        String temName =getName();  //realm name
+        String hashCode =   passwordService.encryptPassword("123");
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
                 user.getUsername(), //用户名
-                user.getPassword(), //密码
-                ByteSource.Util.bytes(user.getCredentialsSalt()),//salt=username+salt
+                hashCode, //密码
+//                ByteSource.Util.bytes(user.getCredentialsSalt()),//salt=username+salt
                 getName()  //realm name
         );
 

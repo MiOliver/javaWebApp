@@ -1,6 +1,7 @@
 package com.ning.controller;
 
 import com.ning.domain.BlogContent;
+import com.ning.domain.User;
 import com.ning.serviceimpl.BlogServiceImpl;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -38,22 +39,25 @@ public class ManageController extends BaseController{
         return PAGE_MANAGE;
     }
 
-    @RequestMapping(value = "/login" )
-    public String showLoginForm(HttpServletRequest req, Model model) {
-        String exceptionClassName = (String)req.getAttribute("shiroLoginFailure");
-        String error = null;
-        if(UnknownAccountException.class.getName().equals(exceptionClassName)) {
-            error = "用户名/密码错误";
-        } else if(IncorrectCredentialsException.class.getName().equals(exceptionClassName)) {
-            error = "用户名/密码错误";
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String showLoginPage() {
+        return "login";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String submitLoginForm(HttpServletRequest request, Model model) {
+
+        String errorClassName = (String) request.getAttribute("shiroLoginFailure");
+        String authticationError = null;
+        if (UnknownAccountException.class.getName().equals(errorClassName)) {
+            authticationError = "用户名/密码错误";
+        } else if (IncorrectCredentialsException.class.getName().equals(errorClassName)) {
+            authticationError = "用户名/密码错误";
+        } else if (errorClassName != null) {
+            authticationError = "未知错误：" + errorClassName;
         }
-//        else{
-//            return "redirect:index";
-//        }
-        else if(exceptionClassName != null) {
-            error = "其他错误：" + exceptionClassName;
-        }
-        model.addAttribute("error", error);
+        model.addAttribute("error", authticationError);
+
         return "login";
     }
 
@@ -61,12 +65,6 @@ public class ManageController extends BaseController{
     public String logout(Model model){
         return LOGOUT;
     }
-
-
-//    @RequestMapping(value = "logincheck",method= RequestMethod.POST)
-//    public String logincheck(Model model){
-//        return LOGIN;
-//    }
 
 
     @RequestMapping(value = "blogManage",method= RequestMethod.GET)

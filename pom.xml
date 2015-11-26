@@ -49,14 +49,6 @@
         </dependency>
 
 
-        <!-- jstl -->
-        <dependency>
-            <groupId>jstl</groupId>
-            <artifactId>jstl</artifactId>
-            <version>${jstl.version}</version>
-        </dependency>
-
-
         <!-- spring核心包 -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -288,7 +280,7 @@
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-ehcache</artifactId>
-            <version>1.2.2</version>
+            <version>1.2.3</version>
         </dependency>
 
         <dependency>

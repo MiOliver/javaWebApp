@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <html lang="zh-CN">
 <head>
     <title>Twitter Bootstrap Tutorial </title>
@@ -44,7 +44,8 @@
                             <span style="color:red;">*</span>用户名:
                         </td>
                         <td>
-                            <input class="form-control" type="text" name="username"><br/>
+                            <input class="form-control" type="text" name="username" value="<shiro:principal/>"><br/>
+
                         </td>
                     </tr>
                     <tr>
@@ -53,6 +54,7 @@
                         </td>
                         <td>
                             <input class="form-control" type="password" name="password"><br/>
+                            <%--自动登录：<input type="checkbox" name="rememberMe" value="true"><br/>--%>
                         </td>
                     </tr>
                     <tr>
