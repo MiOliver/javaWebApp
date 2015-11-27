@@ -3,6 +3,7 @@ package com.ning.controller;
 import com.ning.domain.BlogContent;
 import com.ning.domain.User;
 import com.ning.serviceimpl.BlogServiceImpl;
+import com.ning.serviceimpl.ManageService;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.omg.CORBA.Request;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by ning on 10/23/15.
@@ -29,9 +31,14 @@ public class ManageController extends BaseController{
     private static final String LOGIN="login";
     private static final String BLOGMANAGE="blog_manage";
     private static final String LOGOUT="logoutsucc";
+    private static final String ADDUSER="add_user";
 
     @Autowired
     private BlogServiceImpl blogService;
+    @Autowired
+    private ManageService manageService;
+
+
 
     @RequestMapping(value = "manage",method= RequestMethod.GET)
      public String base(Model model){
@@ -81,6 +88,24 @@ public class ManageController extends BaseController{
             this.setDisplayPageBar(false);
         }
         return mv;
+    }
+
+    @RequestMapping(value = "addUser",method= RequestMethod.GET)
+    public String addUser(){
+        return ADDUSER;
+    }
+
+    @RequestMapping(value = "createUser",method= RequestMethod.POST,  headers="Accept=application/json")
+    public @ResponseBody Object createUser(User user, HttpServletRequest request, HttpServletResponse response) {
+        Map map = new HashMap<String, Object>();
+        if (user != null) {
+            if (manageService.createUser(user) > 0) {
+                map.put("msg", "成功");
+            } else {
+                map.put("msg", "失败");
+            }
+        }
+        return map;
     }
 
 

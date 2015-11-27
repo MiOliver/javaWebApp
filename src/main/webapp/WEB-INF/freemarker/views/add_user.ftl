@@ -9,11 +9,8 @@
     <!-- include summernote css/js-->
     <link href="/resources/css/summernote.css" rel="stylesheet"/>
     <script src="/resources/js/summernote.js"></script>
-
     <script src="/resources/js/bootstrap-dialog.min.js" type="text/javascript"></script>
     <link href="/resources/css/bootstrap-dialog.min.css" rel="stylesheet">
-
-<#--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" />-->
     <script type="text/javascript" src="/resources/js/bootstrap.js"></script>
 
 
@@ -23,42 +20,37 @@
         }
     </style>
     <script type="text/javascript">
+        //                        message: '用户添加成功!',
         function refreshPage() {
             window.location.reload();
         }
         $(document).ready(
-                function () {
-                    $('#summernote').summernote();
-                }
+
         );
-        function checkBlogText() {
-            var blogTitle = $('#blogTitle').val();
-            var tags = $('#tags').val();
-            var blogCategory = $('#blogCategory').val();
-            var blogImgSrc = $('#blogImgSrc').val();
-            var blogContent = $('#summernote').code();
-            console.log(blogContent);
+        function submitUserText(){
+            var username = $('#userNameId').val();
+            var password = $('#passWordId').val();
+            var salt = $('#salt').val();
+            console.log(username);
             $.ajax({
                 data: {
-                    'blogTitle': blogTitle,
-                    'tags': tags,
-                    'blogCategory': blogCategory,
-                    'blogImgSrc': blogImgSrc,
-                    'blogContent': blogContent
+                    'username': username,
+                    'password': password,
+                    'salt': salt
                 },
                 type: "post",
                 dataType: 'json',
-                url: "/createblog",
+                url: "/createUser",
                 error: function (XMLHttpRequest, error, errorThrown) {
                     console.log("error " + error + ": " + errorThrown);
                     BootstrapDialog.show({
-                        message: '博客添加成功!'
+                        message: error.message
                     });
                 },
                 success: function (data) {
                     BootstrapDialog.show({
                         title: '提示',
-                        message: '博客添加成功!',
+                        message: '用户添加成功',
                         buttons: [{
                             label: '确定',
                             action: function (dialog) {
@@ -71,6 +63,7 @@
             });
             return false;
         }
+
     </script>
 
 </head>
@@ -97,44 +90,21 @@
         <div class=" col-md-10">
 
             <div style="padding: 30px;">
-                <h3>添加博客</h3>
+                <h3>添加用户</h3>
                 <hr>
-            <#--<form ac method="post">-->
-                <form action="/createBlog" method="post" onsubmit="return checkBlogText()">
+                <form action="" method="post" onsubmit="return submitUserText()">
                     <div class="form-group">
-                        <label>博客标题:</label>
-                        <input type="text" class="form-control" style="width: 600px" placeholder="title" id="blogTitle"
-                               name="blogTitle" required="true">
+                        <label>用户名:</label>
+                        <input type="text" class="form-control" style="width: 600px" placeholder="title" id="userNameId" required="true">
                     </div>
                     <div class="form-group">
-                        <label>博客内容:</label>
-
-                        <div id="summernote">请在此处编辑博客内容...
-
-                        </div>
+                        <label>密码:</label>
+                        <input type="text" class="form-control" style="width: 600px" placeholder="title" id="passWordId" required="true">
                     </div>
 
                     <div class="form-group">
-                        <label>博客标签</label>
-                        <input type="text" class="form-control" style="width: 600px" placeholder="tags" id="tags"
-                               name="tags">
-                    </div>
-                    <div class="form-group">
-                        <label>博客类别</label>
-                        <select class="form-control" style="width: 150px" id="blogCategory" name="blogCategory"
-                                required="true">
-                            <option selected>选择博客类别</option>
-                        <#if (cateList?size > 0)>
-                            <#list cateList as category >
-                                <option>${category.categoryTitle}</option>
-                            </#list>
-                        </#if>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>博客配图:</label>
-                        <input type="text" class="form-control" style="width: 600px" placeholder="title" id="blogImgSrc"
-                               name="blogImgSrc" required="true">
+                        <label>盐</label>
+                        <input type="text" class="form-control" style="width: 600px" placeholder="salt" id="salt">
                     </div>
 
                     <input type="submit" value="创  建" class="btn"></input>

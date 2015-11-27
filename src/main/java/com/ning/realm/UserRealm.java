@@ -56,11 +56,11 @@ public class UserRealm extends AuthorizingRealm {
 
         //交给AuthenticatingRealm使用CredentialsMatcher进行密码匹配，如果觉得人家的不好可以自定义实现
         String temName =getName();  //realm name
-        String hashCode =   passwordService.encryptPassword("123");
+//        String hashCode =   passwordService.encryptPassword("123");
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
                 user.getUsername(), //用户名
-                hashCode, //密码
-//                ByteSource.Util.bytes(user.getCredentialsSalt()),//salt=username+salt
+                user.getPassword(), //密码
+                ByteSource.Util.bytes(user.getCredentialsSalt()),//salt=username+salt
                 getName()  //realm name
         );
 

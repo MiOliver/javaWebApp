@@ -193,6 +193,7 @@
                 /unauthorized.jsp = anon
                 /login = authc
                 /logout = logout
+                <!--/login = authc-->
                 <!--/** = user-->
             </value>
         </property>
