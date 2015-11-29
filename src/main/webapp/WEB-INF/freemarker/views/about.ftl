@@ -14,63 +14,55 @@
 </head>
 <body>
 <div class="container">
-    <h1>Oliver's Blogs</h1>
+    <h1>享受技术和生活中的快乐</h1>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-            <div class="navbar-header" >
+            <div class="navbar-header">
                 <a class="navbar-brand" href="#">
                     <img alt="Brand" src="/resources/img/Dolphin.png" width="25" height="25">
                 </a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="/index">Home</a></li>
-                <li><a href="/addblog">Link</a></li>
-                <li class="active"><a href="/about">About</a></li>
+                <li ><a href="/index">首页</a></li>
+                <li ><a href="/life">生活</a></li>
+                <li class="active"><a href="/about">关于</a></li>
             </ul>
         </div>
 
     </nav>
 
+
     <div class="row" style="background-color: white;border-radius:5px;line-height: 30px;padding: 20px;  ">
-        <div class=".col-xs-6 col-md-9">
-            <h2>content</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-                laoreet dolore magna aliquam erat volutpat. Ut wi快递费si enim ad minim veniam, quis nostrud exerci tation
-                ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor
-                in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at
-                vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis
-                dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil
-                imperdiet doming id quod mazim placerat facer possim assum.</p>
+
+        <div class=".col-xs-6 col-md-11">
+            <address>
+                <h3>个人简介</h3><hr>
+                <img src="/resources/img/me.jpg" ><br><br>
+                <strong>Oliver</strong>
+                <p>
+                    目前在一家互联网公司从事java后台和Android App研发工作！
+                </p>
+
+            </address>
+            <address>
+                <strong>个人爱好</strong><br>
+              <p>热爱篮球、喜欢登山、跑步、骑行、户外野营</p>
+
+            </address>
+
 
             <address>
-                <strong>Twitter, Inc.</strong><br>
-                795 Folsom Ave, Suite 600<br>
-                San Francisco, CA 94107<br>
-                <abbr title="Phone">P:</abbr> (123) 456-7890
+                <strong>微博账号</strong><br>
+                <a href="http://weibo.com/ningvip/home">猫仔仔</a>
             </address>
 
             <address>
-                <strong>Oliver</strong><br>
+                <strong>Email:</strong><br>
                 <a href="mailto:#">tianxingzhe1990@gmail.com</a>
             </address>
         </div>
         <div class=".col-xs-6 col-md-3">
-            <div>
-                <h2>Sidebar</h2>
-                <ul class="nav-tabs-justified">
-                    <li><a href="#">Another Link 1</a></li>
-                    <li><a href="#">Another Link 2</a></li>
-                    <li><a href="#">Another Link 3</a></li>
-                </ul>
-            </div>
-            <div>
-                <h2>Sidebar</h2>
-                <ul class="nav-tabs-justified">
-                    <li><a href="#">Another Link 1</a></li>
-                    <li><a href="#">Another Link 2</a></li>
-                    <li><a href="#">Another Link 3</a></li>
-                </ul>
-            </div>
+
         </div>
     </div>
 </div>

@@ -6,6 +6,7 @@ import com.ning.serviceimpl.BlogServiceImpl;
 import com.ning.serviceimpl.ManageService;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +30,7 @@ public class ManageController extends BaseController{
 
     private static final String PAGE_MANAGE="manage";
     private static final String LOGIN="login";
+    private static final String UNAUTHORIZED="unauthorized";
     private static final String BLOGMANAGE="blog_manage";
     private static final String LOGOUT="logoutsucc";
     private static final String ADDUSER="add_user";
@@ -39,10 +41,9 @@ public class ManageController extends BaseController{
     private ManageService manageService;
 
 
-
+    @RequiresRoles("admin")
     @RequestMapping(value = "manage",method= RequestMethod.GET)
      public String base(Model model){
-        model.addAttribute("admin","admin");
         return PAGE_MANAGE;
     }
 
@@ -50,6 +51,7 @@ public class ManageController extends BaseController{
     public String showLoginPage() {
         return "login";
     }
+
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String submitLoginForm(HttpServletRequest request, Model model) {
@@ -73,20 +75,24 @@ public class ManageController extends BaseController{
         return LOGOUT;
     }
 
+    @RequestMapping(value = "/unauthorized",method= RequestMethod.GET)
+    public String unauthorized(Model model){
+        return UNAUTHORIZED;
+    }
 
     @RequestMapping(value = "blogManage",method= RequestMethod.GET)
     public ModelAndView blogManage(){
         ModelAndView mv=new ModelAndView(BLOGMANAGE);
-        List<BlogContent> blogList=blogService.getBlogList(page);
-        mv.addObject("displayPageBar",displayPageBar);
-        mv.addObject("page",page);
-        mv.addObject("blogList",blogList);
+        List<BlogContent> blogList=blogService.getBlogList(page,0);
         if (blogList != null && blogList.size() > 0) {
             this.setDisplayPageBar(true);
         } else {
             blogList = null;
             this.setDisplayPageBar(false);
         }
+        mv.addObject("displayPageBar",displayPageBar);
+        mv.addObject("page",page);
+        mv.addObject("blogList",blogList);
         return mv;
     }
 

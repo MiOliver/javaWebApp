@@ -27,8 +27,9 @@ public class MainController extends BaseController{
     @Autowired
     private BlogServiceImpl blogService;
 
-    private static int counter = 0;
+    private static int COUNTER = 0;
     private static final String VIEW_INDEX = "index";
+    private static final String LIFE_INDEX = "life";
     private static final String ADDVIEW = "add";
     private static final String USERLIST = "user_list";
     private static final String TEST = "test";
@@ -37,48 +38,51 @@ public class MainController extends BaseController{
     private User user;
     private List<User> userList;
     private List<BlogContent> blogList;
+    private List<BlogContent> bestVisitBlogList;
 
     @RequestMapping(value = "/dd", method = RequestMethod.GET)
     public String welcome(ModelMap model) {
         model.addAttribute("message", "Welcome");
-        model.addAttribute("counter", ++counter);
-        logger.debug("[Welcome counter :{}", counter);
+        model.addAttribute("counter", ++COUNTER);
+        logger.debug("[Welcome counter :{}", COUNTER);
         return VIEW_INDEX;//返回index.jsp
     }
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @RequestMapping(value = {"/","/index",}, method = RequestMethod.GET)
     public ModelAndView indexpage(ModelMap model) {
         ModelAndView mv=new ModelAndView(VIEW_INDEX);
-        blogList=blogService.getBlogList(page);
+        blogList=blogService.getBlogList(page,1);
         blogList=blogService.getFixBlogList(blogList);
-        mv.addObject("displayPageBar",displayPageBar);
-        mv.addObject("page",page);
-        mv.addObject("blogList",blogList);
-
+        bestVisitBlogList=blogService.getBestList();
         if (blogList != null && blogList.size() > 0) {
             this.setDisplayPageBar(true);
         } else {
             blogList = null;
             this.setDisplayPageBar(false);
         }
+        mv.addObject("displayPageBar",displayPageBar);
+        mv.addObject("page",page);
+        mv.addObject("blogList",blogList);
+        mv.addObject("bestBlogList",bestVisitBlogList);
         return mv;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView mainPage(ModelMap model) {
-        ModelAndView mv=new ModelAndView(VIEW_INDEX);
-        blogList=blogService.getBlogList(page);
+    @RequestMapping(value = {"/life",}, method = RequestMethod.GET)
+    public ModelAndView lifepage(ModelMap model) {
+        ModelAndView mv=new ModelAndView(LIFE_INDEX);
+        blogList=blogService.getBlogList(page,2);
         blogList=blogService.getFixBlogList(blogList);
-        mv.addObject("displayPageBar",displayPageBar);
-        mv.addObject("page",page);
-        mv.addObject("blogList",blogList);
-
+        bestVisitBlogList=blogService.getBestList();
         if (blogList != null && blogList.size() > 0) {
             this.setDisplayPageBar(true);
         } else {
             blogList = null;
             this.setDisplayPageBar(false);
         }
+        mv.addObject("displayPageBar",displayPageBar);
+        mv.addObject("page",page);
+        mv.addObject("blogList",blogList);
+        mv.addObject("bestBlogList",bestVisitBlogList);
         return mv;
     }
 
@@ -127,17 +131,9 @@ public class MainController extends BaseController{
     public User getUser() {
         return user;
     }
-
     public void setUser(User user) {
         this.user = user;
     }
 
-    public List<BlogContent> getBlogList() {
-        return blogList;
-    }
-
-    public void setBlogList(List<BlogContent> blogList) {
-        this.blogList = blogList;
-    }
 }
 

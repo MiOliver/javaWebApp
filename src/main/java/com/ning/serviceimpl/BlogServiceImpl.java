@@ -9,6 +9,8 @@ import com.ning.mapper.BlogTagMapper;
 import com.xiaomi.platform.xmybatis.plugins.Pagination;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -30,8 +32,11 @@ public class BlogServiceImpl {
         return blogTagMapper.getListByPage();
     }
 
-    public List<BlogContent> getBlogList(Pagination page){
-        return blogContentMapper.getBlogListByPage(page);
+    public List<BlogContent> getBlogList(Pagination page,Integer type){
+        return blogContentMapper.getBlogListByPage(page,type);
+    }
+    public List<BlogContent> getBestList(){
+        return blogContentMapper.getBestList();
     }
 
     public List<BlogContent> getFixBlogList(List<BlogContent> list){
@@ -70,6 +75,32 @@ public class BlogServiceImpl {
         if(blog!=null){
             blogContentMapper.updateByPrimaryKey(blog);
         }
+    }
+    public List<BlogContent> getSimilarList(String tags){
+        List<BlogContent> allList = new ArrayList<BlogContent>();
+        List<BlogContent> filterList = new ArrayList<BlogContent>();
+        if(tags !=null){
+            String[] tagList=tags.split(";");
+            String tag=tagList[0];
+            allList=blogContentMapper.getBlogListbyTag(tag);
+            for(BlogContent item:allList){
+                String[] itemTaglist = item.getTags().split(";");
+                for(int i=1;i<tagList.length;i++){
+                    for(String temitem:itemTaglist){
+                        if (temitem.equals(tagList[i])){
+                            filterList.add(item);
+                        }
+                    }
+
+                }
+            }
+            if(filterList.size()==0){
+                return allList.subList(0,5);
+            }
+            return filterList.subList(0,5);
+        }
+        return allList;
+
     }
 
 }

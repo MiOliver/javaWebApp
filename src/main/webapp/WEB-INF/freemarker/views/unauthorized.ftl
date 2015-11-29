@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>享受技术和生活中的快乐</h1>
+    <h1>Oliver's Blogs</h1>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header" >
@@ -32,28 +32,10 @@
     </nav>
 
     <div class="row" style="background-color: white;border-radius:5px;line-height: 30px;padding: 20px;  ">
-        <div class=".col-xs-6 col-md-9">
-            <table>
-                <th>ID</th>
-                <th>一级分类</th>
-                <th>名称</th>
-            <#if (tagsList?size>0)>
-                <#list tagsList as tag>
-                    <tr>
-                        <td>tag.id</td>
-                        <td>tag.firstClassify</td>
-                        <td>tag.tagName</td>
-                    </tr>
-                </#list>
-            <#else >
-                <tr>
-                    <td colspan="3">没有记录</td>
-
-                </tr>
-            </#if>
-
-
-            </table>
+        <div class=".col-xs-6 col-md-9" >
+            <h3>权限错误</h3>
+            <p>您没有权限访问当前页面！</p>
+            <img src="/resources/img/Coffee.png">
         </div>
         <div class=".col-xs-6 col-md-3">
             <div>

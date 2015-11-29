@@ -14,22 +14,23 @@
 </head>
 <body>
 <div class="container">
-    <h1>Oliver's Blogs</h1>
+    <h1>享受技术和生活中的快乐</h1>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-            <div class="navbar-header" >
+            <div class="navbar-header">
                 <a class="navbar-brand" href="#">
                     <img alt="Brand" src="/resources/img/Dolphin.png" width="25" height="25">
                 </a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/index">Home</a></li>
-                <li><a href="/addblog">Link</a></li>
-                <li><a href="/about">About</a></li>
+                <li ><a href="/index">首页</a></li>
+                <li ><a href="/addblog">生活</a></li>
+                <li><a href="/about">关于</a></li>
             </ul>
         </div>
 
     </nav>
+
 
     <div class="row" style="background-color: white;border-radius:5px;line-height: 30px;padding: 20px;  ">
         <div class=".col-xs-6 col-md-9">
@@ -49,24 +50,42 @@
 
             </div>
             <p>${blog.blogContent}</p>
+            <hr>
+            <div>
+                <label>分享到：</label>
+                <!-- JiaThis Button BEGIN -->
+                <div class="jiathis_style_32x32">
+                    <a class="jiathis_button_qzone"></a>
+                    <a class="jiathis_button_tsina"></a>
+                    <a class="jiathis_button_tqq"></a>
+                    <a class="jiathis_button_weixin"></a>
+                    <a class="jiathis_button_renren"></a>
+                    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+                    <a class="jiathis_counter_style"></a>
+                </div>
+                <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+                <!-- JiaThis Button END -->
+            </div>
         </div>
         <div class=".col-xs-6 col-md-3">
-            <div>
-                <h2>Sidebar</h2>
-                <ul class="nav-tabs-justified">
-                    <li><a href="#">Another Link 1</a></li>
-                    <li><a href="#">Another Link 2</a></li>
-                    <li><a href="#">Another Link 3</a></li>
-                </ul>
-            </div>
-            <div>
-                <h2>Sidebar</h2>
-                <ul class="nav-tabs-justified">
-                    <li><a href="#">Another Link 1</a></li>
-                    <li><a href="#">Another Link 2</a></li>
-                    <li><a href="#">Another Link 3</a></li>
-                </ul>
-            </div>
+            <#--<div>-->
+                <#--<h3>相关阅读</h3>-->
+                <#--<ul class="nav-tabs-justified">-->
+                <#--<#if similarBlogList?size &gt; 0>-->
+                    <#--<#list similarBlogList as blog >-->
+                        <#--<li><a href="/blogdetail?id=${blog.id}">${blog.blogTitle}</a></li>-->
+                    <#--</#list>-->
+                <#--</#if>-->
+                <#--</ul>-->
+            <#--</div>-->
+            <#--<div>-->
+                <#--<h2>Sidebar</h2>-->
+                <#--<ul class="nav-tabs-justified">-->
+                    <#--<li><a href="#">Another Link 1</a></li>-->
+                    <#--<li><a href="#">Another Link 2</a></li>-->
+                    <#--<li><a href="#">Another Link 3</a></li>-->
+                <#--</ul>-->
+            <#--</div>-->
         </div>
     </div>
 </div>

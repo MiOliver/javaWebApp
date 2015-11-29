@@ -9,7 +9,9 @@ public class BlogContent {
 
     private String blogContent;
 
-    private String blogCategory;
+    private int blogCategoryId;
+
+    private String subTitle;
 
     private String blogImgSrc;
 
@@ -47,12 +49,12 @@ public class BlogContent {
         this.blogContent = blogContent == null ? null : blogContent.trim();
     }
 
-    public String getBlogCategory() {
-        return blogCategory;
+    public int getBlogCategoryId() {
+        return blogCategoryId;
     }
 
-    public void setBlogCategory(String blogCategory) {
-        this.blogCategory = blogCategory;
+    public void setBlogCategoryId(int blogCategoryId) {
+        this.blogCategoryId = blogCategoryId;
     }
 
     public String getTags() {

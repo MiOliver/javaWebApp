@@ -12,9 +12,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class TestController {
 
     private static final String TEST="test";
+    private static final String ECHARTEST="echars_test";
 
     @RequestMapping(value = "/testbs", method = RequestMethod.GET)
     public String testPage(){
         return TEST;
+    }
+    @RequestMapping(value = "/echarTest", method = RequestMethod.GET)
+    public String echarTest(){
+        return ECHARTEST;
     }
 }

@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,9 +34,11 @@ public class BlogController {
     private static final String ADDBLOG = "add_blog";
     private static final String BLOGTAGSLIST = "blog_tags_list";
     private static final String BLOGDETAIL = "blog_detail";
+    private static final String BLOGSTATISTICS = "blog_statistics";
     private static final String ABOUT = "about";
     private List<BlogTag> tagsList;
     private List<BlogCategory> cateList;
+    private List<BlogContent> similarBlogList;
     private Map<String, Object> map;
 
     @RequiresRoles("admin")
@@ -52,6 +55,23 @@ public class BlogController {
         tagsList = blogService.getTagList();
         ModelAndView modelAndView = new ModelAndView(BLOGTAGSLIST);
         modelAndView.addObject("tagsList", tagsList);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/blogTrend", method = RequestMethod.GET)
+    public ModelAndView blogTrend(){
+        List<BlogContent> list = blogService.getBestList();
+//        List<Long> idList =new ArrayList<Long>();
+//        List<Long> countList =new ArrayList<Long>();
+        Long[] idList =new Long[5];
+        Long[] countList =new Long[5];
+        for(int i=0;i<list.size();i++){
+            idList[i]=list.get(i).getId();
+            countList[i]=list.get(i).getVisitCount();
+        }
+        ModelAndView modelAndView = new ModelAndView(BLOGSTATISTICS);
+        modelAndView.addObject("idList", idList);
+        modelAndView.addObject("countList", countList);
         return modelAndView;
     }
 
@@ -96,8 +116,10 @@ public class BlogController {
         }
         blog.setVisitCount(blog.getVisitCount() + 1);
         blogService.updateBlog(blog);
+//        similarBlogList=blogService.getSimilarList(blog.getTags());
         ModelAndView mv = new ModelAndView(BLOGDETAIL);
         mv.addObject("blog", blog);
+//        mv.addObject("similarBlogList", similarBlogList);
         return mv;
     }
 

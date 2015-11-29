@@ -25,8 +25,8 @@
                 </a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/index">首页</a></li>
-                <li><a href="/life">生活</a></li>
+                <li><a href="/index">首页</a></li>
+                <li class="active"><a href="/life">生活</a></li>
                 <li><a href="/about">关于</a></li>
             </ul>
         </div>

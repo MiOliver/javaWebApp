@@ -71,12 +71,19 @@
             });
             return false;
         }
+        function getsubtype(type){
+            console.log(type);
+        }
+        function updateSubClass(type){
+            console.log(type);
+        }
+
     </script>
 
 </head>
 <body>
 <div class="container">
-    <h1>Oliver's Blogs</h1>
+    <h1>享受技术和生活中的快乐</h1>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -85,9 +92,9 @@
                 </a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="/index">Home</a></li>
-                <li class="active"><a href="/addblog">Link</a></li>
-                <li><a href="/about">About</a></li>
+                <li ><a href="/index">首页</a></li>
+                <li class="active"><a href="/life">生活</a></li>
+                <li><a href="/about">关于</a></li>
             </ul>
         </div>
 
@@ -120,15 +127,19 @@
                                name="tags">
                     </div>
                     <div class="form-group">
+                        <label>博客类型</label><br>
+                    <#if (cateList?size > 0)>
+                        <#list cateList as category >
+                            <input type="radio"  name="blogType" style="width: 17px;height: 17px" onclick="getsubtype('${category.categoryTitle}')"> ${category.categoryTitle} &nbsp;&nbsp;
+                        </#list>
+                    </#if>
+
+                    </div>
+                    <div class="form-group">
                         <label>博客类别</label>
                         <select class="form-control" style="width: 150px" id="blogCategory" name="blogCategory"
                                 required="true">
                             <option selected>选择博客类别</option>
-                        <#if (cateList?size > 0)>
-                            <#list cateList as category >
-                                <option>${category.categoryTitle}</option>
-                            </#list>
-                        </#if>
                         </select>
                     </div>
                     <div class="form-group">

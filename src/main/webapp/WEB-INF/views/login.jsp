@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>Oliver's Blogs</h1>
+    <h1>享受技术和生活带来的快乐</h1>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -22,64 +22,34 @@
                 </a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">About</a></li>
+                <li ><a href="/index">首页</a></li>
+                <li class="active"><a href="/addblog">生活</a></li>
+                <li><a href="/about">关于</a></li>
             </ul>
         </div>
 
     </nav>
 
-    <div class="row" style="background-color: white;border-radius:5px;line-height: 30px;padding: 20px;  ">
-        <div class=" col-md-9">
-            <form action="" method="post">
-                <table>
-                    <tr>
-                        <td colspan="2" >
-                            ${error}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="width: 80px;">
-                            <span style="color:red;">*</span>用户名:
-                        </td>
-                        <td>
-                            <input class="form-control" type="text" name="username" value="<shiro:principal/>"><br/>
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span style="color:red;">*</span>密 码:
-                        </td>
-                        <td>
-                            <input class="form-control" type="password" name="password"><br/>
-                            <%--自动登录：<input type="checkbox" name="rememberMe" value="true"><br/>--%>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><input type="submit" class="btn btn-success" value="登  录"/></td>
-                    </tr>
-                </table>
+    <div class="row" style="background-color: white;border-radius:5px;line-height: 30px;padding: 20px;  ">
+        <div class=" col-md-9" >
+            <form action="" method="post">
+                <div class="row">
+                    <label style="color: red">${error}</label>
+                </div>
+                <div class="row">
+                    <span style="color:red;">*</span>用户名:
+                    <input class="form-control" style="width:200px" type="text" name="username" value="<shiro:principal/>">
+                </div>
+                <div class="row">
+                    <span style="color:red;">*</span>密 码:
+                    <input class="form-control"  style="width:200px"  type="password" name="password"><br/>
+                    <input type="submit" class="btn btn-success" value="登  录"/>
+                </div>
             </form>
         </div>
         <div class=" col-md-3">
-            <div>
-                <h2>Sidebar</h2>
-                <ul class="nav-tabs-justified">
-                    <li><a href="#">Another Link 1</a></li>
-                    <li><a href="#">Another Link 2</a></li>
-                    <li><a href="#">Another Link 3</a></li>
-                </ul>
-            </div>
-            <div>
-                <h2>Sidebar</h2>
-                <ul class="nav-tabs-justified">
-                    <li><a href="#">Another Link 1</a></li>
-                    <li><a href="#">Another Link 2</a></li>
-                    <li><a href="#">Another Link 3</a></li>
-                </ul>
-            </div>
+
         </div>
     </div>
 </div>

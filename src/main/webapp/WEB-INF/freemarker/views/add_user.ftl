@@ -69,7 +69,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>Oliver's Blogs</h1>
+    <h1>享受技术和生活中的快乐</h1>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -79,7 +79,7 @@
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="/index">Home</a></li>
-                <li class="active"><a href="/addblog">Link</a></li>
+                <li class="active"><a href="/life">Link</a></li>
                 <li><a href="/about">About</a></li>
             </ul>
         </div>

@@ -94,4 +94,6 @@
   <select id="getCateList" resultType="list" resultMap="BaseResultMap">
     SELECT * from blog_category;
   </select>
+
+
 </mapper>
