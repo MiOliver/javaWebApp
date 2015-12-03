@@ -22,7 +22,7 @@
     delete from blog_subtype
     where id = #{id,jdbcType=SMALLINT}
   </delete>
-  <insert id="insert" parameterType="test.domain.BlogSubtype" >
+  <insert id="insert" parameterType="com.ning.domain.BlogSubtype" >
     insert into blog_subtype (id, category_id, sub_title, 
       create_time, update_time, create_person
       )

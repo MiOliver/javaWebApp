@@ -36,7 +36,7 @@
     <div class="row" style="background-color: white;border-radius:5px;line-height: 30px;padding: 20px;  ">
         <div class=".col-xs-6 col-md-9">
 
-        <#if blogList?size &gt; 0>
+        <#if (blogList?size > 0)>
             <#list blogList as blog >
                 <div>
                     <a href="/blogdetail?id=${blog.id}"><h3>${blog.blogTitle}</h3></a>
