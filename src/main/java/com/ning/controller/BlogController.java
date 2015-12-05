@@ -2,6 +2,7 @@ package com.ning.controller;
 
 import com.ning.domain.BlogCategory;
 import com.ning.domain.BlogContent;
+import com.ning.domain.BlogSubtype;
 import com.ning.domain.BlogTag;
 import com.ning.serviceimpl.BlogServiceImpl;
 import org.apache.shiro.authz.annotation.RequiresRoles;
@@ -25,7 +26,7 @@ import java.util.Map;
 
 
 @Controller
-public class BlogController {
+public class BlogController extends BaseController {
     @Autowired
     private BlogServiceImpl blogService;
 
@@ -36,6 +37,8 @@ public class BlogController {
     private static final String BLOGDETAIL = "blog_detail";
     private static final String BLOGSTATISTICS = "blog_statistics";
     private static final String ABOUT = "about";
+
+
     private List<BlogTag> tagsList;
     private List<BlogCategory> cateList;
     private List<BlogContent> similarBlogList;
@@ -47,6 +50,7 @@ public class BlogController {
         cateList = blogService.getCateList();
         ModelAndView modelAndView = new ModelAndView(ADDBLOG);
         modelAndView.addObject("cateList", cateList);
+        modelAndView.addObject("update", false);
         return modelAndView;
     }
 
@@ -80,6 +84,14 @@ public class BlogController {
         return ABOUT;
     }
 
+    @RequestMapping(value = "/getSublist", method = RequestMethod.GET)
+    public void getSublist(HttpServletRequest request,HttpServletResponse response) {
+        Integer cateId =Integer.valueOf(request.getParameter("cateId").toString());
+        List<BlogSubtype> list = blogService.getSubtypeList(cateId);
+        ajax(response,Status.success,list);
+        return;
+    }
+
     @RequestMapping(value = "/createblog", method = RequestMethod.POST,  headers="Accept=application/json")
     public  @ResponseBody Object createBlog(BlogContent blog, HttpServletRequest request, HttpServletResponse response) {
         map = new HashMap<String, Object>();
@@ -110,6 +122,34 @@ public class BlogController {
 
     @RequestMapping(value = "/blogdetail", method = RequestMethod.GET)
     public ModelAndView blogDetail(HttpServletRequest request) {
+        String id = request.getParameter("id").toString();
+        if (id != null && (!id.isEmpty())) {
+            blog = blogService.getBlogbyId(Long.valueOf(id));
+        }
+        blog.setVisitCount(blog.getVisitCount() + 1);
+        blogService.updateBlog(blog);
+//        similarBlogList=blogService.getSimilarList(blog.getTags());
+        ModelAndView mv = new ModelAndView(BLOGDETAIL);
+        mv.addObject("blog", blog);
+//        mv.addObject("similarBlogList", similarBlogList);
+        return mv;
+    }
+
+    @RequestMapping(value = "/updateBlog", method = RequestMethod.GET)
+    public ModelAndView getBlog(HttpServletRequest request) {
+        String id = request.getParameter("id").toString();
+        if (id != null && (!id.isEmpty())) {
+            blog = blogService.getBlogbyId(Long.valueOf(id));
+        }
+        cateList = blogService.getCateList();
+        ModelAndView mv = new ModelAndView(ADDBLOG);
+        mv.addObject("blog", blog);
+        mv.addObject("cateList", cateList);
+        mv.addObject("update", true);
+        return mv;
+    }
+    @RequestMapping(value = "/updateBlog", method = RequestMethod.POST)
+    public ModelAndView updateBlog(HttpServletRequest request) {
         String id = request.getParameter("id").toString();
         if (id != null && (!id.isEmpty())) {
             blog = blogService.getBlogbyId(Long.valueOf(id));

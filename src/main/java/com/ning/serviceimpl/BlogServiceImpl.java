@@ -2,9 +2,11 @@ package com.ning.serviceimpl;
 
 import com.ning.domain.BlogCategory;
 import com.ning.domain.BlogContent;
+import com.ning.domain.BlogSubtype;
 import com.ning.domain.BlogTag;
 import com.ning.mapper.BlogCategoryMapper;
 import com.ning.mapper.BlogContentMapper;
+import com.ning.mapper.BlogSubtypeMapper;
 import com.ning.mapper.BlogTagMapper;
 import com.xiaomi.platform.xmybatis.plugins.Pagination;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,8 @@ public class BlogServiceImpl {
     private BlogCategoryMapper blogCategoryMapper;
     @Autowired
     private BlogContentMapper blogContentMapper;
+    @Autowired
+    private BlogSubtypeMapper blogSubtypeMapper;
 
     public List<BlogTag> getTagList(){
         return blogTagMapper.getListByPage();
@@ -37,6 +41,10 @@ public class BlogServiceImpl {
     }
     public List<BlogContent> getBestList(){
         return blogContentMapper.getBestList();
+    }
+
+    public List<BlogSubtype> getSubtypeList(int type){
+        return blogSubtypeMapper.getsublist(type);
     }
 
     public List<BlogContent> getFixBlogList(List<BlogContent> list){

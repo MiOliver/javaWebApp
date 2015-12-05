@@ -15,7 +15,7 @@
     <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, blog_title, blog_content, blog_category_id,sub_title, tags, visit_count, create_time, update_time,
+    id, blog_title, blog_content, blog_category_id,sub_title,  blog_img_src , tags, visit_count, create_time, update_time,
     create_person
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >

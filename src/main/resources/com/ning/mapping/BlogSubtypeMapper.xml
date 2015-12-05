@@ -103,4 +103,11 @@
       create_person = #{createPerson,jdbcType=VARCHAR}
     where id = #{id,jdbcType=SMALLINT}
   </update>
+
+  <select id="getsublist" resultMap="BaseResultMap" resultType="list" parameterType="int">
+    select
+    <include refid="Base_Column_List" />
+    from blog_subtype
+    where category_id=#{type}
+  </select>
 </mapper>

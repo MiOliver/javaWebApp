@@ -72,10 +72,40 @@
             return false;
         }
         function getsubtype(type){
-            console.log(type);
+//            $.getJSON("/getSublist",type,function(data){
+//                if(data.status && data.status=="success") {
+//
+//                } else {
+//
+//                }
+//            });
+            $.ajax({
+                data: {
+                    'cateId': type
+                },
+                type: "get",
+                dataType: 'json',
+                url: "/getSublist",
+                error: function (XMLHttpRequest, error, errorThrown) {
+                    console.log("error " + error + ": " + errorThrown);
+                    BootstrapDialog.show({
+                        message: '请求出错!'
+                    });
+                },
+                success:setSublist()
+            });
         }
         function updateSubClass(type){
             console.log(type);
+        }
+        function setSublist(data){
+            var json = eval(data); //数组
+            $.each(json, function (index, item) {
+                //循环获取数据
+                var subTitle = json[index].subTitle;
+                console.log(subTitle);
+//                $("#blogCategory").html($("#list").html() + "<br>" + name + " - " + idnumber + " - " + sex + "<br/>");
+            });
         }
 
     </script>
@@ -102,55 +132,105 @@
 
     <div class="row" style="background-color: white;border-radius:5px;padding: 20px;  ">
         <div class=" col-md-10">
+            <#if update == false>
+                <div style="padding: 30px;">
+                    <h3>添加博客</h3>
+                    <hr>
+                <#--<form ac method="post">-->
+                    <form action="/createBlog" method="post" onsubmit="return checkBlogText()">
+                        <div class="form-group">
+                            <label>博客标题:</label>
+                            <input type="text" class="form-control" style="width: 800px" placeholder="title" id="blogTitle"
+                                   name="blogTitle" required="true">
+                        </div>
+                        <div class="form-group">
+                            <label>博客内容:</label>
 
-            <div style="padding: 30px;">
-                <h3>添加博客</h3>
-                <hr>
-            <#--<form ac method="post">-->
-                <form action="/createBlog" method="post" onsubmit="return checkBlogText()">
-                    <div class="form-group">
-                        <label>博客标题:</label>
-                        <input type="text" class="form-control" style="width: 600px" placeholder="title" id="blogTitle"
-                               name="blogTitle" required="true">
-                    </div>
-                    <div class="form-group">
-                        <label>博客内容:</label>
+                            <div id="summernote">请在此处编辑博客内容...
 
-                        <div id="summernote">请在此处编辑博客内容...
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>博客标签</label>
+                            <input type="text" class="form-control" style="width: 800px" placeholder="tags" id="tags"
+                                   name="tags">
+                        </div>
+                        <div class="form-group">
+                            <label>博客类型</label><br>
+                            <#if (cateList?size > 0)>
+                                <#list cateList as category >
+                                    <input type="radio"  name="blogType" style="width: 17px;height: 17px" onclick="getsubtype('${category.categoryTitle}')"> ${category.categoryTitle} &nbsp;&nbsp;
+                                </#list>
+                            </#if>
 
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label>博客类别</label>
+                            <select class="form-control" style="width: 150px" id="blogCategory" name="blogCategory"
+                                    required="true">
+                                <option selected>选择博客类别</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>博客配图:</label>
+                            <input type="text" class="form-control" style="width: 800px" placeholder="title" id="blogImgSrc"
+                                   name="blogImgSrc" required="true">
+                        </div>
 
-                    <div class="form-group">
-                        <label>博客标签</label>
-                        <input type="text" class="form-control" style="width: 600px" placeholder="tags" id="tags"
-                               name="tags">
-                    </div>
-                    <div class="form-group">
-                        <label>博客类型</label><br>
-                    <#if (cateList?size > 0)>
-                        <#list cateList as category >
-                            <input type="radio"  name="blogType" style="width: 17px;height: 17px" onclick="getsubtype('${category.categoryTitle}')"> ${category.categoryTitle} &nbsp;&nbsp;
-                        </#list>
-                    </#if>
+                        <input type="submit" value="创  建" class="btn"></input>
+                    </form>
+                </div>
+            <#else>
+                <div style="padding: 30px;">
+                    <h3>更新博客</h3>
+                    <hr>
+                <#--<form ac method="post">-->
+                    <form action="/#" method="post" >
+                        <div class="form-group">
+                            <label>博客标题:</label>
+                            <input type="text" class="form-control" style="width: 800px" placeholder="title" value="${blog.blogTitle}"
+                                   name="blogTitle" required="true">
+                        </div>
+                        <div class="form-group">
+                            <label>博客内容:</label>
+                            <div id="summernote">value="${blog.blogContent}"
+                            </div>
+                        </div>
 
-                    </div>
-                    <div class="form-group">
-                        <label>博客类别</label>
-                        <select class="form-control" style="width: 150px" id="blogCategory" name="blogCategory"
-                                required="true">
-                            <option selected>选择博客类别</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>博客配图:</label>
-                        <input type="text" class="form-control" style="width: 600px" placeholder="title" id="blogImgSrc"
-                               name="blogImgSrc" required="true">
-                    </div>
+                        <div class="form-group">
+                            <label>博客标签</label>
+                            <input type="text" class="form-control" style="width: 800px" placeholder="tags" value="${blog.tags}"
+                                   name="tags">
+                        </div>
+                        <div class="form-group">
+                            <label>博客类型</label><br>
+                            <#if (cateList?size > 0)>
+                                <#list cateList as category >
+                                    <input type="radio"  name="blogType" style="width: 17px;height: 17px" <#if category.categoryId==blog.blogCategoryId> checked="checked"</#if> onclick="getsubtype('${category.categoryId}')"> ${category.categoryTitle} &nbsp;&nbsp;
+                                </#list>
+                            </#if>
 
-                    <input type="submit" value="创  建" class="btn"></input>
-                </form>
-            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>博客类别</label>
+                            <select class="form-control" style="width: 150px" id="blogCategory" name="blogCategory"
+                                    required="true">
+                                <option selected>选择博客类别</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>博客配图:</label><br>
+                            <img src="${blog.blogImgSrc}" width="60" height="60">
+                            <input type="text" class="form-control" style="width: 800px" value="${blog.blogImgSrc}"
+                                   name="blogImgSrc" required="true">
+                        </div>
+
+                        <input type="submit" value="更 新" class="btn"></input>
+                    </form>
+                </div>
+            </#if>
+
 
         </div>
 
