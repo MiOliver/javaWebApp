@@ -12,10 +12,7 @@
 
     <script src="/resources/js/bootstrap-dialog.min.js" type="text/javascript"></script>
     <link href="/resources/css/bootstrap-dialog.min.css" rel="stylesheet">
-
-<#--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" />-->
     <script type="text/javascript" src="/resources/js/bootstrap.js"></script>
-
 
     <style type="text/css">
         body {
@@ -92,20 +89,33 @@
                         message: '请求出错!'
                     });
                 },
-                success:setSublist()
+                success:function (data,textStatus){
+                    console.log(textStatus);
+                    var json=eval(data);//转换为json对象
+                    console.log(json);
+                    $.each(json, function (index, item) {
+                        //循环获取数据
+                        console.log(index);
+                        if("var"==index){
+//                            var datajson=json[index];
+//                            console.log(typeof datajson);
+//                            var eval("("+datajson+")");
+
+                            $.each(json[index], function(name, value) {
+                                $.each(value, function(name, value) {
+                                    console.log(name);
+                                    console.log(value);
+                                    <#--$("#blogCategory").append("<option <#if value==category.categoryTitle> selected </#if> >${category.categoryTitle} </option>")-->
+                                });
+                            });
+                        }
+
+                    });
+                }
             });
         }
         function updateSubClass(type){
             console.log(type);
-        }
-        function setSublist(data){
-            var json = eval(data); //数组
-            $.each(json, function (index, item) {
-                //循环获取数据
-                var subTitle = json[index].subTitle;
-                console.log(subTitle);
-//                $("#blogCategory").html($("#list").html() + "<br>" + name + " - " + idnumber + " - " + sex + "<br/>");
-            });
         }
 
     </script>
@@ -214,7 +224,7 @@
                         </div>
                         <div class="form-group">
                             <label>博客类别</label>
-                            <select class="form-control" style="width: 150px" id="blogCategory" name="blogCategory"
+                            <select class="form-control" style="width: 150px" id="blogCategory" id="blogCategory"
                                     required="true">
                                 <option selected>选择博客类别</option>
                             </select>
