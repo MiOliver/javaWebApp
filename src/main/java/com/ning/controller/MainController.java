@@ -1,9 +1,12 @@
 package com.ning.controller;
 
 
+import com.mchange.v2.lang.ObjectUtils;
 import com.ning.domain.BlogContent;
 import com.ning.domain.User;
 import com.ning.serviceimpl.BlogServiceImpl;
+import freemarker.template.utility.StringUtil;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
 import java.util.*;
 
 /*There must be a Controller annotation or the application will doesn't work .*/
@@ -35,7 +39,6 @@ public class MainController extends BaseController{
     private static final String TEST = "test";
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
-    private User user;
     private List<User> userList;
     private List<BlogContent> blogList;
     private List<BlogContent> bestVisitBlogList;
@@ -49,7 +52,12 @@ public class MainController extends BaseController{
     }
 
     @RequestMapping(value = {"/","/index",}, method = RequestMethod.GET)
-    public ModelAndView indexpage(ModelMap model) {
+    public ModelAndView indexpage(ModelMap model,HttpServletRequest request, Principal principal) {
+        if(principal!=null){
+            if(this.getUser(principal.toString())==null){
+                setAdminFromCookie(request);
+            }
+        }
         ModelAndView mv=new ModelAndView(VIEW_INDEX);
         blogList=blogService.getBlogList(page,1);
         blogList=blogService.getFixBlogList(blogList);
@@ -64,6 +72,7 @@ public class MainController extends BaseController{
         mv.addObject("page",page);
         mv.addObject("blogList",blogList);
         mv.addObject("bestBlogList",bestVisitBlogList);
+        mv.addObject("user",this.getUser());
         return mv;
     }
 
@@ -107,12 +116,12 @@ public class MainController extends BaseController{
     }
 
 
-    @RequestMapping(value = "/test",method = RequestMethod.GET)
-    public String test(ModelMap model){
-
-        model.addAttribute(user);
-        return TEST;
-    }
+//    @RequestMapping(value = "/test",method = RequestMethod.GET)
+//    public String test(ModelMap model){
+//
+//        model.addAttribute(user);
+//        return TEST;
+//    }
 
     /***
      * 验证参数是否为空
@@ -128,12 +137,7 @@ public class MainController extends BaseController{
         return true;
     }
 
-    public User getUser() {
-        return user;
-    }
-    public void setUser(User user) {
-        this.user = user;
-    }
+
 
 }
 

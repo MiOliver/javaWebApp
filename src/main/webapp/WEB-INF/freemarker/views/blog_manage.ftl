@@ -96,8 +96,13 @@
                             <td>${blog.blogTitle}</td>
                             <td>${blog.createTime?string('yyyy-MM-dd HH:mm:ss')}</td>
                             <td>${blog.createPerson}</td>
-                            <td><a href="#" onclick="deleteBlog(${blog.id })"><span
-                                    class="glyphicon glyphicon-remove-sign" title="删除" style="font-size: 15"></span></a>
+                            <td>
+                                <a href="/updateBlog?id=${blog.id}" >
+                                    <span class="glyphicon glyphicon-edit" title="编辑" style="font-size: 15"></span></a>
+                                &nbsp;&nbsp;
+                                <a href="#" onclick="deleteBlog(${blog.id })">
+                                    <span class="glyphicon glyphicon-remove-sign" title="删除" style="font-size: 15"></span></a>
+
                             </td>
                         </tr>
                     </#list>

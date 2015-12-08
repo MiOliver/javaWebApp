@@ -66,7 +66,6 @@ public class ManageController extends BaseController{
             authticationError = "未知错误：" + errorClassName;
         }
         model.addAttribute("error", authticationError);
-
         return "login";
     }
 

@@ -29,6 +29,13 @@
                 <li><a href="/life">生活</a></li>
                 <li><a href="/about">关于</a></li>
             </ul>
+
+            <ul class="nav navbar-right">
+                <#if user ??>
+                    <li>${user.username}</li>
+                    <li><a href="/logout">注销</a></li>
+                </#if>
+            </ul>
         </div>
 
     </nav>

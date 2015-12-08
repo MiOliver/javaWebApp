@@ -26,6 +26,8 @@
         $(document).ready(
                 function () {
                     $('#summernote').summernote();
+                    getsubtype(1);
+
                 }
         );
         function checkBlogText() {
@@ -69,13 +71,7 @@
             return false;
         }
         function getsubtype(type){
-//            $.getJSON("/getSublist",type,function(data){
-//                if(data.status && data.status=="success") {
-//
-//                } else {
-//
-//                }
-//            });
+
             $.ajax({
                 data: {
                     'cateId': type
@@ -90,27 +86,20 @@
                     });
                 },
                 success:function (data,textStatus){
-                    console.log(textStatus);
-                    var json=eval(data);//转换为json对象
-                    console.log(json);
-                    $.each(json, function (index, item) {
-                        //循环获取数据
-                        console.log(index);
-                        if("var"==index){
-//                            var datajson=json[index];
-//                            console.log(typeof datajson);
-//                            var eval("("+datajson+")");
-
-                            $.each(json[index], function(name, value) {
-                                $.each(value, function(name, value) {
-                                    console.log(name);
-                                    console.log(value);
-                                    <#--$("#blogCategory").append("<option <#if value==category.categoryTitle> selected </#if> >${category.categoryTitle} </option>")-->
-                                });
-                            });
-                        }
-
-                    });
+                    if(textStatus=='success'){
+                        var clsList = data.var;
+                        var selectStr = "<option value=''>请选择</option>";
+                        $.each(clsList, function(index, value){
+                            if(value!=null){
+                                selectStr +='<option value="'+value.subTitle+'"   >'+value.subTitle+'</option>';
+                            <#--<#if value.subTitle==blog.subTitle> selected="selected" </#if>-->
+                            }
+                        });
+                        $("#blogCategory").empty();
+                        $("#blogCategory").append(selectStr);
+                    }else{
+                        alert(data.message);
+                    }
                 }
             });
         }
@@ -150,7 +139,7 @@
                     <form action="/createBlog" method="post" onsubmit="return checkBlogText()">
                         <div class="form-group">
                             <label>博客标题:</label>
-                            <input type="text" class="form-control" style="width: 800px" placeholder="title" id="blogTitle"
+                            <input type="text" class="form-control" style="width: 90%" placeholder="title" id="blogTitle"
                                    name="blogTitle" required="true">
                         </div>
                         <div class="form-group">
@@ -163,28 +152,28 @@
 
                         <div class="form-group">
                             <label>博客标签</label>
-                            <input type="text" class="form-control" style="width: 800px" placeholder="tags" id="tags"
+                            <input type="text" class="form-control" style="width: 90%" placeholder="tags" id="tags"
                                    name="tags">
                         </div>
                         <div class="form-group">
                             <label>博客类型</label><br>
                             <#if (cateList?size > 0)>
                                 <#list cateList as category >
-                                    <input type="radio"  name="blogType" style="width: 17px;height: 17px" onclick="getsubtype('${category.categoryTitle}')"> ${category.categoryTitle} &nbsp;&nbsp;
+                                    <input type="radio"  name="blogType" style="width: 17px;height: 17px" onclick="getsubtype('${category.categoryId}')"> ${category.categoryTitle} &nbsp;&nbsp;
                                 </#list>
                             </#if>
 
                         </div>
                         <div class="form-group">
                             <label>博客类别</label>
-                            <select class="form-control" style="width: 150px" id="blogCategory" name="blogCategory"
+                            <select class="form-control" style="width: 20%" id="blogCategory" name="blogCategory"
                                     required="true">
                                 <option selected>选择博客类别</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>博客配图:</label>
-                            <input type="text" class="form-control" style="width: 800px" placeholder="title" id="blogImgSrc"
+                            <input type="text" class="form-control" style="width: 90%" placeholder="title" id="blogImgSrc"
                                    name="blogImgSrc" required="true">
                         </div>
 
@@ -199,7 +188,7 @@
                     <form action="/#" method="post" >
                         <div class="form-group">
                             <label>博客标题:</label>
-                            <input type="text" class="form-control" style="width: 800px" placeholder="title" value="${blog.blogTitle}"
+                            <input type="text" class="form-control" style="width: 90%" placeholder="title" value="${blog.blogTitle}"
                                    name="blogTitle" required="true">
                         </div>
                         <div class="form-group">
@@ -210,7 +199,7 @@
 
                         <div class="form-group">
                             <label>博客标签</label>
-                            <input type="text" class="form-control" style="width: 800px" placeholder="tags" value="${blog.tags}"
+                            <input type="text" class="form-control" style="width: 90%" placeholder="tags" value="${blog.tags}"
                                    name="tags">
                         </div>
                         <div class="form-group">
@@ -232,7 +221,7 @@
                         <div class="form-group">
                             <label>博客配图:</label><br>
                             <img src="${blog.blogImgSrc}" width="60" height="60">
-                            <input type="text" class="form-control" style="width: 800px" value="${blog.blogImgSrc}"
+                            <input type="text" class="form-control" style="width: 90%" value="${blog.blogImgSrc}"
                                    name="blogImgSrc" required="true">
                         </div>
 
