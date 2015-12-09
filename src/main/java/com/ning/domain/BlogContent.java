@@ -104,4 +104,12 @@ public class BlogContent {
     public void setBlogImgSrc(String blogImgSrc) {
         this.blogImgSrc = blogImgSrc;
     }
+
+    public String getSubTitle() {
+        return subTitle;
+    }
+
+    public void setSubTitle(String subTitle) {
+        this.subTitle = subTitle;
+    }
 }

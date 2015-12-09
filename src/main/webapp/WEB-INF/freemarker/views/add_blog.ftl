@@ -33,15 +33,19 @@
         function checkBlogText() {
             var blogTitle = $('#blogTitle').val();
             var tags = $('#tags').val();
-            var blogCategory = $('#blogCategory').val();
+            var blogCategoryId = $("input[type='radio']:checked").val();
             var blogImgSrc = $('#blogImgSrc').val();
             var blogContent = $('#summernote').code();
-            console.log(blogContent);
+            var subTitle = $('#subTitle').val();
+            console.log(blogTitle);
+            console.log(blogCategoryId);
+            console.log(subTitle);
             $.ajax({
                 data: {
                     'blogTitle': blogTitle,
                     'tags': tags,
-                    'blogCategory': blogCategory,
+                    'blogCategoryId': blogCategoryId,
+                    'subTitle': subTitle,
                     'blogImgSrc': blogImgSrc,
                     'blogContent': blogContent
                 },
@@ -58,6 +62,55 @@
                     BootstrapDialog.show({
                         title: '提示',
                         message: '博客添加成功!',
+                        buttons: [{
+                            label: '确定',
+                            action: function (dialog) {
+                                refreshPage();
+                            }
+                        }]
+                    });
+
+                }
+            });
+            return false;
+        }
+
+        function updateBlog() {
+            var blogId= $('#blogId').val();
+            var blogTitle = $('#blogTitle').val();
+            var tags = $('#tags').val();
+            var blogCategoryId =  $("input[type='radio']:checked").val();
+            var blogImgSrc = $('#blogImgSrc').val();
+            var blogContent = $('#summernote').code();
+            var subTitle = $('#subTitle').val();;
+
+            console.log(blogId);
+            console.log(blogTitle);
+            console.log(blogCategoryId);
+            console.log(subTitle);
+            $.ajax({
+                data: {
+                    'id': blogId,
+                    'blogTitle': blogTitle,
+                    'subTitle': subTitle,
+                    'tags': tags,
+                    'blogCategoryId': blogCategoryId,
+                    'blogImgSrc': blogImgSrc,
+                    'blogContent': blogContent
+                },
+                type: "post",
+                dataType: 'json',
+                url: "/updateBlog",
+                error: function (XMLHttpRequest, error, errorThrown) {
+                    console.log("error " + error + ": " + errorThrown);
+                    BootstrapDialog.show({
+                        message: '博客更新成功!'
+                    });
+                },
+                success: function (data) {
+                    BootstrapDialog.show({
+                        title: '提示',
+                        message: '博客更新成功!',
                         buttons: [{
                             label: '确定',
                             action: function (dialog) {
@@ -95,8 +148,8 @@
                             <#--<#if value.subTitle==blog.subTitle> selected="selected" </#if>-->
                             }
                         });
-                        $("#blogCategory").empty();
-                        $("#blogCategory").append(selectStr);
+                        $("#subTitle").empty();
+                        $("#subTitle").append(selectStr);
                     }else{
                         alert(data.message);
                     }
@@ -125,6 +178,17 @@
                 <li class="active"><a href="/life">生活</a></li>
                 <li><a href="/about">关于</a></li>
             </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+            <@shiro.user>
+                <li><a href="#"><span class="glyphicon glyphicon-user">&nbsp;<@shiro.principal/></span> </a></li>
+                <li><a href="/logout">注销</a></li>
+            </@shiro.user>
+            <@shiro.guest>
+                <li><a href="#"><span class="glyphicon glyphicon-user">&nbsp;游客</span> </a></li>
+            </@shiro.guest>
+
+            </ul>
         </div>
 
     </nav>
@@ -136,11 +200,11 @@
                     <h3>添加博客</h3>
                     <hr>
                 <#--<form ac method="post">-->
-                    <form action="/createBlog" method="post" onsubmit="return checkBlogText()">
+                    <form action="#" method="post" onsubmit="return checkBlogText()">
                         <div class="form-group">
                             <label>博客标题:</label>
                             <input type="text" class="form-control" style="width: 100%" placeholder="title" id="blogTitle"
-                                   name="blogTitle" required="true">
+                                   required="true">
                         </div>
                         <div class="form-group">
                             <label>博客内容:</label>
@@ -153,28 +217,27 @@
                         <div class="form-group">
                             <label>博客标签</label>
                             <input type="text" class="form-control" style="width: 100%" placeholder="tags" id="tags"
-                                   name="tags">
+                                  >
                         </div>
                         <div class="form-group">
                             <label>博客类型</label><br>
                             <#if (cateList?size > 0)>
                                 <#list cateList as category >
-                                    <input type="radio"  name="blogType" style="width: 17px;height: 17px" onclick="getsubtype('${category.categoryId}')"> ${category.categoryTitle} &nbsp;&nbsp;
+                                    <input type="radio" name="blogCategoryId" style="width: 17px;height: 17px" value="${category.categoryId}"  onclick="getsubtype('${category.categoryId}')"> ${category.categoryTitle} &nbsp;&nbsp;
                                 </#list>
                             </#if>
 
                         </div>
                         <div class="form-group">
                             <label>博客类别</label>
-                            <select class="form-control" style="width: 20%" id="blogCategory" name="blogCategory"
+                            <select class="form-control" style="width: 20%"  id="subTitle"
                                     required="true">
                                 <option selected>选择博客类别</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>博客配图:</label>
-                            <input type="text" class="form-control" style="width: 100%" placeholder="title" id="blogImgSrc"
-                                   name="blogImgSrc" required="true">
+                            <input type="text" class="form-control" style="width: 100%" placeholder="title" id="blogImgSrc" required="true">
                         </div>
 
                         <input type="submit" value="创  建" class="btn"></input>
@@ -185,11 +248,12 @@
                     <h3>更新博客</h3>
                     <hr>
                 <#--<form ac method="post">-->
-                    <form action="/#" method="post" >
+                    <form action="#" method="post" onsubmit="return updateBlog()">
                         <div class="form-group">
                             <label>博客标题:</label>
                             <input type="text" class="form-control" style="width: 100%" placeholder="title" value="${blog.blogTitle}"
-                                   name="blogTitle" required="true">
+                                   id="blogTitle" required="true">
+                            <input type="hidden" id="blogId" value="${blog.id}">
                         </div>
                         <div class="form-group">
                             <label>博客内容:</label>
@@ -200,20 +264,20 @@
                         <div class="form-group">
                             <label>博客标签</label>
                             <input type="text" class="form-control" style="width: 100%" placeholder="tags" value="${blog.tags}"
-                                   name="tags">
+                                   id="tags">
                         </div>
                         <div class="form-group">
                             <label>博客类型</label><br>
                             <#if (cateList?size > 0)>
                                 <#list cateList as category >
-                                    <input type="radio"  name="blogType" style="width: 17px;height: 17px" <#if category.categoryId==blog.blogCategoryId> checked="checked"</#if> onclick="getsubtype('${category.categoryId}')"> ${category.categoryTitle} &nbsp;&nbsp;
+                                    <input type="radio"  name="blogCategoryId" style="width: 17px;height: 17px" value="${category.categoryId}" <#if category.categoryId==blog.blogCategoryId> checked="checked"</#if> onclick="getsubtype('${category.categoryId}')"> ${category.categoryTitle} &nbsp;&nbsp;
                                 </#list>
                             </#if>
 
                         </div>
                         <div class="form-group">
                             <label>博客类别</label>
-                            <select class="form-control" style="width: 150px" id="blogCategory" id="blogCategory"
+                            <select class="form-control" style="width: 150px" id="subTitle"
                                     required="true">
                                 <option selected>选择博客类别</option>
                             </select>
@@ -222,10 +286,10 @@
                             <label>博客配图:</label><br>
                             <img src="${blog.blogImgSrc}" width="60" height="60">
                             <input type="text" class="form-control" style="width: 100%" value="${blog.blogImgSrc}"
-                                   name="blogImgSrc" required="true">
+                                   id="blogImgSrc" required="true">
                         </div>
 
-                        <input type="submit" value="更 新" class="btn"></input>
+                        <input type="submit" value="更 新" class="btn" ></input>
                     </form>
                 </div>
             </#if>

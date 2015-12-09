@@ -147,19 +147,19 @@ public class BlogController extends BaseController {
         mv.addObject("update", true);
         return mv;
     }
-    @RequestMapping(value = "/updateBlog", method = RequestMethod.POST)
-    public ModelAndView updateBlog(HttpServletRequest request) {
-        String id = request.getParameter("id").toString();
-        if (id != null && (!id.isEmpty())) {
-            blog = blogService.getBlogbyId(Long.valueOf(id));
+
+    @RequestMapping(value = "/updateBlog", method = RequestMethod.POST,  headers="Accept=application/json")
+    public  @ResponseBody Object updateBlog(BlogContent blog, HttpServletRequest request, HttpServletResponse response) {
+        map = new HashMap<String, Object>();
+        if (blog != null) {
+            if (blogService.updateBlog(blog) > 0) {
+                map.put("msg", "成功");
+            } else {
+                System.out.println("失败");
+                map.put("msg", "失败");
+            }
         }
-        blog.setVisitCount(blog.getVisitCount() + 1);
-        blogService.updateBlog(blog);
-//        similarBlogList=blogService.getSimilarList(blog.getTags());
-        ModelAndView mv = new ModelAndView(BLOGDETAIL);
-        mv.addObject("blog", blog);
-//        mv.addObject("similarBlogList", similarBlogList);
-        return mv;
+        return map;
     }
 
 

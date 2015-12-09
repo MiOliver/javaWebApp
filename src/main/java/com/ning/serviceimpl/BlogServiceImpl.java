@@ -70,6 +70,8 @@ public class BlogServiceImpl {
         return blogContentMapper.insertSelective(blog);
     }
 
+
+
     public int deleteBlog(Long id){
         return blogContentMapper.deleteByPrimaryKey(id);
     }
@@ -79,10 +81,11 @@ public class BlogServiceImpl {
         return blog;
     }
 
-    public void updateBlog(BlogContent blog){
+    public int updateBlog(BlogContent blog){
         if(blog!=null){
-            blogContentMapper.updateByPrimaryKey(blog);
+            return blogContentMapper.updateByPrimaryKeySelective(blog);
         }
+        return 0;
     }
     public List<BlogContent> getSimilarList(String tags){
         List<BlogContent> allList = new ArrayList<BlogContent>();
