@@ -36,7 +36,7 @@
     <div class="row" style="background-color: white;border-radius:5px;line-height: 30px;padding: 20px;  ">
         <div class=".col-xs-6 col-md-9">
 
-        <#if (blogList?size > 0) >
+        <#if (blogList?? && blogList?size>0) >
             <#list blogList as blog >
                 <div>
                     <a href="/blogdetail?id=${blog.id}"><h3>${blog.blogTitle}</h3></a>
@@ -64,7 +64,7 @@
             <div>
                 <h3>最近文章</h3>
                 <ul class="nav-tabs-justified">
-                <#if blogList?size &gt; 0>
+                <#if (blogList?? && blogList?size>0)>
                     <#list blogList as blog >
                         <li><a href="/blogdetail?id=${blog.id}">${blog.blogTitle}</a></li>
                     </#list>
@@ -74,7 +74,8 @@
             <div>
                 <h3>最多访问</h3>
                 <ul class="nav-tabs-justified">
-                <#if bestBlogList?size &gt; 0>
+
+                <#if  (bestBlogList?? && bestBlogList?size>0)>
                     <#list bestBlogList as blog >
                         <li><a href="/blogdetail?id=${blog.id}">${blog.blogTitle}</a></li>
                     </#list>

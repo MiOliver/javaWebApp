@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" >
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+
 <#--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
 <head>
     <title>Oliver's Blogs</title>
@@ -21,7 +22,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">
-                    <img alt="Brand" src="/resources/img/Dolphin.png" width="25" height="25">
+                      <img alt="Brand" src="/resources/img/Dolphin.png" width="25" height="25">
                 </a>
             </div>
             <ul class="nav navbar-nav">
@@ -30,11 +31,9 @@
                 <li><a href="/about">关于</a></li>
             </ul>
 
-            <ul class="nav navbar-right">
-                <#if user ??>
-                    <li>${user.username}</li>
+            <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user">&nbsp;<@shiro.principal/></span> </a></li>
                     <li><a href="/logout">注销</a></li>
-                </#if>
             </ul>
         </div>
 

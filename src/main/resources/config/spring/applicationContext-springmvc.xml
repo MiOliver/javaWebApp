@@ -123,7 +123,7 @@
 
     <!-- 渲染全局配置 -->
 
-    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+    <bean id="freemakerCongfig" class="com.ning.web.ShiroTagFreeMarkerConfigurer">
 
         <property name="templateLoaderPath" value="/WEB-INF/freemarker/views"/>
         <property name="freemarkerSettings">
@@ -139,11 +139,14 @@
                 <prop key="time_format">HH:mm:ss</prop>
                 <prop key="number_format">0.######</prop>
                 <prop key="whitespace_stripping">true</prop>
+                <prop key="classic_compatible">true</prop>
 
             </props>
         </property>
 
     </bean>
+
+
 
     <!-- 控制器异常处理 -->
     <bean id="exceptionHandlerExceptionResolver" class="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver">

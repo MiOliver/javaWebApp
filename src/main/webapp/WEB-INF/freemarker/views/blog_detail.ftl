@@ -50,6 +50,8 @@
 
             </div>
             <p>${blog.blogContent}</p>
+            <br>
+            <p class="text-primary">如果您觉得文章还不错，记得分享给朋友们，O(∩_∩)O~</p>
             <hr>
             <div>
                 <label>分享到：</label>

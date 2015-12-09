@@ -71,7 +71,7 @@ public class ManageController extends BaseController{
 
     @RequestMapping(value = "/logoutsucc",method= RequestMethod.GET)
     public String logout(Model model){
-        return LOGOUT;
+        return "redirect:/index";
     }
 
     @RequestMapping(value = "/unauthorized",method= RequestMethod.GET)
