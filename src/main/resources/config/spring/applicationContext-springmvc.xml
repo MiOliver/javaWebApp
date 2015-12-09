@@ -153,4 +153,18 @@
     </bean>
     <bean class="com.ning.web.exception.DefaultExceptionHandler"/>
 
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="org.apache.shiro.authz.UnauthorizedException">
+                    /unauthorized
+                </prop>
+                <prop key="org.apache.shiro.authz.UnauthenticatedException">
+                    /unauthorized
+                </prop>
+            </props>
+
+        </property>
+    </bean>
+
 </beans>

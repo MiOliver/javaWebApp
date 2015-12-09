@@ -139,7 +139,7 @@
                     <form action="/createBlog" method="post" onsubmit="return checkBlogText()">
                         <div class="form-group">
                             <label>博客标题:</label>
-                            <input type="text" class="form-control" style="width: 90%" placeholder="title" id="blogTitle"
+                            <input type="text" class="form-control" style="width: 100%" placeholder="title" id="blogTitle"
                                    name="blogTitle" required="true">
                         </div>
                         <div class="form-group">
@@ -152,7 +152,7 @@
 
                         <div class="form-group">
                             <label>博客标签</label>
-                            <input type="text" class="form-control" style="width: 90%" placeholder="tags" id="tags"
+                            <input type="text" class="form-control" style="width: 100%" placeholder="tags" id="tags"
                                    name="tags">
                         </div>
                         <div class="form-group">
@@ -173,7 +173,7 @@
                         </div>
                         <div class="form-group">
                             <label>博客配图:</label>
-                            <input type="text" class="form-control" style="width: 90%" placeholder="title" id="blogImgSrc"
+                            <input type="text" class="form-control" style="width: 100%" placeholder="title" id="blogImgSrc"
                                    name="blogImgSrc" required="true">
                         </div>
 
@@ -188,7 +188,7 @@
                     <form action="/#" method="post" >
                         <div class="form-group">
                             <label>博客标题:</label>
-                            <input type="text" class="form-control" style="width: 90%" placeholder="title" value="${blog.blogTitle}"
+                            <input type="text" class="form-control" style="width: 100%" placeholder="title" value="${blog.blogTitle}"
                                    name="blogTitle" required="true">
                         </div>
                         <div class="form-group">
@@ -199,7 +199,7 @@
 
                         <div class="form-group">
                             <label>博客标签</label>
-                            <input type="text" class="form-control" style="width: 90%" placeholder="tags" value="${blog.tags}"
+                            <input type="text" class="form-control" style="width: 100%" placeholder="tags" value="${blog.tags}"
                                    name="tags">
                         </div>
                         <div class="form-group">
@@ -221,7 +221,7 @@
                         <div class="form-group">
                             <label>博客配图:</label><br>
                             <img src="${blog.blogImgSrc}" width="60" height="60">
-                            <input type="text" class="form-control" style="width: 90%" value="${blog.blogImgSrc}"
+                            <input type="text" class="form-control" style="width: 100%" value="${blog.blogImgSrc}"
                                    name="blogImgSrc" required="true">
                         </div>
 

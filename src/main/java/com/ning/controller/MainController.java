@@ -116,13 +116,6 @@ public class MainController extends BaseController{
     }
 
 
-//    @RequestMapping(value = "/test",method = RequestMethod.GET)
-//    public String test(ModelMap model){
-//
-//        model.addAttribute(user);
-//        return TEST;
-//    }
-
     /***
      * 验证参数是否为空
      * @param params

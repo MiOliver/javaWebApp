@@ -14,18 +14,29 @@
 </head>
 <body>
 <div class="container">
-    <h1>Oliver's Blogs</h1>
+    <h1>享受技术和生活中的快乐</h1>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-            <div class="navbar-header" >
+            <div class="navbar-header">
                 <a class="navbar-brand" href="#">
                     <img alt="Brand" src="/resources/img/Dolphin.png" width="25" height="25">
                 </a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">About</a></li>
+                <li class="active"><a href="/index">首页</a></li>
+                <li><a href="/life">生活</a></li>
+                <li><a href="/about">关于</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+            <@shiro.user>
+                <li><a href="#"><span class="glyphicon glyphicon-user">&nbsp;<@shiro.principal/></span> </a></li>
+                <li><a href="/logout">注销</a></li>
+            </@shiro.user>
+            <@shiro.guest>
+                <li><a href="#"><span class="glyphicon glyphicon-user">&nbsp;游客</span> </a></li>
+            </@shiro.guest>
+
             </ul>
         </div>
 
@@ -37,24 +48,7 @@
             <p>您没有权限访问当前页面！</p>
             <img src="/resources/img/Coffee.png">
         </div>
-        <div class=".col-xs-6 col-md-3">
-            <div>
-                <h2>Sidebar</h2>
-                <ul class="nav-tabs-justified">
-                    <li><a href="#">Another Link 1</a></li>
-                    <li><a href="#">Another Link 2</a></li>
-                    <li><a href="#">Another Link 3</a></li>
-                </ul>
-            </div>
-            <div>
-                <h2>Sidebar</h2>
-                <ul class="nav-tabs-justified">
-                    <li><a href="#">Another Link 1</a></li>
-                    <li><a href="#">Another Link 2</a></li>
-                    <li><a href="#">Another Link 3</a></li>
-                </ul>
-            </div>
-        </div>
+
     </div>
 </div>
 
