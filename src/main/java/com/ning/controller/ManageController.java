@@ -1,13 +1,15 @@
 package com.ning.controller;
 
+import com.alibaba.druid.util.StringUtils;
 import com.ning.domain.BlogContent;
+import com.ning.domain.BlogSearchVO;
 import com.ning.domain.User;
 import com.ning.serviceimpl.BlogServiceImpl;
 import com.ning.serviceimpl.ManageService;
+import com.ning.utils.CommonUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authz.annotation.RequiresRoles;
-import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -79,10 +81,22 @@ public class ManageController extends BaseController{
         return UNAUTHORIZED;
     }
 
-    @RequestMapping(value = "blogManage",method= RequestMethod.GET)
-    public ModelAndView blogManage(){
+    @RequestMapping(value = "blogManage",method= RequestMethod.POST)
+    public ModelAndView blogManage(String blogseach){
         ModelAndView mv=new ModelAndView(BLOGMANAGE);
-        List<BlogContent> blogList=blogService.getBlogList(page,0);
+        BlogSearchVO searchVO=new BlogSearchVO();
+        List<BlogContent> blogList=null;
+        if(!StringUtils.isEmpty(blogseach)){
+            if(CommonUtils.isNumeric(blogseach)){
+                searchVO.setId(Long.valueOf(blogseach));
+            }else{
+                searchVO.setTitle(blogseach);
+            }
+            blogList=blogService.getBlogList(page,searchVO);
+        }else{
+            blogList=blogService.getBlogList(page,searchVO);
+        }
+
         if (blogList != null && blogList.size() > 0) {
             this.setDisplayPageBar(true);
         } else {
@@ -92,6 +106,36 @@ public class ManageController extends BaseController{
         mv.addObject("displayPageBar",displayPageBar);
         mv.addObject("page",page);
         mv.addObject("blogList",blogList);
+        mv.addObject("blogseach",blogseach);
+        return mv;
+    }
+
+    @RequestMapping(value = "blogManage",method= RequestMethod.GET)
+    public ModelAndView getBlogManage(String blogseach){
+        ModelAndView mv=new ModelAndView(BLOGMANAGE);
+        BlogSearchVO searchVO=new BlogSearchVO();
+        List<BlogContent> blogList=null;
+        if(!StringUtils.isEmpty(blogseach)){
+            if(CommonUtils.isNumeric(blogseach)){
+                searchVO.setId(Long.valueOf(blogseach));
+            }else{
+                searchVO.setTitle(blogseach);
+            }
+            blogList=blogService.getBlogList(page,searchVO);
+        }else{
+            blogList=blogService.getBlogList(page,searchVO);
+        }
+
+        if (blogList != null && blogList.size() > 0) {
+            this.setDisplayPageBar(true);
+        } else {
+            blogList = null;
+            this.setDisplayPageBar(false);
+        }
+        mv.addObject("displayPageBar",displayPageBar);
+        mv.addObject("page",page);
+        mv.addObject("blogList",blogList);
+        mv.addObject("blogseach",blogseach);
         return mv;
     }
 

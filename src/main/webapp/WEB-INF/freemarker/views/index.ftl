@@ -50,17 +50,19 @@
 
         <#if (blogList?size > 0)>
             <#list blogList as blog >
-                <div>
-                    <a href="/blogdetail?id=${blog.id}"><h3>${blog.blogTitle}</h3></a>
 
-                    <p>
-                        <span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;${blog.createTime?string('yyyy-MM-dd HH:mm:ss')}
-                        &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;${blog.createPerson}
-                        &nbsp;&nbsp;&nbsp;
-                    </p>
-                    <img src=" ${blog.blogImgSrc}" height="70" width="70" style="float: right">
-                    <div>
+                <div class="panel panel-default">
+                    <div style="padding-left: 10px"> <a href="/blogdetail?id=${blog.id}"><h3>${blog.blogTitle}</h3></a></div>
+                    <div style="padding-left: 15px;padding-right: 15px;padding-bottom: 10px"" >
+                        <p>
+                            <span class="glyphicon glyphicon-calendar"  style="color:darkorange"></span>&nbsp;&nbsp;${blog.createTime?string('yyyy-MM-dd HH:mm:ss')}
+                            &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user" style="color:darkorange"></span>&nbsp;&nbsp;${blog.createPerson}
+                            &nbsp;&nbsp;&nbsp;
+                        </p>
+                        <img src=" ${blog.blogImgSrc}" height="70" width="70" style="float: right">
+                        <div>
                         ${blog.blogContent}<a href="/blogdetail?id=${blog.id}">阅读全文 >>></a>
+                        </div>
                     </div>
                 </div>
             </#list>
@@ -75,23 +77,23 @@
         <div class=".col-xs-6 col-md-3">
             <div>
                 <h3>最近文章</h3>
-                <ul class="nav-tabs-justified">
                 <#if blogList?size &gt; 0>
                     <#list blogList as blog >
-                        <li><a href="/blogdetail?id=${blog.id}">${blog.blogTitle}</a></li>
+                    <div class="row">
+                        <img src="/resources/img/greenPoint.png" width="12" height="12"><a href="/blogdetail?id=${blog.id}"> ${blog.blogTitle}</a>
+                    </div>
                     </#list>
                 </#if>
-                </ul>
             </div>
             <div>
                 <h3>最多访问</h3>
-                <ul class="nav-tabs-justified">
                 <#if bestBlogList?size &gt; 0>
                     <#list bestBlogList as blog >
-                        <li><a href="/blogdetail?id=${blog.id}">${blog.blogTitle}</a></li>
+                        <div class="row">
+                            <img src="/resources/img/greenPoint.png" width="12" height="12"><a href="/blogdetail?id=${blog.id}"> ${blog.blogTitle}</a>
+                        </div>
                     </#list>
                 </#if>
-                </ul>
             </div>
         </div>
     </div>

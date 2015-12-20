@@ -1,12 +1,10 @@
 package com.ning.controller;
 
 
-import com.mchange.v2.lang.ObjectUtils;
 import com.ning.domain.BlogContent;
+import com.ning.domain.BlogSearchVO;
 import com.ning.domain.User;
 import com.ning.serviceimpl.BlogServiceImpl;
-import freemarker.template.utility.StringUtil;
-import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -59,7 +56,9 @@ public class MainController extends BaseController{
             }
         }
         ModelAndView mv=new ModelAndView(VIEW_INDEX);
-        blogList=blogService.getBlogList(page,1);
+        BlogSearchVO searchVO=new BlogSearchVO();
+        searchVO.setType(1);
+        blogList=blogService.getBlogList(page,searchVO);
         blogList=blogService.getFixBlogList(blogList);
         bestVisitBlogList=blogService.getBestList();
         if (blogList != null && blogList.size() > 0) {
@@ -79,7 +78,9 @@ public class MainController extends BaseController{
     @RequestMapping(value = {"/life",}, method = RequestMethod.GET)
     public ModelAndView lifepage(ModelMap model) {
         ModelAndView mv=new ModelAndView(LIFE_INDEX);
-        blogList=blogService.getBlogList(page,2);
+        BlogSearchVO searchVO=new BlogSearchVO();
+        searchVO.setType(2);
+        blogList=blogService.getBlogList(page,searchVO);
         blogList=blogService.getFixBlogList(blogList);
         bestVisitBlogList=blogService.getBestList();
         if (blogList != null && blogList.size() > 0) {

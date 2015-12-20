@@ -83,16 +83,20 @@
             </div>
         </div>
         <div class=".col-xs-6 col-md-3">
-            <#--<div>-->
-                <#--<h3>相关阅读</h3>-->
-                <#--<ul class="nav-tabs-justified">-->
-                <#--<#if similarBlogList?size &gt; 0>-->
-                    <#--<#list similarBlogList as blog >-->
-                        <#--<li><a href="/blogdetail?id=${blog.id}">${blog.blogTitle}</a></li>-->
-                    <#--</#list>-->
-                <#--</#if>-->
-                <#--</ul>-->
-            <#--</div>-->
+            <div>
+
+                <#if similarBlogList?size &gt; 0>
+                    <h3>相关阅读</h3>
+                    <#list similarBlogList as blog >
+                        <div class="row">
+                            <img src="/resources/img/greenPoint.png" width="12" height="12"><a href="/blogdetail?id=${blog.id}"> ${blog.blogTitle}</a>
+                        </div>
+                    </#list>
+                <#else>
+
+                </#if>
+                </ul>
+            </div>
             <#--<div>-->
                 <#--<h2>Sidebar</h2>-->
                 <#--<ul class="nav-tabs-justified">-->

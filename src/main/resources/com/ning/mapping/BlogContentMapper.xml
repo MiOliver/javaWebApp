@@ -161,11 +161,18 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
 
-  <select id="getBlogListByPage" resultMap="BaseResultMap" parameterType="INTEGER" resultType="list">
+  <select id="getBlogListByPage" resultMap="BaseResultMap" parameterType="com.ning.domain.BlogSearchVO" resultType="list">
     select * from blog_content where 1=1
-    <if test="type != null and type !=0" >
-     and  blog_category_id=#{type}
+    <if test="searchVO.type != null and searchVO.type !=0" >
+     and  blog_category_id=#{searchVO.type}
     </if>
+    <if test="searchVO.id != null" >
+      and  id=#{searchVO.id}
+    </if>
+    <if test="searchVO.title != null and searchVO.title != ''" >
+      and  blog_title like CONCAT('%', #{searchVO.title},'%')
+    </if>
+
     order by create_time desc
   </select>
 
@@ -173,8 +180,8 @@
     select * from blog_content  order by visit_count desc limit 10
   </select>
 
-  <select id="getBlogListbyTag" resultMap="BaseResultMap" parameterType="String" resultType="list">
-    select * from blog_content where tags like '%#{param}%' order by visit_count desc limit 1000;
+  <select id="getBlogListbyTag" resultMap="BaseResultMap"  resultType="list">
+    select * from blog_content where id!=#{id} and tags like CONCAT('%',#{tag},'%')  order by visit_count desc limit 1000;
   </select>
 
 

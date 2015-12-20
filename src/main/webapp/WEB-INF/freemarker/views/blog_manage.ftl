@@ -68,19 +68,35 @@
                 </a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">About</a></li>
+                <li class="active"><a href="/index">首页</a></li>
+                <li><a href="/life">生活</a></li>
+                <li><a href="/about">关于</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+            <@shiro.user>
+                <li><a href="#"><span class="glyphicon glyphicon-user">&nbsp;<@shiro.principal/></span> </a></li>
+                <li><a href="/logout">注销</a></li>
+            </@shiro.user>
+            <@shiro.guest>
+                <li><a href="#"><span class="glyphicon glyphicon-user">&nbsp;游客</span> </a></li>
+            </@shiro.guest>
+
             </ul>
         </div>
 
     </nav>
 
     <div class="row" style="background-color: white;border-radius:5px;line-height: 30px;padding: 20px;  ">
-        <div class=".col-xs-6 col-md-9">
+        <div class=".col-xs-6 col-md-12">
             <h3>博客管理</h3>
             <hr>
-            <form id="listForm" action="/blogManage" method="post" class="form-inline">
+            <form  action="/blogManage" method="post" class="form-inline">
+                <div class="row">
+                    博客搜索：<input type="text" class="form-control" id="searchId" name="blogseach" value="${blogseach}" placeholder="请输入文章标题或者ID" />&nbsp;&nbsp;
+                    <input type="submit" class="form-control" value="搜  索"></input>
+                </div>
+                <br/>
                 <table class="table table-bordered thead-table">
                     <thead>
                     <th>博客ID</th>
@@ -112,9 +128,7 @@
             </form>
 
         </div>
-        <div class=".col-xs-6 col-md-3">
-
-        </div>
+       
     </div>
 </div>
 

@@ -74,24 +74,23 @@
         <div class=".col-xs-6 col-md-3">
             <div>
                 <h3>最近文章</h3>
-                <ul class="nav-tabs-justified">
                 <#if (blogList?? && blogList?size>0)>
                     <#list blogList as blog >
-                        <li><a href="/blogdetail?id=${blog.id}">${blog.blogTitle}</a></li>
+                        <div class="row">
+                            <img src="/resources/img/greenPoint.png" width="12" height="12"><a href="/blogdetail?id=${blog.id}"> ${blog.blogTitle}</a>
+                        </div>
                     </#list>
                 </#if>
-                </ul>
             </div>
             <div>
                 <h3>最多访问</h3>
-                <ul class="nav-tabs-justified">
-
                 <#if  (bestBlogList?? && bestBlogList?size>0)>
                     <#list bestBlogList as blog >
-                        <li><a href="/blogdetail?id=${blog.id}">${blog.blogTitle}</a></li>
+                        <div class="row">
+                            <img src="/resources/img/greenPoint.png" width="12" height="12"><a href="/blogdetail?id=${blog.id}"> ${blog.blogTitle}</a>
+                        </div>
                     </#list>
                 </#if>
-                </ul>
             </div>
         </div>
     </div>

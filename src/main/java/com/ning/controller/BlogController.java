@@ -127,10 +127,10 @@ public class BlogController extends BaseController {
         }
         blog.setVisitCount(blog.getVisitCount() + 1);
         blogService.updateBlog(blog);
-//        similarBlogList=blogService.getSimilarList(blog.getTags());
+        similarBlogList=blogService.getSimilarList(blog.getId(),blog.getTags());
         ModelAndView mv = new ModelAndView(BLOGDETAIL);
         mv.addObject("blog", blog);
-//        mv.addObject("similarBlogList", similarBlogList);
+        mv.addObject("similarBlogList", similarBlogList);
         return mv;
     }
 
