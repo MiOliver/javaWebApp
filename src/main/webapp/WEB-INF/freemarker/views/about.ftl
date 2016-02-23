@@ -48,13 +48,13 @@
 
     <div class="row" style="background-color: white;border-radius:5px;line-height: 30px;padding: 20px;  ">
 
-        <div class=".col-xs-6 col-md-11">
+        <div class="col-xs-11 col-md-10">
             <address>
                 <h3>个人简介</h3><hr>
                 <img src="/resources/img/me.jpg" ><br><br>
                 <strong>Oliver</strong>
                 <p>
-                    目前在一家互联网公司从事java后台和Android App研发工作！
+                    目前在一家知名互联网公司从事java后台和Android App研发工作！
                 </p>
 
             </address>
@@ -64,20 +64,22 @@
 
             </address>
 
+            <address>
+                <strong> 微博账号</strong><br>
+                <a href="http://weibo.com/ningvip/home"><img src="/resources/img/weibo.png" width="20" height="20">&nbsp;猫仔仔</a>
+            </address>
 
             <address>
-                <strong>微博账号</strong><br>
-                <a href="http://weibo.com/ningvip/home">猫仔仔</a>
+                <strong>QQ:</strong><br>
+                <a href="#"><img src="/resources/img/qq.png" width="20" height="20">&nbsp;1066114096</a>
             </address>
 
             <address>
                 <strong>Email:</strong><br>
-                <a href="mailto:#">tianxingzhe1990@gmail.com</a>
+                <a href="mailto:#">lxnlhr@163.com</a>
             </address>
         </div>
-        <div class=".col-xs-6 col-md-3">
 
-        </div>
     </div>
 </div>
 

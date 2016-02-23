@@ -89,13 +89,13 @@
     </nav>
 
     <div class="row" style="background-color: white;border-radius:5px;line-height: 30px;padding: 20px;  ">
-        <div class=".col-xs-6 col-md-12">
+        <div class="col-xs-10 col-md-12">
             <h3>博客管理</h3>
             <hr>
             <form  action="/blogManage" method="post" class="form-inline">
                 <div class="row">
                     博客搜索：<input type="text" class="form-control" id="searchId" name="blogseach" value="${blogseach}" placeholder="请输入文章标题或者ID" />&nbsp;&nbsp;
-                    <input type="submit" class="form-control" value="搜  索"></input>
+                    <input type="submit" class="form-control" value="搜  索"> </input>
                 </div>
                 <br/>
                 <table class="table table-bordered thead-table">

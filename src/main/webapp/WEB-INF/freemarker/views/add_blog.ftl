@@ -242,7 +242,7 @@
                             <input type="text" class="form-control" style="width: 100%" placeholder="title" id="blogImgSrc" required="true">
                         </div>
 
-                        <input type="submit" value="创  建" class="btn"></input>
+                        <input type="submit" value="创  建" class="btn btn-success"></input>
                     </form>
                 </div>
             <#else>
@@ -291,7 +291,7 @@
                                    id="blogImgSrc" required="true">
                         </div>
 
-                        <input type="submit" value="更 新" class="btn" ></input>
+                        <input type="submit" value="更 新" class="btn btn-success" ></input>
                     </form>
                 </div>
             </#if>

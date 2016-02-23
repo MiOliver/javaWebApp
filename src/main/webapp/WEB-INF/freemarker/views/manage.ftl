@@ -35,11 +35,11 @@
     </nav>
 
     <div class="row" style="background-color: white;border-radius:5px;line-height: 30px;padding: 20px;  ">
-        <div class=".col-xs-6 ">
+        <div class="col-sm-12 col-md-12">
             <h3>博客管理</h3>
             <hr>
             <div class="row">
-                <div class=".col-xs-6 col-md-2">
+                <div class="col-sm-2 col-md-2">
                     <div class="thumbnail">
                         <a href="/blogManage"><img src="/resources/img/Calendar.png" width="50" height="50" alt="100*80"></a>
 
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                 </div>
-                <div class=".col-xs-6 col-md-2">
+                <div class="col-sm-2 col-md-2">
                     <div class="thumbnail">
                         <a href="/addblog"><img src="/resources/img/Coffee.png" width="50" height="50" alt="100*80"></a>
 
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                 </div>
-                <div class=".col-xs-6 col-md-2">
+                <div class="col-sm-2 col-md-2">
                     <div class="thumbnail">
                         <a href="#"><img src="/resources/img/Line.png" width="50" height="50" alt="100*80"></a>
 
@@ -66,7 +66,7 @@
                         </div>
                     </div>
                 </div>
-                <div class=".col-xs-6 col-md-2">
+                <div class="col-sm-2 col-md-2">
                     <div class="thumbnail">
                         <a href="#"><img src="/resources/img/Clock.png" width="50" height="50" alt="100*80"></a>
 
@@ -75,7 +75,7 @@
                         </div>
                     </div>
                 </div>
-                <div class=".col-xs-6 col-md-2">
+                <div class="col-sm-2 col-md-2">
                     <div class="thumbnail">
                         <a href="#"><img src="/resources/img/Line.png" width="50" height="50" alt="100*80"></a>
 
@@ -84,7 +84,7 @@
                         </div>
                     </div>
                 </div>
-                <div class=".col-xs-6 col-md-2">
+                <div class="col-sm-2 col-md-2">
                     <div class="thumbnail">
                         <a href="#"><img src="/resources/img/Clock.png" width="50" height="50" alt="100*80"></a>
 

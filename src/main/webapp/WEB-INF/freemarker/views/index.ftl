@@ -49,17 +49,17 @@
     </nav>
 
     <div class="row" style="background-color: white;border-radius:5px;line-height: 30px;padding: 20px;  ">
-        <div class="col-xs-8 col-sm-9">
+        <div class="col-xs-9 col-sm-9">
 
        <#if (blogList?? && blogList?size>0) >
             <#list blogList as blog >
 
                 <div class="panel panel-default">
                     <div style="padding-left: 10px"> <a href="/blogdetail?id=${blog.id}"><h3>${blog.blogTitle}</h3></a></div>
-                    <div style="padding-left: 15px;padding-right: 15px;padding-bottom: 10px"" >
+                    <div style="padding-left: 15px;padding-right: 15px;padding-bottom: 10px">
                         <p>
-                            <span class="glyphicon glyphicon-calendar"  style="color:darkorange"></span>&nbsp;&nbsp;${blog.createTime?string('yyyy-MM-dd HH:mm:ss')}
-                            &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user" style="color:darkorange"></span>&nbsp;&nbsp;${blog.createPerson}
+                            <span class="glyphicon glyphicon-calendar"  style="color:darkorange"></span>创建时间：&nbsp;&nbsp;${blog.createTime?string('yyyy-MM-dd HH:mm:ss')}
+                            &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user" style="color:darkorange"></span>创建人：&nbsp;&nbsp;${blog.createPerson}
                             &nbsp;&nbsp;&nbsp;
                         </p>
                         <img src=" ${blog.blogImgSrc}" height="70" width="70" style="float: right">
@@ -82,8 +82,17 @@
             </form>
 
         </div>
-        <div class="col-xs-4 col-sm-3">
+        <div class="col-xs-3 col-sm-3">
+            <div >
+                <hr>
+                <h3>个人账号</h3>
+                <p align="center">
+                    <img src="/resources/img/qrcode.png" width="80" height="80" >
+                </p>
+                <p>扫一扫加我O(∩_∩)O</p>
+            </div>
             <div>
+                <hr>
                 <h3>最近文章</h3>
                 <#if (blogList?? && blogList?size>0) >
                     <#list blogList as blog >
@@ -94,6 +103,7 @@
                 </#if>
             </div>
             <div>
+                <hr>
                 <h3>最多访问</h3>
                 <#if (bestBlogList?? && bestBlogList?size> 0)>
                     <#list bestBlogList as blog >
