@@ -26,6 +26,9 @@
                 <li class="active"><a href="/index">首页</a></li>
                 <li><a href="/life">生活</a></li>
                 <li><a href="/about">关于</a></li>
+                <@shiro.user>
+                <li><a href="/manage">管理</a></li>
+                </@shiro.user>
             </ul>
         </div>
 
@@ -39,6 +42,7 @@
                 <div class=".col-xs-6 col-md-2">
                     <div class="thumbnail">
                         <a href="/blogManage"><img src="/resources/img/Calendar.png" width="50" height="50" alt="100*80"></a>
+
                         <div class="caption" align="center">
                             <h4>博客管理</h4>
                         </div>
@@ -46,15 +50,17 @@
                 </div>
                 <div class=".col-xs-6 col-md-2">
                     <div class="thumbnail">
-                        <a href="#"><img src="/resources/img/Coffee.png" width="50" height="50" alt="100*80"></a>
+                        <a href="/addblog"><img src="/resources/img/Coffee.png" width="50" height="50" alt="100*80"></a>
+
                         <div class="caption" align="center">
-                            <h4>博客管理</h4>
+                            <h4>添加博客</h4>
                         </div>
                     </div>
                 </div>
                 <div class=".col-xs-6 col-md-2">
                     <div class="thumbnail">
                         <a href="#"><img src="/resources/img/Line.png" width="50" height="50" alt="100*80"></a>
+
                         <div class="caption" align="center">
                             <h4>数据统计</h4>
                         </div>
@@ -62,7 +68,8 @@
                 </div>
                 <div class=".col-xs-6 col-md-2">
                     <div class="thumbnail">
-                        <a href="#"><img src="/resources/img/Clock.png" width="50" height="50"  alt="100*80"></a>
+                        <a href="#"><img src="/resources/img/Clock.png" width="50" height="50" alt="100*80"></a>
+
                         <div class="caption" align="center">
                             <h4>博客管理</h4>
                         </div>
@@ -71,6 +78,7 @@
                 <div class=".col-xs-6 col-md-2">
                     <div class="thumbnail">
                         <a href="#"><img src="/resources/img/Line.png" width="50" height="50" alt="100*80"></a>
+
                         <div class="caption" align="center">
                             <h4>博客管理</h4>
                         </div>
@@ -78,7 +86,8 @@
                 </div>
                 <div class=".col-xs-6 col-md-2">
                     <div class="thumbnail">
-                        <a href="#"><img src="/resources/img/Clock.png" width="50" height="50"  alt="100*80"></a>
+                        <a href="#"><img src="/resources/img/Clock.png" width="50" height="50" alt="100*80"></a>
+
                         <div class="caption" align="center">
                             <h4>博客管理</h4>
                         </div>

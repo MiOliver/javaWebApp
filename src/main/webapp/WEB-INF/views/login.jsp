@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <html lang="zh-CN">
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 <head>
     <title>Twitter Bootstrap Tutorial </title>
     <link href="/resources/css/bootstrap.min.css" rel="stylesheet">

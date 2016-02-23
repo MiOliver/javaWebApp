@@ -29,6 +29,9 @@
                 <li class="active"><a href="/index">首页</a></li>
                 <li><a href="/life">生活</a></li>
                 <li><a href="/about">关于</a></li>
+                <@shiro.user>
+                <li><a href="/manage">管理</a></li>
+                </@shiro.user>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -37,7 +40,7 @@
                     <li><a href="/logout">注销</a></li>
                 </@shiro.user>
                 <@shiro.guest>
-                    <li><a href="#"><span class="glyphicon glyphicon-user">&nbsp;游客</span> </a></li>
+                    <li><a href="/login"><span class="glyphicon glyphicon-user">&nbsp;游客</span> </a></li>
                 </@shiro.guest>
 
             </ul>
@@ -46,9 +49,9 @@
     </nav>
 
     <div class="row" style="background-color: white;border-radius:5px;line-height: 30px;padding: 20px;  ">
-        <div class=".col-xs-6 col-md-9">
+        <div class="col-xs-8 col-sm-9">
 
-        <#if (blogList?size > 0)>
+       <#if (blogList?? && blogList?size>0) >
             <#list blogList as blog >
 
                 <div class="panel panel-default">
@@ -66,6 +69,11 @@
                     </div>
                 </div>
             </#list>
+       <#else>
+           <div class="row">
+               <label style="color: purple">目前还没有文章，去添加以一个吧...</label><br/>
+               <a href="/addblog"><img src="/resources/img/add_blog.png"/></a>
+           </div>
         </#if>
             <br>
             <hr>
@@ -74,10 +82,10 @@
             </form>
 
         </div>
-        <div class=".col-xs-6 col-md-3">
+        <div class="col-xs-4 col-sm-3">
             <div>
                 <h3>最近文章</h3>
-                <#if blogList?size &gt; 0>
+                <#if (blogList?? && blogList?size>0) >
                     <#list blogList as blog >
                     <div class="row">
                         <img src="/resources/img/greenPoint.png" width="12" height="12"><a href="/blogdetail?id=${blog.id}"> ${blog.blogTitle}</a>
@@ -87,7 +95,7 @@
             </div>
             <div>
                 <h3>最多访问</h3>
-                <#if bestBlogList?size &gt; 0>
+                <#if (bestBlogList?? && bestBlogList?size> 0)>
                     <#list bestBlogList as blog >
                         <div class="row">
                             <img src="/resources/img/greenPoint.png" width="12" height="12"><a href="/blogdetail?id=${blog.id}"> ${blog.blogTitle}</a>

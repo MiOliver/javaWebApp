@@ -12,7 +12,6 @@
 
     <script src="/resources/js/bootstrap-dialog.min.js" type="text/javascript"></script>
     <link href="/resources/css/bootstrap-dialog.min.css" rel="stylesheet">
-    <script type="text/javascript" src="/resources/js/bootstrap.js"></script>
 
     <style type="text/css">
         body {
@@ -55,7 +54,7 @@
                 error: function (XMLHttpRequest, error, errorThrown) {
                     console.log("error " + error + ": " + errorThrown);
                     BootstrapDialog.show({
-                        message: '博客添加成功!'
+                        message: '添加博客失败!'
                     });
                 },
                 success: function (data) {
@@ -177,6 +176,9 @@
                 <li ><a href="/index">首页</a></li>
                 <li class="active"><a href="/life">生活</a></li>
                 <li><a href="/about">关于</a></li>
+                <@shiro.user>
+                    <li><a href="/manage">管理</a></li>
+                </@shiro.user>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

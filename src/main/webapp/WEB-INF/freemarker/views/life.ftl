@@ -28,6 +28,9 @@
                 <li><a href="/index">首页</a></li>
                 <li class="active"><a href="/life">生活</a></li>
                 <li><a href="/about">关于</a></li>
+            <@shiro.user>
+                <li><a href="/manage">管理</a></li>
+            </@shiro.user>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -36,7 +39,7 @@
                 <li><a href="/logout">注销</a></li>
             </@shiro.user>
             <@shiro.guest>
-                <li><a href="#"><span class="glyphicon glyphicon-user">&nbsp;游客</span> </a></li>
+                <li><a href="/login"><span class="glyphicon glyphicon-user">&nbsp;游客</span> </a></li>
             </@shiro.guest>
 
             </ul>
@@ -53,8 +56,8 @@
                     <a href="/blogdetail?id=${blog.id}"><h3>${blog.blogTitle}</h3></a>
 
                     <p>
-                        <span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;${blog.createTime?string('yyyy-MM-dd HH:mm:ss')}
-                        &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;${blog.createPerson}
+                        <span class="glyphicon glyphicon-calendar" style="color:darkorange"></span>&nbsp;&nbsp;${blog.createTime?string('yyyy-MM-dd HH:mm:ss')}
+                        &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user" style="color:darkorange"></span>&nbsp;&nbsp;${blog.createPerson}
                         &nbsp;&nbsp;&nbsp;
                     </p>
                     <img src=" ${blog.blogImgSrc}" height="70" width="70" style="float: right">
@@ -63,6 +66,11 @@
                     </div>
                 </div>
             </#list>
+        <#else>
+            <div class="row">
+                <label style="color: purple">目前还没有文章，去添加以一个吧...</label><br/>
+                <a href="/addblog"><img src="/resources/img/add_blog.png"/></a>
+            </div>
         </#if>
             <br>
             <hr>

@@ -26,6 +26,9 @@
                 <li ><a href="/index">首页</a></li>
                 <li ><a href="/life">生活</a></li>
                 <li class="active"><a href="/about">关于</a></li>
+                <@shiro.user>
+                    <li><a href="/manage">管理</a></li>
+                </@shiro.user>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -34,7 +37,7 @@
                 <li><a href="/logout">注销</a></li>
             </@shiro.user>
             <@shiro.guest>
-                <li><a href="#"><span class="glyphicon glyphicon-user">&nbsp;游客</span> </a></li>
+                <li><a href="/login"><span class="glyphicon glyphicon-user">&nbsp;游客</span> </a></li>
             </@shiro.guest>
 
             </ul>

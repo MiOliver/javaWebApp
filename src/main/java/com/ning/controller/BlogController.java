@@ -64,8 +64,6 @@ public class BlogController extends BaseController {
     @RequestMapping(value = "/blogTrend", method = RequestMethod.GET)
     public ModelAndView blogTrend(){
         List<BlogContent> list = blogService.getBestList();
-//        List<Long> idList =new ArrayList<Long>();
-//        List<Long> countList =new ArrayList<Long>();
         Long[] idList =new Long[5];
         Long[] countList =new Long[5];
         for(int i=0;i<list.size();i++){
@@ -104,12 +102,13 @@ public class BlogController extends BaseController {
         }
         return map;
     }
-    @RequestMapping(value = "/deleteblog", method = RequestMethod.POST)
+    @RequestMapping(value = "/deleteblog", method = RequestMethod.POST,  headers="Accept=application/json")
     public  @ResponseBody Object deteleBlog(BlogContent blog, HttpServletRequest request, HttpServletResponse response) {
         String id =request.getParameter("id");
         map = new HashMap<String, Object>();
         if (blog != null) {
             if (blogService.deleteBlog(Long.valueOf(id)) > 0) {
+                System.out.println("成功删除");
                 map.put("msg", "成功删除");
             } else {
                 System.out.println("失败");

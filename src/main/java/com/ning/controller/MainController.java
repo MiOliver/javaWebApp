@@ -116,6 +116,11 @@ public class MainController extends BaseController{
         return USERLIST;
     }
 
+    @RequestMapping(value = "/test",method = RequestMethod.GET)
+    public String test(Model model){
+        return TEST;
+    }
+
 
     /***
      * 验证参数是否为空
