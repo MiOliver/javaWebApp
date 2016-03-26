@@ -1,4 +1,6 @@
-# 个人简历 Oliver
+# 个人简历 Oliver 
+> Keep calm and Carry on ...
+
 ## 联系方式 
 **手机：13269557621** &nbsp;&nbsp; **邮箱：lxnlhr@163.com**  &nbsp;&nbsp; 个人网站：[http://101.200.165.120:8085](http://101.200.165.120:8085)
 
@@ -8,14 +10,14 @@
 
 ## 工作经历 ##
 1. **2013.7~2014.3  &nbsp;&nbsp;  深圳市KONKA集团股份有限公司**
-  * 参与Android机顶盒的部分研发工作，主要负责framework层面相关jni的编写，主要使用jni调用动态库（lib.so,驱动），编写供上层APP调用的模块。
-  * 为了提高机顶盒对AirPlay协议支持的稳定性，研究了AirPlay协议的实现，抓包分析了协议原理，离职前做了AirPlay的相关报告。
+  * 参与Android机顶盒的部分研发工作，主要负责`framework`层面相关jni的编写，主要使用jni调用动态库（lib.so,驱动），编写供上层APP调用的模块。
+  * 为了提高机顶盒对AirPlay协议支持的稳定性，研究了`AirPlay`协议的实现，抓包分析了协议原理，离职前做了AirPlay的相关报告。
   
 2. **2014.4~至今   &nbsp;&nbsp;  小米科技有限公司**
   * 负责小米零售系统和配套APP研发工作，支持小米之家售卖官网的大部分产品，系统之间的支付对接、一系列小米线下售卖活动的系统支持；
     各商品销售数据的报表统计、财务账目核对以及发票处理的一系列流程...。
-  * 系统主要使用（structs2+spring+mybatis+mysql+redis）,主要负责后台数据库表格设计、根据相关业务需求实现对应的功能；
-    负责上述系统与小米内部其他系统的接口对接，前端使用FreeMaker +ajax+ jquery +Bootstrap...。
+  * 系统主要使用（`structs2+spring+mybatis+mysql+redis`）,主要负责后台数据库表格设计、根据相关业务需求实现对应的功能；
+    负责上述系统与小米内部其他系统的接口对接，前端使用`FreeMaker +ajax+ jquery +Bootstrap`...。
     对SpingMVC有一定了解，工作之余会使用SpringMVC替代Struts，希望能参与高并发系统的设计工作。
   * 负责小米零售系统App(Android版本)的研发工作，根据新需求实现APP和零售系统的对接，相关开源工具Volley、Gson、等，
     及时迭代上线。
@@ -33,11 +35,11 @@
    * CET6(455)  口语:熟练
      
 2.  技术偏好
-   * C语言、Java、Android、工作中习惯使用Linux操作系统,IDE习惯使用idea及一些内部插件
-   * 熟练使用git、svn、maven、shell等，个人代码部分托管在Github
+   * `C语言`、`Java`、`Android`、工作中习惯使用`Linux`操作系统,IDE习惯使用`idea`及一些内部插件
+   * 熟练使用`git`、svn、maven、shell等，个人代码部分托管在`Github`
    * 熟悉TCP/IP协议、对网络编程感兴趣;熟悉多线程编程
    * 熟悉面向对象的软件设计方法和常用设计模式，了解常用的数据结构和算法
-   * 熟悉数据库设计和SQL、熟练使用Mysql,熟悉常见的sql优化方法
+   * 熟悉数据库设计和SQL、熟练使用`Mysql`,熟悉常见的sql优化方法
    * 其他技能：业余捣鼓开源硬件（Arduino、Raspberry Pi），了解go 和python
 
 ## 个人爱好 ##
