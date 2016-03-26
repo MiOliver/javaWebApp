@@ -9,7 +9,7 @@
 * 2012.11～2013.05	&nbsp;&nbsp;   中科院计算所（北京）&nbsp;&nbsp;  **部门**：普适计算中心   &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;    客座学生
 
 ## 工作经历 ##
-1. **2013.7~2014.3  &nbsp;&nbsp;  深圳市KONKA集团股份有限公司**
+1. **2013.7~2014.3** ![alt text](http://hubei.sinaimg.cn/2012/1229/U7250P1190DT20121229161019.jpg, "konka") &nbsp;&nbsp;  **深圳市KONKA集团股份有限公司**
   * 参与Android机顶盒的部分研发工作，主要负责framework层面相关jni的编写，主要使用jni调用动态库（lib.so,驱动），编写供上层APP调用的模块。
   * 为了提高机顶盒对AirPlay协议支持的稳定性，研究了AirPlay协议的实现，抓包分析了协议原理，离职前做了AirPlay的相关报告。
   
