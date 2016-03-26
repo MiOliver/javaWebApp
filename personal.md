@@ -1,9 +1,9 @@
-# 个人简历 Oliver # 
+# 个人简历 Oliver
 ## 联系方式 
 **手机：13269557621** &nbsp;&nbsp; **邮箱：lxnlhr@163.com**  &nbsp;&nbsp; 个人网站：[http://101.200.165.120:8085](http://101.200.165.120:8085)
 
 ## 教育及实习经历 ##
-* 2009.08～2013.07	&nbsp;&nbsp;   哈尔滨工业大学    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  **专业**：计算机科学与技术     本科
+* 2009.08～2013.07	&nbsp;&nbsp;   哈尔滨工业大学    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **专业**：计算机科学与技术     本科
 * 2012.11～2013.05	&nbsp;&nbsp;   中科院计算所（北京）&nbsp;&nbsp;  **部门**：普适计算中心   &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;    客座学生
 
 ## 工作经历 ##
@@ -29,14 +29,16 @@
 * 2011.5  &nbsp;&nbsp;    毕业杯篮球赛优秀裁判
 
 ## 英文水平&技术偏好 ##
-1.  英语： CET6(455)  口语:熟练
+1.  英语等级
+   * CET6(455)  口语:熟练
+     
 2.  技术偏好
-* C语言、Java、Android、工作中习惯使用Linux操作系统,IDE习惯使用idea及一些内部插件
-* 熟练使用git、svn、maven、shell等，个人代码部分托管在Github
-* 熟悉TCP/IP协议、对网络编程感兴趣;熟悉多线程编程
-* 熟悉面向对象的软件设计方法和常用设计模式，了解常用的数据结构和算法
-* 熟悉数据库设计和SQL、熟练使用Mysql,熟悉常见的sql优化方法
-* 其他技能：业余捣鼓开源硬件（Arduino、Raspberry Pi），了解go 和python
+   * C语言、Java、Android、工作中习惯使用Linux操作系统,IDE习惯使用idea及一些内部插件
+   * 熟练使用git、svn、maven、shell等，个人代码部分托管在Github
+   * 熟悉TCP/IP协议、对网络编程感兴趣;熟悉多线程编程
+   * 熟悉面向对象的软件设计方法和常用设计模式，了解常用的数据结构和算法
+   * 熟悉数据库设计和SQL、熟练使用Mysql,熟悉常见的sql优化方法
+   * 其他技能：业余捣鼓开源硬件（Arduino、Raspberry Pi），了解go 和python
 
 ## 个人爱好 ##
 热爱篮球（每年参加小米公司内部篮球赛）、喜欢登山、跑步、骑行、户外野营等；
