@@ -1,4 +1,6 @@
 # 个人简历 Oliver
+> Keep calm and Carry on ...
+
 ## 联系方式 
 **手机：13269557621** &nbsp;&nbsp; **邮箱：lxnlhr@163.com**  &nbsp;&nbsp; 个人网站：[http://101.200.165.120:8085](http://101.200.165.120:8085)
 
