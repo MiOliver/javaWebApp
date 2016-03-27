@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>享受技术和生活中的快乐</h1>
+    <h1>Keep calm and Carry on</h1>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -64,6 +64,10 @@
 
             </address>
 
+            <address>
+                <strong>Motto</strong><br>
+                <img src=" http://cdn.duitang.com/uploads/item/201508/03/20150803194035_haEKc.thumb.700_0.jpeg"  width="200" height="300"><br><br>
+            </address>
 
             <address>
                 <strong>微博账号</strong><br>
@@ -74,6 +78,8 @@
                 <strong>Email:</strong><br>
                 <a href="mailto:#">tianxingzhe1990@gmail.com</a>
             </address>
+
+
         </div>
         <div class=".col-xs-6 col-md-3">
 
