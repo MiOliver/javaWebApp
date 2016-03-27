@@ -25,7 +25,10 @@
         $(document).ready(
                 function () {
                     $('#summernote').summernote();
-                    getsubtype(1);
+                    <#if (blog.blogCategoryId??)>
+                        getsubtype(${blog.blogCategoryId});
+                    </#if>
+
 
                 }
         );
@@ -196,7 +199,7 @@
     </nav>
 
     <div class="row" style="background-color: white;border-radius:5px;padding: 20px;  ">
-        <div class=" col-md-10">
+        <div class=" col-md-12">
             <#if update == false>
                 <div style="padding: 30px;">
                     <h3>添加博客</h3>
@@ -259,7 +262,7 @@
                         </div>
                         <div class="form-group">
                             <label>博客内容:</label>
-                            <div id="summernote">value="${blog.blogContent}"
+                            <div id="summernote">${blog.blogContent}
                             </div>
                         </div>
 

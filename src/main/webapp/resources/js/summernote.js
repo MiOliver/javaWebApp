@@ -2412,7 +2412,7 @@
      */
     options: {
       width: null,                  // set editor width
-      height: 200,                 // set editor height, ex) 300
+      height: 600,                 // set editor height, ex) 300
 
       minHeight: null,              // set minimum height of editor
       maxHeight: null,              // set maximum height of editor

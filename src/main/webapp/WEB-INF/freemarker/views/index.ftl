@@ -62,7 +62,7 @@
                             &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user" style="color:darkorange"></span>&nbsp;&nbsp;${blog.createPerson}
                             &nbsp;&nbsp;&nbsp;
                         </p>
-                        <img src=" ${blog.blogImgSrc}" height="70" width="70" style="float: right">
+                        <img src=" ${blog.blogImgSrc}" height="80" width="80" style="float: right">
                         <div>
                         ${blog.blogContent}<a href="/blogdetail?id=${blog.id}">阅读全文 >>></a>
                         </div>

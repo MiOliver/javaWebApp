@@ -44,15 +44,30 @@ public class BlogServiceImpl {
         return blogSubtypeMapper.getsublist(type);
     }
 
+    /**
+     * 正则匹配获取部分内容
+     * @param list
+     * @return
+     */
     public List<BlogContent> getFixBlogList(List<BlogContent> list){
         for(BlogContent blogContent:list){
             String regex="(<p.*?>.*?</p>)";
             Pattern p = Pattern.compile(regex);
             Matcher m=p.matcher(blogContent.getBlogContent());
-            if(m.find()){
-                System.out.println(m.group(1));
-                blogContent.setBlogContent(m.group(1));
+            boolean result=m.find();
+            int length=0;
+            while(result){
+                result=m.find();
+                if(result){
+                    length=m.start();
+                    if(length>1000){
+                        break;
+                    }
+                }
             }
+            System.out.println(blogContent.getBlogContent().substring(0,length));
+            blogContent.setBlogContent(blogContent.getBlogContent().substring(0,length));
+
         }
         return list;
     }
