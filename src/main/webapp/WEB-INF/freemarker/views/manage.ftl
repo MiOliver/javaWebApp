@@ -3,7 +3,7 @@
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 <#--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
 <head>
-    <title>Twitter Bootstrap Tutorial </title>
+    <title>后台管理</title>
     <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="/resources/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
@@ -23,11 +23,11 @@
                 </a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/index">首页</a></li>
+                <li ><a href="/index">首页</a></li>
                 <li><a href="/life">生活</a></li>
                 <li><a href="/about">关于</a></li>
                 <@shiro.user>
-                <li><a href="/manage">管理</a></li>
+                <li class="active"><a href="/manage">管理</a></li>
                 </@shiro.user>
             </ul>
         </div>

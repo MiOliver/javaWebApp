@@ -3,7 +3,7 @@
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 <#--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
 <head>
-    <title>Blog manage </title>
+    <title>博客管理 </title>
     <#include "./common/base_static_file.ftl" />
     <script type="text/javascript" src="/resources/js/jquery.pager.js"></script>
 

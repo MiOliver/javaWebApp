@@ -3,7 +3,7 @@
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 <#--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
 <head>
-    <title>Twitter Bootstrap Tutorial </title>
+    <title>Oliver's Blogs</title>
     <#include "./common/base_static_file.ftl" />
 
     <!-- include summernote css/js-->
@@ -245,7 +245,7 @@
                             <input type="text" class="form-control" style="width: 100%" placeholder="title" id="blogImgSrc" required="true">
                         </div>
 
-                        <input type="submit" value="创  建" class="btn"></input>
+                        <input type="submit" value="创  建" class="btn btn-success"></input>
                     </form>
                 </div>
             <#else>
@@ -294,7 +294,7 @@
                                    id="blogImgSrc" required="true">
                         </div>
 
-                        <input type="submit" value="更 新" class="btn" ></input>
+                        <input type="submit" value="更 新" class="btn btn-success" ></input>
                     </form>
                 </div>
             </#if>
