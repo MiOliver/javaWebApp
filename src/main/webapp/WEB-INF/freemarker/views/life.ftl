@@ -16,7 +16,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>享受技术和生活中的快乐</h1>
+    <h1>Keep calm and Carry on</h1>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -52,24 +52,22 @@
 
         <#if (blogList?? && blogList?size>0) >
             <#list blogList as blog >
-                <div  class="panel panel-default">
-                    <div  style="padding-left: 10px">
-                        <a href="/blogdetail?id=${blog.id}"><h3>${blog.blogTitle}</h3></a>
-                    </div>
-                    <div style="padding-left: 15px;padding-right: 15px;padding-bottom: 10px"">
-                        <p>
-                            <span class="glyphicon glyphicon-calendar" style="color:darkorange"></span>&nbsp;&nbsp;${blog.createTime?string('yyyy-MM-dd HH:mm:ss')}
-                            &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user" style="color:darkorange"></span>&nbsp;&nbsp;${blog.createPerson}
-                            &nbsp;&nbsp;&nbsp;
-                        </p>
-                        <img src=" ${blog.blogImgSrc}" height="70" width="70" style="float: right">
-                        <div>
-                        ${blog.blogContent}<a href="/blogdetail?id=${blog.id}">阅读全文 >>></a>
-                        </div>
-                    </div>
 
+                <div class="panel panel-default">
+                    <div style="padding-left: 10px"> <a href="/blogdetail?id=${blog.id}"><h3>${blog.blogTitle}</h3></a></div>
+                    <div style="padding-left: 15px;padding-right: 15px;padding-bottom: 10px"" >
+                    <p>
+                        <span class="glyphicon glyphicon-calendar"  style="color:darkorange"></span>&nbsp;&nbsp;${blog.createTime?string('yyyy-MM-dd HH:mm:ss')}
+                        &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user" style="color:darkorange"></span>&nbsp;&nbsp;${blog.createPerson}
+                        &nbsp;&nbsp;&nbsp;
+                    </p>
+                    <img src=" ${blog.blogImgSrc}" height="80" width="80" style="float: right">
+                    <div>
+                    ${blog.blogContent}<a href="/blogdetail?id=${blog.id}">阅读全文 >>></a>
+                    </div>
 
                 </div>
+            </div>
             </#list>
         <#else>
             <div class="row">

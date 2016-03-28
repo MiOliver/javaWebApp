@@ -3,7 +3,7 @@
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 <#--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
 <head>
-    <title>Blog manage </title>
+    <title>博客管理 </title>
     <#include "./common/base_static_file.ftl" />
     <script type="text/javascript" src="/resources/js/jquery.pager.js"></script>
 
@@ -57,7 +57,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>享受技术和生活中的快乐</h1>
+    <h1>Keep calm and Carry on</h1>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">

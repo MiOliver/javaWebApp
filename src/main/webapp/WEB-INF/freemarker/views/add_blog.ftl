@@ -3,7 +3,7 @@
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 <#--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
 <head>
-    <title>Twitter Bootstrap Tutorial </title>
+    <title>Oliver's Blogs</title>
     <#include "./common/base_static_file.ftl" />
 
     <!-- include summernote css/js-->
@@ -25,7 +25,10 @@
         $(document).ready(
                 function () {
                     $('#summernote').summernote();
-                    getsubtype(1);
+                    <#if (blog.blogCategoryId??)>
+                        getsubtype(${blog.blogCategoryId});
+                    </#if>
+
 
                 }
         );
@@ -164,7 +167,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>享受技术和生活中的快乐</h1>
+    <h1>Keep calm and Carry on</h1>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -196,7 +199,7 @@
     </nav>
 
     <div class="row" style="background-color: white;border-radius:5px;padding: 20px;  ">
-        <div class=" col-md-10">
+        <div class=" col-md-12">
             <#if update == false>
                 <div style="padding: 30px;">
                     <h3>添加博客</h3>
@@ -259,7 +262,7 @@
                         </div>
                         <div class="form-group">
                             <label>博客内容:</label>
-                            <div id="summernote">value="${blog.blogContent}"
+                            <div id="summernote">${blog.blogContent}
                             </div>
                         </div>
 

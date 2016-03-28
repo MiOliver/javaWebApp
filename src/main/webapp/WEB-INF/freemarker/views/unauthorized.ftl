@@ -3,7 +3,7 @@
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 <#--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
 <head>
-    <title>Twitter Bootstrap Tutorial </title>
+    <title>Oliver's Blogs</title>
     <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="/resources/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>享受技术和生活中的快乐</h1>
+    <h1>Keep calm and Carry on</h1>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
