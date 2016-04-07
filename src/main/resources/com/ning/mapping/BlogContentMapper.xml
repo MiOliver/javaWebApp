@@ -111,7 +111,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ning.domain.BlogContent" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.ning.domain.BlogContent">
     update blog_content
     <set >
       <if test="blogTitle != null" >

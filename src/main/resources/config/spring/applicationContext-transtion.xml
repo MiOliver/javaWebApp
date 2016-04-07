@@ -15,5 +15,6 @@
     </tx:advice>
     <aop:config>
         <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.ning.services.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.ning.serviceimpl.*.*(..))"/>
     </aop:config>
 </beans>

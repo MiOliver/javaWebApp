@@ -8,6 +8,7 @@ import com.ning.mapper.BlogTagMapper;
 import com.xiaomi.platform.xmybatis.plugins.Pagination;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,12 +79,13 @@ public class BlogServiceImpl {
         return blogCategoryMapper.getCateList();
     }
 
+    @Transactional(value="transactionManager",rollbackFor ={Throwable.class})
     public int createBlog(BlogContent blog){
         return blogContentMapper.insertSelective(blog);
     }
 
 
-
+    @Transactional(value="transactionManager",rollbackFor ={Throwable.class})
     public int deleteBlog(Long id){
         return blogContentMapper.deleteByPrimaryKey(id);
     }
