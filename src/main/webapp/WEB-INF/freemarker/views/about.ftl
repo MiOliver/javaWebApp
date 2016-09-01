@@ -85,6 +85,18 @@
                 <a href="mailto:#">lxnlhr@163.com</a>
             </address>
 
+            <#if (coms.dashboard.ips?size>0) >
+            <#assign dashboard_addr=""/>
+                <#list coms.dashboard.ips as ip>
+                    <#if ip_has_next>
+                        ${dashboard_addr}=${dashboard_addr}+${ip}+":18087,";
+                    <#else>
+                        ${dashboard_addr}=${dashboard_addr}+${ip}+":18087";
+                    </#if>
+                </#list>
+            </#if>
+
+
 
         </div>
 
