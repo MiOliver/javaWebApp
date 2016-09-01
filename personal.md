@@ -2,7 +2,7 @@
 > Stay foolish,Stay hungry; Keep calm and Carry on ...
 
 ## 求职意向&联系方式 ##
- * **求职意向：java后台研发工程师** &nbsp;&nbsp; **手机：13269557621** &nbsp;&nbsp; **邮箱：lxnlhr@163.com**  &nbsp;&nbsp;
+ * **求职意向：java后台研发工程师** &nbsp;&nbsp; **手机：17180130702** &nbsp;&nbsp; **邮箱：lxnlhr@163.com**  &nbsp;&nbsp;
  * **个人网站：已下线** &nbsp;&nbsp;
 **个人GitHub：** &nbsp;&nbsp; [https://github.com/lxnkobe](https://github.com/lxnkobe)
 
