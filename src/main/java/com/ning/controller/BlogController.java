@@ -29,8 +29,6 @@ public class BlogController extends BaseController {
     @Autowired
     private BlogServiceImpl blogService;
 
-    private BlogContent blog;
-
     private static final String ADDBLOG = "add_blog";
     private static final String BLOGTAGSLIST = "blog_tags_list";
     private static final String BLOGDETAIL = "blog_detail";
@@ -42,6 +40,7 @@ public class BlogController extends BaseController {
     private List<BlogCategory> cateList;
     private List<BlogContent> similarBlogList;
     private Map<String, Object> map;
+    private BlogContent blog;
 
     @RequiresRoles("admin")
     @RequestMapping(value = "/addblog", method = RequestMethod.GET)
