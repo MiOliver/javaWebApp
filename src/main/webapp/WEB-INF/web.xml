@@ -24,6 +24,10 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
+    <listener>
+        <listener-class>com.ning.listener.RequestListener</listener-class>
+    </listener>
+
     <!--<filter>-->
         <!--<filter-name>testFilter</filter-name>-->
         <!--<filter-class>com.ning.filter.TestFilter</filter-class>-->
@@ -198,6 +202,15 @@
     <servlet-mapping>
         <servlet-name>temServlet</servlet-name>
         <url-pattern>/servlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LongRunningServlet</servlet-name>
+        <servlet-class>com.ning.web.LongRunningServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LongRunningServlet</servlet-name>
+        <url-pattern>/long_servlet</url-pattern>
     </servlet-mapping>
 
     <!--<servlet>-->

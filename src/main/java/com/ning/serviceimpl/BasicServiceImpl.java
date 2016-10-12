@@ -4,8 +4,6 @@ import com.ning.domain.User;
 import com.ning.services.BasicService;
 import com.ning.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.Authentication;
-import org.springframework.security.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,15 +17,7 @@ public class BasicServiceImpl implements BasicService{
     private UserService userService;
     @Override
     public User getLoginAdmin() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication == null) { return null; }
-
-        Object principal = authentication.getPrincipal();
-        if (principal == null || !(principal instanceof User)) {
-            return null;
-        } else {
-            return (User) principal;
-        }
+        return null;
     }
 
     @Override

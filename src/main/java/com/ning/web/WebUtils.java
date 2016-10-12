@@ -1,8 +1,7 @@
 package com.ning.web;
 
 
-
-import org.apache.commons.lang.StringUtils;
+import com.alibaba.druid.util.StringUtils;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -59,7 +58,7 @@ public class WebUtils {
 	}
 
 	public static String getCookie(HttpServletRequest request, String name) {
-		if (StringUtils.isBlank(name))
+		if (StringUtils.isEmpty(name))
 			throw new NullPointerException();
 		String result = null;
 		Cookie[] cookies = request.getCookies();
@@ -67,12 +66,12 @@ public class WebUtils {
 			return null;
 		for (Cookie cookie : cookies) {
 			String cookieName = cookie.getName();
-			if (StringUtils.isBlank(cookieName))
+			if (StringUtils.isEmpty(cookieName))
 				continue;
 			if (name.equals(cookieName))
 				result = cookie.getValue();
 		}
-		if (StringUtils.isBlank(result))
+		if (StringUtils.isEmpty(result))
 			return null;
 		else
 			return result;
@@ -99,13 +98,13 @@ public class WebUtils {
 		response.addCookie(cookie);
 	}
 
-	public static String addParameter(String url, String name, String value) {
-		if (StringUtils.isBlank(url) || StringUtils.isBlank(name)
-				|| StringUtils.isBlank(value))
-			return url;
-		if (url.indexOf("?") != -1)
-			return url += "&" + name + "=" + value;
-		else
-			return url += "?" + name + "=" + value;
-	}
+//	public static String addParameter(String url, String name, String value) {
+//		if (StringUtils.isBlank(url) || StringUtils.isBlank(name)
+//				|| StringUtils.isBlank(value))
+//			return url;
+//		if (url.indexOf("?") != -1)
+//			return url += "&" + name + "=" + value;
+//		else
+//			return url += "?" + name + "=" + value;
+//	}
 }

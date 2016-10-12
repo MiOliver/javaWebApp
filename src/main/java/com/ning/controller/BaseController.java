@@ -2,7 +2,6 @@ package com.ning.controller;
 
 import com.ning.domain.BasicConstants;
 import com.ning.domain.User;
-import com.ning.serviceimpl.BasicServiceImpl;
 import com.ning.services.BasicService;
 import com.ning.utils.JsonUtil;
 import com.ning.web.WebUtils;
@@ -28,7 +27,6 @@ public class BaseController {
     private static final Logger logger = LoggerFactory.getLogger(BaseController.class);
     private static final String HEADER_ENCODING = "UTF-8";
     private static final boolean HEADER_NO_CACHE = true;
-    private static final String HEADER_TEXT_CONTENT_TYPE = "text/plain";
     private static final String HEADER_JSON_CONTENT_TYPE = "text/plain";
     public  static final String STATUS_PARAMETER_NAME = "status";
     public  static final String MESSAGE_PARAMETER_NAME = "message";

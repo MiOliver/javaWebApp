@@ -1,9 +1,0 @@
-#log
-.idea/
-
-logs/
-
-target/
-
-
-.gitignore
