@@ -1,9 +1,8 @@
 package com.ning.controller;
 
 import com.alibaba.druid.util.StringUtils;
-import com.ning.domain.BlogContent;
-import com.ning.domain.BlogSearchVO;
-import com.ning.domain.User;
+import com.ning.domain.*;
+import com.ning.mapper.BlogSubtypeMapper;
 import com.ning.serviceimpl.BlogServiceImpl;
 import com.ning.serviceimpl.ManageService;
 import com.ning.utils.CommonUtils;
@@ -34,6 +33,7 @@ public class ManageController extends BaseController{
     private static final String LOGIN="login";
     private static final String UNAUTHORIZED="unauthorized";
     private static final String BLOGMANAGE="blog_manage";
+    private static final String CATEGARYMANAGE="categary_manage";
     private static final String LOGOUT="logoutsucc";
     private static final String ADDUSER="add_user";
 
@@ -110,32 +110,23 @@ public class ManageController extends BaseController{
         return mv;
     }
 
-    @RequestMapping(value = "blogManage",method= RequestMethod.GET)
-    public ModelAndView getBlogManage(String blogseach){
-        ModelAndView mv=new ModelAndView(BLOGMANAGE);
+    @RequestMapping(value = "categoryManage",method= RequestMethod.GET)
+    public ModelAndView getCategoryList(){
+        ModelAndView mv=new ModelAndView(CATEGARYMANAGE);
         BlogSearchVO searchVO=new BlogSearchVO();
-        List<BlogContent> blogList=null;
-        if(!StringUtils.isEmpty(blogseach)){
-            if(CommonUtils.isNumeric(blogseach)){
-                searchVO.setId(Long.valueOf(blogseach));
-            }else{
-                searchVO.setTitle(blogseach);
-            }
-            blogList=blogService.getBlogList(page,searchVO);
-        }else{
-            blogList=blogService.getBlogList(page,searchVO);
-        }
+        List<BlogSubtype> category=null;
 
-        if (blogList != null && blogList.size() > 0) {
+        category= blogService.getSubtypeList(0);
+
+        if (category != null && category.size() > 0) {
             this.setDisplayPageBar(true);
         } else {
-            blogList = null;
+            category = null;
             this.setDisplayPageBar(false);
         }
         mv.addObject("displayPageBar",displayPageBar);
         mv.addObject("page",page);
-        mv.addObject("blogList",blogList);
-        mv.addObject("blogseach",blogseach);
+        mv.addObject("category",category);
         return mv;
     }
 

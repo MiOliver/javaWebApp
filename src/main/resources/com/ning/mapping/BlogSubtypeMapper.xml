@@ -108,6 +108,8 @@
     select
     <include refid="Base_Column_List" />
     from blog_subtype
-    where category_id=#{type}
+    <if test="type!= null and type !=0 ">
+      where category_id=#{type}
+    </if>
   </select>
 </mapper>

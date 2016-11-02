@@ -59,40 +59,14 @@
                 </div>
                 <div class="col-sm-2 col-md-2">
                     <div class="thumbnail">
-                        <a href="#"><img src="/resources/img/Line.png" width="50" height="50" alt="100*80"></a>
+                        <a href="/categoryManage"><img src="/resources/img/Line.png" width="50" height="50" alt="100*80"></a>
 
                         <div class="caption" align="center">
-                            <h4>数据统计</h4>
+                            <h4>类别管理</h4>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-2 col-md-2">
-                    <div class="thumbnail">
-                        <a href="#"><img src="/resources/img/Clock.png" width="50" height="50" alt="100*80"></a>
 
-                        <div class="caption" align="center">
-                            <h4>博客管理</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2 col-md-2">
-                    <div class="thumbnail">
-                        <a href="#"><img src="/resources/img/Line.png" width="50" height="50" alt="100*80"></a>
-
-                        <div class="caption" align="center">
-                            <h4>博客管理</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2 col-md-2">
-                    <div class="thumbnail">
-                        <a href="#"><img src="/resources/img/Clock.png" width="50" height="50" alt="100*80"></a>
-
-                        <div class="caption" align="center">
-                            <h4>博客管理</h4>
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </div>

@@ -20,13 +20,5 @@ public class ManageService {
         userService.createUser(user);
         return 1;
     }
-//userService 已经带有密码加密
-    //        String algorithmName = "md5";
-//        String salt1 = user.getUsername();
-//        String salt2 = new SecureRandomNumberGenerator().nextBytes().toHex();
-//        int hashIterations = 2;
-//        SimpleHash hash = new SimpleHash(algorithmName, user.getPassword(), salt1 + salt2, hashIterations);
-//        String encodedPassword = hash.toHex();
-//        user.setPassword(encodedPassword);
-//        user.setSalt(salt2);
+
 }

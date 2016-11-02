@@ -16,13 +16,7 @@ public class ServletTest {
     private LongRunningServlet servlet;
     private MockHttpServletRequest request;
     private MockHttpServletResponse response;
-    @Test
-    /**
-     * 测试servlet请求
-     */
-    public void testServeletRequest(){
 
-    }
 
     @Before
     public void setUp() {
@@ -39,6 +33,14 @@ public class ServletTest {
         for(int i=0;i<1000;i++){
             servlet.doGet(request, response);
         }
+
+    }
+
+    @Test
+    /**
+     * 测试servlet请求
+     */
+    public void testServeletRequest(){
 
     }
 }
