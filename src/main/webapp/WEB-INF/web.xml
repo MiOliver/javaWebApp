@@ -15,7 +15,6 @@
             classpath:config/spring/applicationContext-dao.xml;
             classpath:config/spring/applicationContext-redis.xml;
             classpath:config/spring/applicationContext-service.xml;
-            classpath:config/spring/applicationContext-transtion.xml;
         </param-value>
     </context-param>
 

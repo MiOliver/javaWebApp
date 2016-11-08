@@ -4,42 +4,78 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:util="http://www.springframework.org/schema/util"
        xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
        http://www.springframework.org/schema/util
-       http://www.springframework.org/schema/util/spring-util.xsd">
+       http://www.springframework.org/schema/util/spring-util.xsd" >
+
+    <!-- 自动扫描组件，需要把controller去掉，否则影响事务管理 -->
+    <context:component-scan base-package="com.ning">
+        <context:exclude-filter type="regex"
+                                expression="com.ning.controller.*"/>
+    </context:component-scan>
 
 
-    <!-- 自动扫描 -->
-    <context:component-scan base-package="com.ning" />
-    <!-- 引入配置文件 -->
-    <bean id="propertyConfigurer"
-          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="locations" value="classpath:/config/jdbc.properties" />
+    <!--&lt;!&ndash; 引入配置文件 &ndash;&gt;-->
+    <!--<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+    <!--<property name="locations" value="classpath:/config/jdbc.properties" />-->
+    <!--<property name="ignoreUnresolvablePlaceholders" value="true" />-->
+    <!--</bean>-->
+
+
+    <!-- 引入jdbc配置文件 -->
+    <context:property-placeholder location="classpath:config/jdbc.properties" ignore-unresolvable="true"/>
+
+    <!--事务管理-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <!--设置数据源-->
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" destroy-method="close">-->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="find*" propagation="REQUIRED"/>
+            <tx:method name="add*" propagation="REQUIRED"/>
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
 
-        <property name="driverClassName" value="${driver}"/>
-        <property name="url" value="${url}"/>
-        <property name="username" value="${username}"/>
-        <property name="password" value="${password}"/>
+            <!--测试事务的四种隔离级别-->
+            <tx:method name="uncommit*" propagation="REQUIRED" isolation="READ_UNCOMMITTED"/>
+            <tx:method name="commit*" propagation="REQUIRED" isolation="READ_COMMITTED"/>
+            <tx:method name="repeat*" propagation="REQUIRED" isolation="REPEATABLE_READ"/>
+            <tx:method name="serial*" propagation="REQUIRED" isolation="SERIALIZABLE"/>
+
+        </tx:attributes>
+    </tx:advice>
+    <aop:config>
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.ning.services.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.ning.serviceimpl.*.*(..))"/>
+    </aop:config>
+
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" destroy-method="close">-->
+
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
         <!-- 初始化连接大小 -->
-        <property name="initialSize" value="${initialSize}"></property>
+        <property name="initialSize" value="${jdbc.initialSize}"/>
         <!-- 连接池最大数量 -->
-        <property name="maxActive" value="${maxActive}"></property>
+        <property name="maxActive" value="${jdbc.maxActive}"/>
         <!-- 连接池最大空闲 -->
-        <property name="maxIdle" value="${maxIdle}"></property>
+        <property name="maxIdle" value="${jdbc.maxIdle}"/>
         <!-- 连接池最小空闲 -->
-        <property name="minIdle" value="${minIdle}"></property>
+        <property name="minIdle" value="${jdbc.minIdle}"/>
         <!-- 获取连接最大等待时间 -->
-        <property name="maxWait" value="${maxWait}"></property>
+        <property name="maxWait" value="${jdbc.maxWait}"/>
     </bean>
 
     <!--配置sqlsessionFactory-->
@@ -86,12 +122,11 @@
         <property name="passwordHelper" ref="passwordHelper"/>
     </bean>
 
-
-
     <!-- 缓存管理器 使用Ehcache实现 -->
     <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
-        <property name="cacheManagerConfigFile" value="classpath:ehcache.xml"/>
+        <property name="cacheManagerConfigFile" value="classpath:config/ehcache.xml"/>
     </bean>
+
 
     <!-- 凭证匹配器 -->
     <bean id="credentialsMatcher" class="com.ning.credentials.RetryLimitHashedCredentialsMatcher">
@@ -147,7 +182,6 @@
     </bean>
 
 
-
     <!-- 安全管理器 -->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="userRealm"/>
@@ -171,7 +205,7 @@
 
     <!--logout firlter-->
     <bean id="logout" class="org.apache.shiro.web.filter.authc.LogoutFilter">
-        <property name="redirectUrl" value="/logoutsucc" />
+        <property name="redirectUrl" value="/logoutsucc"/>
     </bean>
 
     <!-- Shiro的Web过滤器 -->
@@ -198,8 +232,6 @@
             </value>
         </property>
     </bean>
-
-
 
     <!-- Shiro生命周期处理器-->
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>

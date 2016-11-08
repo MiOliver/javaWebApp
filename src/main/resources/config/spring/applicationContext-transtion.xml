@@ -1,20 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">
-        <tx:attributes>
-            <tx:method name="find*" propagation="REQUIRED"/>
-            <tx:method name="add*" propagation="REQUIRED"/>
-            <tx:method name="delete*" propagation="REQUIRED"/>
-            <tx:method name="update*" propagation="REQUIRED"/>
-        </tx:attributes>
-    </tx:advice>
-    <aop:config>
-        <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.ning.services.*.*(..))"/>
-        <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.ning.serviceimpl.*.*(..))"/>
-    </aop:config>
-</beans>
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans.xsd-->
+       <!--http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd-->
+       <!--http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">-->
+    <!--<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+    <!--</bean>-->
+    <!--<tx:advice id="txAdvice" transaction-manager="transactionManager">-->
+        <!--<tx:attributes>-->
+            <!--<tx:method name="find*" propagation="REQUIRED"/>-->
+            <!--<tx:method name="add*" propagation="REQUIRED"/>-->
+            <!--<tx:method name="delete*" propagation="REQUIRED"/>-->
+            <!--<tx:method name="update*" propagation="REQUIRED"/>-->
+
+            <!--&lt;!&ndash;测试事务的四种隔离级别&ndash;&gt;-->
+            <!--<tx:method name="uncommit*" propagation="REQUIRED" isolation="READ_UNCOMMITTED"/>-->
+            <!--<tx:method name="commit*" propagation="REQUIRED" isolation="READ_COMMITTED"/>-->
+            <!--<tx:method name="repeat*" propagation="REQUIRED" isolation="REPEATABLE_READ"/>-->
+            <!--<tx:method name="serial*" propagation="REQUIRED" isolation="SERIALIZABLE"/>-->
+
+        <!--</tx:attributes>-->
+    <!--</tx:advice>-->
+    <!--<aop:config>-->
+        <!--<aop:advisor advice-ref="txAdvice" pointcut="execution(* com.ning.services.*.*(..))"/>-->
+        <!--<aop:advisor advice-ref="txAdvice" pointcut="execution(* com.ning.serviceimpl.*.*(..))"/>-->
+    <!--</aop:config>-->
+<!--</beans>-->

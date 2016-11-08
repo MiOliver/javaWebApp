@@ -84,4 +84,23 @@ public class TestController {
         return modelAndView;
     }
 
+
+    @RequestMapping(value = "/append", method = RequestMethod.GET)
+    public String StringAppend(HttpServletRequest request, HttpServletResponse response) {
+        String key = request.getParameter("key").trim().toString();
+        String value = request.getParameter("value").trim().toString();
+        redisService.append(key, value);
+        return REDIS;
+    }
+
+
+    @RequestMapping(value = "/getstr", method = RequestMethod.GET)
+    public ModelAndView getString(HttpServletRequest request) {
+        ModelAndView modelAndView = new ModelAndView(REDIS);
+        String key = request.getParameter("key").trim().toString();
+        String value = redisService.getString(key);
+        modelAndView.addObject("string", value);
+        return modelAndView;
+    }
+
 }
