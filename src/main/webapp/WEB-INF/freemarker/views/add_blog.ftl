@@ -39,41 +39,47 @@
             var blogImgSrc = $('#blogImgSrc').val();
             var blogContent = $('#summernote').code();
             var subTitle = $('#subTitle').val();
-            console.log(blogTitle);
-            console.log(blogCategoryId);
-            console.log(subTitle);
-            $.ajax({
-                data: {
-                    'blogTitle': blogTitle,
-                    'tags': tags,
-                    'blogCategoryId': blogCategoryId,
-                    'subTitle': subTitle,
-                    'blogImgSrc': blogImgSrc,
-                    'blogContent': blogContent
-                },
-                type: "post",
-                dataType: 'json',
-                url: "/createblog",
-                error: function (XMLHttpRequest, error, errorThrown) {
-                    console.log("error " + error + ": " + errorThrown);
-                    BootstrapDialog.show({
-                        message: '添加博客失败!'
-                    });
-                },
-                success: function (data) {
-                    BootstrapDialog.show({
-                        title: '提示',
-                        message: '博客添加成功!',
-                        buttons: [{
-                            label: '确定',
-                            action: function (dialog) {
-                                refreshPage();
-                            }
-                        }]
-                    });
+            console.log(blogTitle.length);
+            if(blogTitle.length==0 || blogTitle.length>15){
+                BootstrapDialog.show({
+                    message: '博客标题请控制在15字符，谢谢!'
+                });
+                return;
+            }else{
+                console.log("submit");
+                $.ajax({
+                    data: {
+                        'blogTitle': blogTitle,
+                        'tags': tags,
+                        'blogCategoryId': blogCategoryId,
+                        'subTitle': subTitle,
+                        'blogImgSrc': blogImgSrc,
+                        'blogContent': blogContent
+                    },
+                    type: "post",
+                    dataType: 'json',
+                    url: "/createblog",
+                    error: function (XMLHttpRequest, error, errorThrown) {
+                        console.log("error " + error + ": " + errorThrown);
+                        BootstrapDialog.show({
+                            message: '添加博客失败!'
+                        });
+                    },
+                    success: function (data) {
+                        BootstrapDialog.show({
+                            title: '提示',
+                            message: '博客添加成功!',
+                            buttons: [{
+                                label: '确定',
+                                action: function (dialog) {
+                                    refreshPage();
+                                }
+                            }]
+                        });
 
-                }
-            });
+                    }
+                });
+            }
             return false;
         }
 
@@ -175,11 +181,10 @@
                 <div style="padding: 30px;">
                     <h3>添加博客</h3>
                     <hr>
-                <#--<form ac method="post">-->
-                    <form action="#" method="post" onsubmit="return checkBlogText()">
+                    <form action="" method="post">
                         <div class="form-group">
                             <label>博客标题:</label>
-                            <input type="text" class="form-control" style="width: 100%" placeholder="title" id="blogTitle"
+                            <input type="text" class="form-control" style="width: 100%" placeholder="title" id="blogTitle" name="blogTitle"
                                    required="true">
                         </div>
                         <div class="form-group">
@@ -192,7 +197,7 @@
 
                         <div class="form-group">
                             <label>博客标签</label>
-                            <input type="text" class="form-control" style="width: 100%" placeholder="tags" id="tags"
+                            <input type="text" class="form-control" style="width: 100%" placeholder="tags" id="tags" name="tags"
                                   >
                         </div>
                         <div class="form-group">
@@ -206,17 +211,17 @@
                         </div>
                         <div class="form-group">
                             <label>博客类别</label>
-                            <select class="form-control" style="width: 20%"  id="subTitle"
+                            <select class="form-control" style="width: 20%"  id="subTitle" name="subTitle"
                                     required="true">
                                 <option selected>选择博客类别</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>博客配图:</label>
-                            <input type="text" class="form-control" style="width: 100%" placeholder="title" id="blogImgSrc" required="true">
+                            <input type="text" class="form-control" style="width: 100%" placeholder="title" id="blogImgSrc"  name="blogImgSrc" required="true">
                         </div>
 
-                        <input type="submit" value="创  建" class="btn btn-success"></input>
+                        <input type="button" value="创  建" class="btn btn-success" onclick="checkBlogText()">
                     </form>
                 </div>
             <#else>
@@ -224,10 +229,10 @@
                     <h3>更新博客</h3>
                     <hr>
                 <#--<form ac method="post">-->
-                    <form action="#" method="post" onsubmit="return updateBlog()">
+                    <form action="" method="post">
                         <div class="form-group">
                             <label>博客标题:</label>
-                            <input type="text" class="form-control" style="width: 100%" placeholder="title" value="${blog.blogTitle}"
+                            <input type="text" class="form-control" style="width: 100%" placeholder="title" value="${blog.blogTitle}" name="blogTitle"
                                    id="blogTitle" required="true">
                             <input type="hidden" id="blogId" value="${blog.id}">
                         </div>
@@ -239,8 +244,7 @@
 
                         <div class="form-group">
                             <label>博客标签</label>
-                            <input type="text" class="form-control" style="width: 100%" placeholder="tags" value="${blog.tags}"
-                                   id="tags">
+                            <input type="text" class="form-control" style="width: 100%" placeholder="tags" value="${blog.tags}" name="tags" id="tags">
                         </div>
                         <div class="form-group">
                             <label>博客类型</label><br>
@@ -261,11 +265,11 @@
                         <div class="form-group">
                             <label>博客配图:</label><br>
                             <img src="${blog.blogImgSrc}" width="60" height="60">
-                            <input type="text" class="form-control" style="width: 100%" value="${blog.blogImgSrc}"
+                            <input type="text" class="form-control" style="width: 100%" value="${blog.blogImgSrc}" name="blogImgSrc"
                                    id="blogImgSrc" required="true">
                         </div>
 
-                        <input type="submit" value="更 新" class="btn btn-success" ></input>
+                        <input type="button" value="更新" class="btn btn-success" onclick="updateBlog()" >/input>
                     </form>
                 </div>
             </#if>
