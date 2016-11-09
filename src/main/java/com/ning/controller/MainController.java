@@ -34,6 +34,8 @@ public class MainController extends BaseController{
     private static final String ADDVIEW = "add";
     private static final String USERLIST = "user_list";
     private static final String TEST = "test";
+    private static final String TIME_LINE = "timeline";
+    private static final String ABOUT = "about";
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
     private List<User> userList;
@@ -119,6 +121,29 @@ public class MainController extends BaseController{
     @RequestMapping(value = "/test",method = RequestMethod.GET)
     public String test(Model model){
         return TEST;
+    }
+
+
+    @RequestMapping(value = "/timeline",method = RequestMethod.GET)
+    public ModelAndView timeLine(Model model){
+        ModelAndView mv=new ModelAndView(TIME_LINE);
+        BlogSearchVO searchVO=new BlogSearchVO();
+        blogList=blogService.getBlogList(page,searchVO);
+        blogList=blogService.getFixBlogList(blogList);
+        if (blogList != null && blogList.size() > 0) {
+            this.setDisplayPageBar(true);
+        } else {
+            blogList = null;
+            this.setDisplayPageBar(false);
+        }
+        mv.addObject("blogList",blogList);
+        return mv ;
+    }
+
+    @RequestMapping(value = "/about", method = RequestMethod.GET)
+    public ModelAndView about() {
+        ModelAndView mv=new ModelAndView(ABOUT);
+        return mv;
     }
 
 

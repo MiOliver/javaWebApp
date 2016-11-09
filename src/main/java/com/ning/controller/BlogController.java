@@ -33,7 +33,7 @@ public class BlogController extends BaseController {
     private static final String BLOGTAGSLIST = "blog_tags_list";
     private static final String BLOGDETAIL = "blog_detail";
     private static final String BLOGSTATISTICS = "blog_statistics";
-    private static final String ABOUT = "about";
+
 
 
     private List<BlogTag> tagsList;
@@ -75,10 +75,6 @@ public class BlogController extends BaseController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/about", method = RequestMethod.GET)
-    public String about() {
-        return ABOUT;
-    }
 
     @RequestMapping(value = "/getSublist", method = RequestMethod.GET)
     public void getSublist(HttpServletRequest request,HttpServletResponse response) {

@@ -24,7 +24,8 @@
             </div>
             <ul class="nav navbar-nav">
                 <li ><a href="/index">首页</a></li>
-                <li class="active"><a href="/addblog">生活</a></li>
+                <li ><a href="/addblog">生活</a></li>
+                <li ><a href="/timeline">时间轴</a></li>
                 <li><a href="/about">关于</a></li>
             </ul>
         </div>

@@ -1,61 +1,32 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<meta charset="utf-8">
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+<#--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
 <head>
-    <title>Twitter Bootstrap Tutorial - A responsive layout tutorial</title>
-    <link href="/resources/css/bootstrap-combined.min.css" rel="stylesheet">
+    <title>Oliver's Blogs</title>
+    <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
         body {
             background-color: #CCC;
         }
 
-        #content {
-            background-color: #FFF;
-            border-radius: 5px;
-        }
-
-        #content .main {
-            padding: 20px;
-        }
-
-        #content .sidebar {
-            padding: 10px;
-        }
-
-        #content p {
-            line-height: 30px;
-        }
     </style>
 </head>
 <body>
 <div class="container">
-    <h1>Oliver's Blogs</h1>
+<#include "./common/header.ftl"/>
 
-    <div class="navbar navbar-inverse">
-        <div class="navbar-inner nav-collapse" style="height: auto;">
-            <ul class="nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Page One</a></li>
-                <li><a href="#">Page Two</a></li>
-            </ul>
+
+    <div class="row" style="background-color: white;border-top-left-radius:5px;border-top-right-radius:5px;line-height: 30px;padding: 20px;  ">
+
+        <div class="col-xs-11 col-md-10">
+            <p>content</p>
         </div>
+
     </div>
-    <div id="content" class="row-fluid">
-        <div class="span9 main">
-
-
-        </div>
-        <div class="span3 sidebar">
-            <h2>Sidebar</h2>
-            <ul class="nav nav-tabs nav-stacked">
-                <li><a href="#">Another Link 1</a></li>
-                <li><a href="#">Another Link 2</a></li>
-                <li><a href="#">Another Link 3</a></li>
-            </ul>
-        </div>
-    </div>
+<#include "./common/footer.ftl" />
 </div>
-
 
 </body>
 </html>
