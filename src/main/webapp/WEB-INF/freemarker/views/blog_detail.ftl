@@ -4,24 +4,67 @@
 <#--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
 <head>
     <title>Oliver's Blogs </title>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="/resources/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
         body {
             background-color: #CCC;
         }
+
+        .scrollToTop {
+            width: 100px;
+            height: 130px;
+            padding: 10px;
+            text-align: center;
+            background: whiteSmoke;
+            font-weight: bold;
+            color: #444;
+            text-decoration: none;
+            position: fixed;
+            top: 75%;
+            right: 22%;
+            display: none;
+            background: url('/resources/img/top.png') no-repeat 0px 20px;
+        }
+
+        .scrollToTop:hover {
+            text-decoration: none;
+        }
     </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            //Check to see if the window is top if not then display button
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 100) {
+                    $('.scrollToTop').fadeIn();
+                } else {
+                    $('.scrollToTop').fadeOut();
+                }
+            });
+
+            //Click event to scroll to top
+            $('.scrollToTop').click(function () {
+                $('html, body').animate({scrollTop: 0}, 800);
+                return false;
+            });
+
+        });
+    </script>
 </head>
 <body>
 <div class="container">
 <#include "./common/header.ftl"/>
 
 
-    <div class="row" style="background-color: white;border-top-left-radius:5px;border-top-right-radius:5px;line-height: 30px;padding: 20px;  ">
+    <div class="row"
+         style="background-color: white;border-top-left-radius:5px;border-top-right-radius:5px;line-height: 30px;padding: 20px;  ">
         <div class=".col-xs-6 col-md-9">
             <h3>${blog.blogTitle}</h3>
             <div>
-                <span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;${blog.createTime?string('yyyy-MM-dd HH:mm:ss')} &nbsp;&nbsp;&nbsp;
+                <span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;${blog.createTime?string('yyyy-MM-dd HH:mm:ss')}
+                &nbsp;&nbsp;&nbsp;
                 <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;${blog.createPerson}&nbsp;&nbsp;&nbsp;
                 阅读次数：<span class="badge" style="background-color: yellowgreen">${blog.visitCount}</span>&nbsp;&nbsp&nbsp;&nbsp;&nbsp;
             </div>
@@ -47,7 +90,8 @@
                     <a class="jiathis_button_tqq"></a>
                     <a class="jiathis_button_weixin"></a>
                     <a class="jiathis_button_renren"></a>
-                    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+                    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis"
+                       target="_blank"></a>
                     <a class="jiathis_counter_style"></a>
                 </div>
                 <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
@@ -57,26 +101,30 @@
         <div class=".col-xs-6 col-md-3">
             <div>
 
-                <#if similarBlogList?size &gt; 0>
-                    <h3>相关阅读</h3>
-                    <#list similarBlogList as blog >
-                        <div class="row">
-                            <img src="/resources/img/greenPoint.png" width="12" height="12"><a href="/blogdetail?id=${blog.id}"> ${blog.blogTitle}</a>
-                        </div>
-                    </#list>
-                <#else>
+            <#if similarBlogList?size &gt; 0>
+                <h3>相关阅读</h3>
+                <#list similarBlogList as blog >
+                    <div class="row">
+                        <img src="/resources/img/greenPoint.png" width="12" height="12"><a
+                            href="/blogdetail?id=${blog.id}"> ${blog.blogTitle}</a>
+                    </div>
+                </#list>
+            <#else>
 
-                </#if>
-                </ul>
+            </#if>
             </div>
-            <#--<div>-->
-                <#--<h2>Sidebar</h2>-->
-                <#--<ul class="nav-tabs-justified">-->
-                    <#--<li><a href="#">Another Link 1</a></li>-->
-                    <#--<li><a href="#">Another Link 2</a></li>-->
-                    <#--<li><a href="#">Another Link 3</a></li>-->
-                <#--</ul>-->
-            <#--</div>-->
+
+            <div>
+                <a href="#" class="scrollToTop" style="display: block;">Top</a>
+            </div>
+        <#--<div>-->
+        <#--<h2>Sidebar</h2>-->
+        <#--<ul class="nav-tabs-justified">-->
+        <#--<li><a href="#">Another Link 1</a></li>-->
+        <#--<li><a href="#">Another Link 2</a></li>-->
+        <#--<li><a href="#">Another Link 3</a></li>-->
+        <#--</ul>-->
+        <#--</div>-->
         </div>
     </div>
 <#include "./common/footer.ftl" />
