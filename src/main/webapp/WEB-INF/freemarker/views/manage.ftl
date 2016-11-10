@@ -10,6 +10,8 @@
         body {
             background-color: #CCC;
         }
+        .row .btn:not(.btn-block) { width:120px;margin-bottom:10px; margin-left: 20px;}
+
     </style>
 </head>
 <body>
@@ -21,60 +23,11 @@
             <h3>博客管理</h3>
             <hr>
             <div class="row">
-                <div class="col-sm-2 col-md-2">
-                    <div class="thumbnail">
-                        <a href="/blogManage"><img src="/resources/img/Calendar.png" width="50" height="50" alt="100*80"></a>
-
-                        <div class="caption" align="center">
-                            <h4>博客管理</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2 col-md-2">
-                    <div class="thumbnail">
-                        <a href="/addblog"><img src="/resources/img/Coffee.png" width="50" height="50" alt="100*80"></a>
-
-                        <div class="caption" align="center">
-                            <h4>添加博客</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2 col-md-2">
-                    <div class="thumbnail">
-                        <a href="#"><img src="/resources/img/Line.png" width="50" height="50" alt="100*80"></a>
-
-                        <div class="caption" align="center">
-                            <h4>数据统计</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2 col-md-2">
-                    <div class="thumbnail">
-                        <a href="#"><img src="/resources/img/Clock.png" width="50" height="50" alt="100*80"></a>
-
-                        <div class="caption" align="center">
-                            <h4>博客管理</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2 col-md-2">
-                    <div class="thumbnail">
-                        <a href="#"><img src="/resources/img/Line.png" width="50" height="50" alt="100*80"></a>
-
-                        <div class="caption" align="center">
-                            <h4>博客管理</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2 col-md-2">
-                    <div class="thumbnail">
-                        <a href="#"><img src="/resources/img/Clock.png" width="50" height="50" alt="100*80"></a>
-
-                        <div class="caption" align="center">
-                            <h4>博客管理</h4>
-                        </div>
-                    </div>
-                </div>
+                <a href="/blogManage" class="btn btn-primary btn-lg" role="button" ><span class="glyphicon glyphicon-list-alt"></span> <br/>博客管理</a>
+                <a href="/addblog" class="btn btn-primary btn-lg" role="button" ><span class="glyphicon glyphicon-edit"></span> <br/>博客添加</a>
+                <#--<a href="/statistics" class="btn btn-info btn-lg" role="button" ><span class="glyphicon glyphicon-tag"></span> <br/>数据统计</a>-->
+                <a href="/toolManage" class="btn btn-primary btn-lg" role="button" ><span class="glyphicon glyphicon-wrench"></span> <br/>工具管理</a>
+                <a href="/addTool" class="btn btn-primary btn-lg" role="button" ><span class="glyphicon glyphicon-cog"></span> <br/>工具添加</a>
 
             </div>
         </div>

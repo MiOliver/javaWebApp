@@ -17,7 +17,8 @@
 <div class="container">
 <#include "./common/header.ftl"/>
 
-    <div class="row" style="background-color: white;border-top-left-radius:5px;border-top-right-radius:5px;line-height: 30px;padding: 20px;  ">
+    <div class="row"
+         style="background-color: white;border-top-left-radius:5px;border-top-right-radius:5px;line-height: 30px;padding: 20px;  ">
     <div class="col-xs-9 col-md-9">
 
     <#if (blogList?? && blogList?size>0) >
@@ -54,30 +55,7 @@
         </form>
 
     </div>
-    <div class="col-xs-3 col-sm-3">
-        <div>
-            <h3>最近文章</h3>
-        <#if (blogList?? && blogList?size>0)>
-            <#list blogList as blog >
-                <div class="row">
-                    <img src="/resources/img/greenPoint.png" width="12" height="12"><a
-                        href="/blogdetail?id=${blog.id}"> ${blog.blogTitle}</a>
-                </div>
-            </#list>
-        </#if>
-        </div>
-        <div>
-            <h3>最多访问</h3>
-        <#if  (bestBlogList?? && bestBlogList?size>0)>
-            <#list bestBlogList as blog >
-                <div class="row">
-                    <img src="/resources/img/greenPoint.png" width="12" height="12"><a
-                        href="/blogdetail?id=${blog.id}"> ${blog.blogTitle}</a>
-                </div>
-            </#list>
-        </#if>
-        </div>
-    </div>
+<#include "./common/rightbar.ftl" />
 </div>
 <#include "./common/footer.ftl" />
 </div>

@@ -25,7 +25,7 @@
        <#if (blogList?? && blogList?size>0) >
             <#list blogList as blog >
 
-                <div class="panel panel-default">
+                <div class="panel panel-default" style="border-width: 2px">
                     <div style="padding-left: 10px"> <a href="/blogdetail?id=${blog.id}"><h3>${blog.blogTitle}</h3></a></div>
                     <div style="padding-left: 15px;padding-right: 15px;padding-bottom: 10px">
                         <p>
@@ -53,38 +53,7 @@
             </form>
 
         </div>
-        <div class="col-xs-3 col-sm-3">
-            <div >
-                <hr>
-                <h3>个人账号</h3>
-                <p align="center">
-                    <img src="/resources/img/qrcode.png" width="80" height="80" >
-                </p>
-                <p>扫一扫加我O(∩_∩)O</p>
-            </div>
-            <div>
-                <hr>
-                <h3>最近文章</h3>
-                <#if (blogList?? && blogList?size>0) >
-                    <#list blogList as blog >
-                    <div class="row">
-                        <img src="/resources/img/greenPoint.png" width="12" height="12"><a href="/blogdetail?id=${blog.id}"> ${blog.blogTitle}</a>
-                    </div>
-                    </#list>
-                </#if>
-            </div>
-            <div>
-                <hr>
-                <h3>最多访问</h3>
-                <#if (bestBlogList?? && bestBlogList?size> 0)>
-                    <#list bestBlogList as blog >
-                        <div class="row">
-                            <img src="/resources/img/greenPoint.png" width="12" height="12"><a href="/blogdetail?id=${blog.id}"> ${blog.blogTitle}</a>
-                        </div>
-                    </#list>
-                </#if>
-            </div>
-        </div>
+    <#include "./common/rightbar.ftl" />
 
     </div>
 

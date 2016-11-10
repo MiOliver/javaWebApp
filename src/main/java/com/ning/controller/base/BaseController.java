@@ -1,4 +1,4 @@
-package com.ning.controller;
+package com.ning.controller.base;
 
 import com.ning.domain.BasicConstants;
 import com.ning.domain.User;

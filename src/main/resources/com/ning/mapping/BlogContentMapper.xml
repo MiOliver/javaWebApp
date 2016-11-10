@@ -172,6 +172,9 @@
     <if test="searchVO.title != null and searchVO.title != ''" >
       and  blog_title like CONCAT('%', #{searchVO.title},'%')
     </if>
+    <if test="searchVO.tag != null and searchVO.tag != ''" >
+      and  tags like CONCAT('%',#{searchVO.tag},'%')
+    </if>
 
     order by create_time desc
   </select>

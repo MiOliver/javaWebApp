@@ -87,7 +87,10 @@
         </javaClientGenerator>
 
 
-        <table tableName="t_srv_sales_large_goods" domainObjectName="SalesLargeGoods" enableCountByExample="true" enableUpdateByExample="false"
+        <!--<table tableName="t_srv_sales_large_goods" domainObjectName="SalesLargeGoods" enableCountByExample="true" enableUpdateByExample="false"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true">-->
+
+        <table tableName="tools" domainObjectName="Tool" enableCountByExample="true" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true">
 
             <!-- optional   , only for mybatis3 runtime

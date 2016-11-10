@@ -91,7 +91,7 @@
 
             <div style="padding: 30px;">
                 <h3>添加用户</h3>
-                <hr>
+                <hr >
                 <form action="" method="post" onsubmit="return submitUserText()">
                     <div class="form-group">
                         <label>用户名:</label>

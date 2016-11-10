@@ -1,11 +1,11 @@
 package com.ning.controller;
 
+import com.ning.controller.base.BaseController;
 import com.ning.domain.BlogCategory;
 import com.ning.domain.BlogContent;
 import com.ning.domain.BlogSubtype;
 import com.ning.domain.BlogTag;
 import com.ning.serviceimpl.BlogServiceImpl;
-import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -31,7 +30,7 @@ public class BlogController extends BaseController {
 
     private static final Logger logger= LoggerFactory.getLogger(BlogController.class);
 
-    private static final String ADDBLOG = "add_blog";
+
     private static final String BLOGTAGSLIST = "blog_tags_list";
     private static final String BLOGDETAIL = "blog_detail";
     private static final String BLOGSTATISTICS = "blog_statistics";
@@ -44,20 +43,6 @@ public class BlogController extends BaseController {
     private Map<String, Object> map;
     private BlogContent blog;
 
-    /**
-     * Blog category view model and view.
-     *
-     * @return the model and view
-     */
-    @RequiresRoles("admin")
-    @RequestMapping(value = "/addblog", method = RequestMethod.GET)
-    public ModelAndView blogCategoryView() {
-        cateList = blogService.getCateList();
-        ModelAndView modelAndView = new ModelAndView(ADDBLOG);
-        modelAndView.addObject("cateList", cateList);
-        modelAndView.addObject("update", false);
-        return modelAndView;
-    }
 
     /**
      * Blog tag list model and view.
@@ -107,79 +92,6 @@ public class BlogController extends BaseController {
         return;
     }
 
-    /**
-     * Create blog string.
-     * ajax  方式提交blog
-     * @param blog     the blog
-     * @param request  the request
-     * @param response the response
-     * @return the string
-     */
-    @RequestMapping(value = "/createblog", method = RequestMethod.POST,  headers="Accept=application/json")
-    public @ResponseBody Object createBlog(BlogContent blog, HttpServletRequest request, HttpServletResponse response) {
-        map = new HashMap<String, Object>();
-        System.out.println(blog.getBlogTitle());
-        System.out.println(blog.getTags());
-        if (blog != null) {
-            if (blogService.createBlog(blog) > 0) {
-                logger.debug("add blog success!");
-                map.put("msg", "成功");
-            } else {
-                logger.debug("add blog fail!");
-                map.put("msg", "失败");
-            }
-        }
-        return map;
-    }
-
-
-    /**
-     * Post object model and view.
-     * 表单提交
-     * @param blog     the blog
-     * @param request  the request
-     * @param response the response
-     * @return the model and view
-     */
-    @RequestMapping(value = "/postblog", method = RequestMethod.POST)
-    public ModelAndView postObject(@ModelAttribute("blog")BlogContent blog, HttpServletRequest request, HttpServletResponse response) {
-        System.out.println(blog.getBlogTitle());
-        System.out.println(blog.getTags());
-        ModelAndView mv =new ModelAndView(ADDBLOG);
-        if (blog != null) {
-            if (blogService.createBlog(blog) > 0) {
-                logger.debug("add blog success!");
-            } else {
-                logger.debug("add blog fail!");
-            }
-        }
-        return mv;
-    }
-
-
-    /**
-     * Detele blog object.
-     *
-     * @param blog     the blog
-     * @param request  the request
-     * @param response the response
-     * @return the object
-     */
-    @RequestMapping(value = "/deleteblog", method = RequestMethod.POST,  headers="Accept=application/json")
-    public  @ResponseBody Object deteleBlog(BlogContent blog, HttpServletRequest request, HttpServletResponse response) {
-        String id =request.getParameter("id");
-        map = new HashMap<String, Object>();
-        if (blog != null) {
-            if (blogService.deleteBlog(Long.valueOf(id)) > 0) {
-                System.out.println("成功删除");
-                map.put("msg", "成功删除");
-            } else {
-                System.out.println("失败");
-                map.put("msg", "删除失败");
-            }
-        }
-        return map;
-    }
 
     /**
      * Blog detail model and view.
@@ -202,47 +114,8 @@ public class BlogController extends BaseController {
         return mv;
     }
 
-    /**
-     * Gets blog.
-     *
-     * @param request the request
-     * @return the blog
-     */
-    @RequestMapping(value = "/updateBlog", method = RequestMethod.GET)
-    public ModelAndView getBlog(HttpServletRequest request) {
-        String id = request.getParameter("id").toString();
-        if (id != null && (!id.isEmpty())) {
-            blog = blogService.getBlogbyId(Long.valueOf(id));
-        }
-        cateList = blogService.getCateList();
-        ModelAndView mv = new ModelAndView(ADDBLOG);
-        mv.addObject("blog", blog);
-        mv.addObject("cateList", cateList);
-        mv.addObject("update", true);
-        return mv;
-    }
 
-    /**
-     * Update blog object.
-     *
-     * @param blog     the blog
-     * @param request  the request
-     * @param response the response
-     * @return the object
-     */
-    @RequestMapping(value = "/updateBlog", method = RequestMethod.POST,  headers="Accept=application/json")
-    public  @ResponseBody Object updateBlog(BlogContent blog, HttpServletRequest request, HttpServletResponse response) {
-        map = new HashMap<String, Object>();
-        if (blog != null) {
-            if (blogService.updateBlog(blog) > 0) {
-                map.put("msg", "成功");
-            } else {
-                System.out.println("失败");
-                map.put("msg", "失败");
-            }
-        }
-        return map;
-    }
+
 
 
     /**

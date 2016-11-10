@@ -5,6 +5,7 @@ import com.ning.domain.BlogContent;
 import com.ning.domain.BlogSearchVO;
 import com.xiaomi.platform.xmybatis.plugins.Pagination;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -28,4 +29,8 @@ public interface BlogContentMapper {
 
 //    @Select("select * from blog_content order by visit_count desc limit 10;")
     List<BlogContent> getBestList();
+
+
+    @Select("select tags from blog_content")
+    List<String> getTags();
 }

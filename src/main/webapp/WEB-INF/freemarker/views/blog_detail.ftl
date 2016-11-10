@@ -23,7 +23,7 @@
             text-decoration: none;
             position: fixed;
             top: 75%;
-            right: 22%;
+            right: 12%;
             display: none;
             background: url('/resources/img/top.png') no-repeat 0px 20px;
         }
@@ -59,8 +59,8 @@
 
 
     <div class="row"
-         style="background-color: white;border-top-left-radius:5px;border-top-right-radius:5px;line-height: 30px;padding: 20px;  ">
-        <div class=".col-xs-6 col-md-9">
+         style="background-color: white; border-width: 2px; border-top-left-radius:5px;border-top-right-radius:5px;line-height: 30px;padding: 20px;  ">
+        <div class=".col-xs-12 col-md-12">
             <h3>${blog.blogTitle}</h3>
             <div>
                 <span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;${blog.createTime?string('yyyy-MM-dd HH:mm:ss')}
@@ -82,6 +82,9 @@
             <p class="text-primary">如果您觉得文章还不错，记得分享给朋友们，O(∩_∩)O~</p>
             <hr>
             <div>
+                <a href="#" class="scrollToTop" style="display: block;">Top</a>
+            </div>
+            <div>
                 <label>分享到：</label>
                 <!-- JiaThis Button BEGIN -->
                 <div class="jiathis_style_32x32">
@@ -97,10 +100,8 @@
                 <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
                 <!-- JiaThis Button END -->
             </div>
-        </div>
-        <div class=".col-xs-6 col-md-3">
-            <div>
 
+            <div>
             <#if similarBlogList?size &gt; 0>
                 <h3>相关阅读</h3>
                 <#list similarBlogList as blog >
@@ -113,19 +114,9 @@
 
             </#if>
             </div>
-
-            <div>
-                <a href="#" class="scrollToTop" style="display: block;">Top</a>
-            </div>
-        <#--<div>-->
-        <#--<h2>Sidebar</h2>-->
-        <#--<ul class="nav-tabs-justified">-->
-        <#--<li><a href="#">Another Link 1</a></li>-->
-        <#--<li><a href="#">Another Link 2</a></li>-->
-        <#--<li><a href="#">Another Link 3</a></li>-->
-        <#--</ul>-->
-        <#--</div>-->
         </div>
+
+
     </div>
 <#include "./common/footer.ftl" />
 </div>

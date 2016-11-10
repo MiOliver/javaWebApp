@@ -10,11 +10,16 @@ import org.springframework.stereotype.Service;
  * Created by ning on 12/8/15.
  */
 
-@Service("BasicService")
+@Service("basicService")
 public class BasicServiceImpl implements BasicService{
 
     @Autowired
     private UserService userService;
+
+    public User getLoginAdmin(String key) {
+        return null;
+    }
+
     @Override
     public User getLoginAdmin() {
         return null;

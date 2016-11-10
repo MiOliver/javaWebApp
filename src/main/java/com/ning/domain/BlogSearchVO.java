@@ -8,6 +8,7 @@ public class BlogSearchVO {
     private Long id;
     private String title;
     private Integer type;
+    private String tag;
 
     public Long getId() {
         return id;
@@ -31,5 +32,13 @@ public class BlogSearchVO {
 
     public void setType(Integer type) {
         this.type = type;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 }

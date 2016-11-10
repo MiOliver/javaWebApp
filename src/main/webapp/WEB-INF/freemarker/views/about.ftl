@@ -16,7 +16,7 @@
 <div class="container">
 <#include "./common/header.ftl"/>
     <div class="row"
-         style="background-color: white;border-top-left-radius:5px;border-top-right-radius:5px;line-height: 30px;padding: 20px;  ">
+         style="background-color: white;border-top-left-radius:5px;border-top-right-radius:5px;line-height: 30px;padding: 20px; ">
 
         <div class="col-xs-11 col-md-10">
             <address>
