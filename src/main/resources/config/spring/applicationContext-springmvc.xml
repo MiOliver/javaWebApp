@@ -117,6 +117,7 @@
         <property name="exposeRequestAttributes" value="true" />
         <property name="cache" value="true" />
         <property name="order" value="0"/>
+        <property name="requestContextAttribute" value="rc"></property>
 
         <!-- 渲染视图的基类，可以作为全局公用属性的输出和渲染 -->
         <!--<property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"></property>-->

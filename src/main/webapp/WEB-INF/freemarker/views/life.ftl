@@ -4,9 +4,9 @@
 <head>
     <title>Oliver's Blogs</title>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-    <script type="text/javascript" src="/resources/js/jquery.pager.js"></script>
-    <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/resources/css/bootstrap.css" rel="stylesheet">
+    <script type="text/javascript" src="${rc.contextPath}/resources/js/jquery.pager.js"></script>
+    <link href="${rc.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${rc.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
         body {
             background-color: #CCC;
@@ -25,7 +25,7 @@
         <#list blogList as blog >
 
             <div class="panel panel-default">
-                <div style="padding-left: 10px"><a href="/blogdetail?id=${blog.id}"><h3>${blog.blogTitle}</h3></a></div>
+                <div style="padding-left: 10px"><a href="${rc.contextPath}/blogdetail?id=${blog.id}"><h3>${blog.blogTitle}</h3></a></div>
                 <div style="padding-left: 15px;padding-right: 15px;padding-bottom: 10px"
                 " >
                 <p>
@@ -36,7 +36,7 @@
                 </p>
                 <img src=" ${blog.blogImgSrc}" height="80" width="80" style="float: right">
                 <div>
-                ${blog.blogContent}<a href="/blogdetail?id=${blog.id}">阅读全文 >>></a>
+                ${blog.blogContent}<a href="${rc.contextPath}/blogdetail?id=${blog.id}">阅读全文 >>></a>
                 </div>
 
             </div>
@@ -45,7 +45,7 @@
     <#else>
         <div class="row">
             <label style="color: purple">目前还没有文章，去添加以一个吧...</label><br/>
-            <a href="/addblog"><img src="/resources/img/add_blog.png"/></a>
+            <a href="${rc.contextPath}/addblog"><img src="/resources/img/add_blog.png"/></a>
         </div>
     </#if>
         <br>

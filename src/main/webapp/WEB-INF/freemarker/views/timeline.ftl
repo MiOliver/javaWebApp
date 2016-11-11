@@ -7,9 +7,9 @@
     <title>Oliver's Blogs</title>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <script type="text/javascript" src="/resources/js/jquery.pager.js"></script>
-    <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/resources/css/bootstrap.css" rel="stylesheet">
-    <link href="/resources/css/timeline_style.css" rel="stylesheet">
+    <link href="${rc.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${rc.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
+    <link href="${rc.contextPath}/resources/css/timeline_style.css" rel="stylesheet">
     <style type="text/css">
         body {
             background-color: #CCC;
@@ -28,13 +28,13 @@
             <#list blogList as blog >
                 <div class="cd-timeline-block">
                     <div class="cd-timeline-img cd-picture">
-                        <img src="/resources/img/stack_48.png" alt="Picture">
+                        <img src="${rc.contextPath}/resources/img/stack_48.png" alt="Picture">
                     </div>
 
                     <div class="cd-timeline-content">
                         <h2>${blog.blogTitle}</h2>
                         <p>${blog.blogContent}</p>
-                        <a href="/blogdetail?id=${blog.id}" class="cd-read-more" target="_blank">阅读全文</a>
+                        <a href="${rc.contextPath}/blogdetail?id=${blog.id}" class="cd-read-more" target="_blank">阅读全文</a>
                         <span class="cd-date">${blog.createTime?string('yyyy-MM-dd HH:mm:ss')}</span>
                     </div>
                 </div>

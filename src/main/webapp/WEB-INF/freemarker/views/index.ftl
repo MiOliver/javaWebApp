@@ -6,9 +6,9 @@
 <head>
     <title>Oliver's Blogs</title>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-    <script type="text/javascript" src="/resources/js/jquery.pager.js"></script>
-    <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/resources/css/bootstrap.css" rel="stylesheet">
+    <script type="text/javascript" src="${rc.contextPath}/resources/js/jquery.pager.js"></script>
+    <link href="${rc.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${rc.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
         body {
             background-color: #CCC;
@@ -26,7 +26,7 @@
             <#list blogList as blog >
 
                 <div class="panel panel-default" style="border-width: 2px">
-                    <div style="padding-left: 10px"> <a href="/blogdetail?id=${blog.id}"><h3>${blog.blogTitle}</h3></a></div>
+                    <div style="padding-left: 10px"> <a href="${rc.contextPath}/blogdetail?id=${blog.id}"><h3>${blog.blogTitle}</h3></a></div>
                     <div style="padding-left: 15px;padding-right: 15px;padding-bottom: 10px">
                         <p>
                             <span class="glyphicon glyphicon-calendar"  style="color:darkorange"></span>创建时间：&nbsp;&nbsp;${blog.createTime?string('yyyy-MM-dd HH:mm:ss')}
@@ -43,7 +43,7 @@
        <#else>
            <div class="row">
                <label style="color: purple">目前还没有文章，去添加以一个吧...</label><br/>
-               <a href="/addblog"><img src="/resources/img/add_blog.png"/></a>
+               <a href="/addblog"><img src="${rc.contextPath}/resources/img/add_blog.png"/></a>
            </div>
         </#if>
             <br>

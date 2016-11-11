@@ -3,8 +3,8 @@
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 <head>
     <title>Oliver's Blogs</title>
-    <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/resources/css/bootstrap.css" rel="stylesheet">
+    <link href="${rc.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${rc.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
         body {
             background-color: #CCC;
@@ -37,14 +37,14 @@
                         </a>
                     </#list>
                 </#if>
-                <#--<a href="#" class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-list-alt"></span> <br/>Apps</a>-->
-                <#--<a href="#" class="btn btn-warning btn-lg" role="button"><span class="glyphicon glyphicon-bookmark"></span> <br/>Bookmarks</a>-->
-                <#--<a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-signal"></span> <br/>Reports</a>-->
-                <#--<a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-comment"></span> <br/>Comments</a>-->
-                <#--<a href="#" class="btn btn-success btn-lg" role="button"><span class="glyphicon glyphicon-comment"></span> <br/>Comments</a>-->
-                <#--<a href="#" class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-comment"></span> <br/>Comments</a>-->
-                <#--<a href="#" class="btn btn-info btn-lg" role="button"><span class="glyphicon glyphicon-comment"></span> <br/>Comments</a>-->
-                <#--<a href="#" class="btn btn-link btn-lg" role="button"><span class="glyphicon glyphicon-comment"></span> <br/>Comments</a>-->
+                <#--<a href="${rc.contextPath}#" class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-list-alt"></span> <br/>Apps</a>-->
+                <#--<a href="${rc.contextPath}#" class="btn btn-warning btn-lg" role="button"><span class="glyphicon glyphicon-bookmark"></span> <br/>Bookmarks</a>-->
+                <#--<a href="${rc.contextPath}#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-signal"></span> <br/>Reports</a>-->
+                <#--<a href="${rc.contextPath}#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-comment"></span> <br/>Comments</a>-->
+                <#--<a href="${rc.contextPath}#" class="btn btn-success btn-lg" role="button"><span class="glyphicon glyphicon-comment"></span> <br/>Comments</a>-->
+                <#--<a href="${rc.contextPath}#" class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-comment"></span> <br/>Comments</a>-->
+                <#--<a href="${rc.contextPath}#" class="btn btn-info btn-lg" role="button"><span class="glyphicon glyphicon-comment"></span> <br/>Comments</a>-->
+                <#--<a href="${rc.contextPath}#" class="btn btn-link btn-lg" role="button"><span class="glyphicon glyphicon-comment"></span> <br/>Comments</a>-->
                 </div>
 
             </div>

@@ -27,17 +27,17 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">
-                <img alt="Brand" src="/resources/img/Dolphin.png" width="25" height="25">
+                <img alt="Brand" src="${rc.contextPath}/resources/img/Dolphin.png" width="25" height="25">
             </a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="/index">首页</a></li>
-            <li><a href="/life">生活</a></li>
-            <li><a href="/timeline">时间轴</a></li>
-            <li><a href="/tools">工具</a></li>
-            <li><a href="/about">关于</a></li>
+            <li><a href="${rc.contextPath}/index">首页</a></li>
+            <li><a href="${rc.contextPath}/life">生活</a></li>
+            <li><a href="${rc.contextPath}/timeline">时间轴</a></li>
+            <li><a href="${rc.contextPath}/tools">工具</a></li>
+            <li><a href="${rc.contextPath}/about">关于</a></li>
         <@shiro.user>
-            <li><a href="/manage">管理</a></li>
+            <li><a href="${rc.contextPath}/manage">管理</a></li>
         </@shiro.user>
         </ul>
 

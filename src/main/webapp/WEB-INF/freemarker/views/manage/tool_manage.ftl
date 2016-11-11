@@ -4,10 +4,10 @@
 <head>
     <title>Oliver's Blogs</title>
 <#include "/common/base_static_file.ftl" />
-    <script type="text/javascript" src="/resources/js/jquery.pager.js"></script>
+    <script type="text/javascript" src="${rc.contextPath}/resources/js/jquery.pager.js"></script>
 
-    <script src="/resources/js/bootstrap-dialog.min.js" type="text/javascript"></script>
-    <link href="/resources/css/bootstrap-dialog.min.css" rel="stylesheet">
+    <script src="${rc.contextPath}/resources/js/bootstrap-dialog.min.js" type="text/javascript"></script>
+    <link href="${rc.contextPath}/resources/css/bootstrap-dialog.min.css" rel="stylesheet">
     <style type="text/css">
         body {
             background-color: #CCC;

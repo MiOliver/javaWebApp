@@ -5,8 +5,8 @@
 <head>
     <title>Oliver's Blogs </title>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-    <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/resources/css/bootstrap.css" rel="stylesheet">
+    <link href="${rc.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${rc.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
         body {
             background-color: #CCC;
@@ -25,7 +25,7 @@
             top: 75%;
             right: 12%;
             display: none;
-            background: url('/resources/img/top.png') no-repeat 0px 20px;
+            background: url('${rc.contextPath}/resources/img/top.png') no-repeat 0px 20px;
         }
 
         .scrollToTop:hover {
@@ -106,8 +106,8 @@
                 <h3>相关阅读</h3>
                 <#list similarBlogList as blog >
                     <div class="row">
-                        <img src="/resources/img/greenPoint.png" width="12" height="12"><a
-                            href="/blogdetail?id=${blog.id}"> ${blog.blogTitle}</a>
+                        <img src="${rc.contextPath}/resources/img/greenPoint.png" width="12" height="12"><a
+                            href="${rc.contextPath}/blogdetail?id=${blog.id}"> ${blog.blogTitle}</a>
                     </div>
                 </#list>
             <#else>

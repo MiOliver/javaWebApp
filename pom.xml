@@ -8,7 +8,7 @@
     <name>CounterWebApp Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <properties>
-        <jdk.version>1.7</jdk.version>
+        <jdk.version>1.8</jdk.version>
         <!--<spring.version>3.1.2.RELEASE</spring.version>-->
         <jstl.version>1.2</jstl.version>
         <junit.version>4.11</junit.version>
@@ -266,7 +266,7 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.7</version>
         </dependency>
-         <!--分页-->
+        <!--分页-->
         <dependency>
             <groupId>com.xiaomi.platform</groupId>
             <artifactId>xmybatis</artifactId>
@@ -318,7 +318,6 @@
     </dependencies>
 
 
-
     <build>
 
         <finalName>CounterWebApp</finalName>
@@ -334,27 +333,42 @@
                     <target>${jdk.version}</target>
                 </configuration>
             </plugin>
-            <plugin>
-            <!--<groupId>org.mortbay.jetty</groupId>-->
-            <!--<artifactId>jetty-maven-plugin</artifactId>-->
-            <!--<version>7.6.16.v20140903</version>-->
 
-            <groupId>org.mortbay.jetty</groupId>
-            <artifactId>maven-jetty-plugin</artifactId>
-            <version>6.1.26</version>
-            <configuration>
-                <!--<jvmArgs>-Xmx2048m -Xms2048m </jvmArgs>-->
-                <scanIntervalSeconds>0</scanIntervalSeconds>
-                <!--
-                <connectors>
-                    <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-                        <port>8080</port>
-                    </connector>
-                </connectors>
-                 -->
-                <contextPath>/</contextPath>
-            </configuration>
-        </plugin>
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>8.1.16.v20140903</version>
+
+                <configuration>
+                    <scanIntervalSeconds>0</scanIntervalSeconds>
+                    <stopKey>shutdown</stopKey>
+                    <stopPort>9966</stopPort>
+
+                    <webApp>
+                        <!--<contextPath>/${project.artifactId}</contextPath>-->
+                        <contextPath>/</contextPath>
+                    </webApp>
+                </configuration>
+            </plugin>
+
+            <!--<plugin>-->
+                <!--<groupId>org.eclipse.jetty</groupId>-->
+                <!--<artifactId>jetty-maven-plugin</artifactId>-->
+                <!--<dependencies>-->
+                    <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.ow2.asm/asm &ndash;&gt;-->
+                    <!--<dependency>-->
+                        <!--<groupId>org.ow2.asm</groupId>-->
+                        <!--<artifactId>asm</artifactId>-->
+                        <!--<version>5.0.2</version>-->
+                    <!--</dependency>-->
+                    <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.ow2.asm/asm-commons &ndash;&gt;-->
+                    <!--<dependency>-->
+                        <!--<groupId>org.ow2.asm</groupId>-->
+                        <!--<artifactId>asm-commons</artifactId>-->
+                        <!--<version>5.0.2</version>-->
+                    <!--</dependency>-->
+                <!--</dependencies>-->
+            <!--</plugin>-->
 
             <!-- For Maven Tomcat Plugin -->
             <!--<plugin>-->
