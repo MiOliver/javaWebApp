@@ -50,6 +50,7 @@ public class MainController extends BaseController {
     private static final String TIME_LINE = "timeline";
     private static final String ABOUT = "about";
     private static final String TOOLS = "tools";
+    private static final String PANEL = "panelview";
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
     private List<User> userList;
@@ -236,6 +237,12 @@ public class MainController extends BaseController {
         return mv;
     }
 
+
+    @RequestMapping(value = "/panel", method = RequestMethod.GET)
+    public ModelAndView panel() {
+        ModelAndView mv=new ModelAndView(PANEL);
+        return mv;
+    }
 
     /***
      * 验证参数是否为空

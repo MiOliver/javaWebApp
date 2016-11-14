@@ -1,14 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN" >
+<html lang="zh-CN">
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-
-<#--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
 <head>
     <title>Oliver's Blogs</title>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-    <script type="text/javascript" src="${rc.contextPath}/resources/js/jquery.pager.js"></script>
-    <link href="${rc.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${rc.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
+    <#include "./common/base_static_file.ftl"/>
     <style type="text/css">
         body {
             background-color: #CCC;
@@ -19,17 +14,22 @@
 <div class="container">
 <#include "./common/header.ftl"/>
 
-    <div class="row" style="background-color: white;border-top-left-radius:5px;border-top-right-radius:5px;line-height: 30px;padding: 20px;  ">
+    <div class="row"
+         style="background-color: white;border-top-left-radius:5px;border-top-right-radius:5px;line-height: 30px;padding: 20px;  ">
         <div class="col-xs-9 col-sm-9">
 
-       <#if (blogList?? && blogList?size>0) >
+        <#if (blogList?? && blogList?size>0) >
             <#list blogList as blog >
 
                 <div class="panel panel-default" style="border-width: 2px">
-                    <div style="padding-left: 10px"> <a href="${rc.contextPath}/blogdetail?id=${blog.id}"><h3>${blog.blogTitle}</h3></a></div>
+                <div class="panel-body">
+                    <div style="padding-left: 10px"><a href="${rc.contextPath}/blogdetail?id=${blog.id}">
+                        <h3>${blog.blogTitle}</h3></a>
+                    </div>
                     <div style="padding-left: 15px;padding-right: 15px;padding-bottom: 10px">
                         <p>
-                            <span class="glyphicon glyphicon-calendar"  style="color:darkorange"></span>创建时间：&nbsp;&nbsp;${blog.createTime?string('yyyy-MM-dd HH:mm:ss')}
+                        <span class="glyphicon glyphicon-calendar"
+                              style="color:darkorange"></span>创建时间：&nbsp;&nbsp;${blog.createTime?string('yyyy-MM-dd HH:mm:ss')}
                             &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user" style="color:darkorange"></span>创建人：&nbsp;&nbsp;${blog.createPerson}
                             &nbsp;&nbsp;&nbsp;
                         </p>
@@ -37,14 +37,27 @@
                         <div>
                         ${blog.blogContent}<a href="/blogdetail?id=${blog.id}">阅读全文 >>></a>
                         </div>
+
+                        <hr>
+                        <div class="pull-left">
+                            <a href="${rc.contextPath}/blogdetail?id=${blog.id}"><b>more >>></b></a>
+                        </div>
+                        <div class="pull-right">
+                            <a href="https://www.facebook.com/DLZYagiz"><i
+                                    class="fa fa-2x fa fa-facebook-square"></i></a>  
+                            <a><i class="fa fa-2x fa fa-google-plus-square"></i></a>  
+                            <a><i class="fa fa-2x fa fa-twitter-square"></i></a>  
+
+                        </div>
+                    </div>
                     </div>
                 </div>
             </#list>
-       <#else>
-           <div class="row">
-               <label style="color: purple">目前还没有文章，去添加以一个吧...</label><br/>
-               <a href="/addblog"><img src="${rc.contextPath}/resources/img/add_blog.png"/></a>
-           </div>
+        <#else>
+            <div class="row">
+                <label style="color: purple">目前还没有文章，去添加以一个吧...</label><br/>
+                <a href="/addblog"><img src="${rc.contextPath}/resources/img/add_blog.png"/></a>
+            </div>
         </#if>
             <br>
             <hr>
@@ -57,7 +70,7 @@
 
     </div>
 
-    <#include "./common/footer.ftl" />
+<#include "./common/footer.ftl" />
 
 </div>
 

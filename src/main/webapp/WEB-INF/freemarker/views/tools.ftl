@@ -3,8 +3,7 @@
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 <head>
     <title>Oliver's Blogs</title>
-    <link href="${rc.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${rc.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
+    <#include "./common/base_static_file.ftl"/>
     <style type="text/css">
         body {
             background-color: #CCC;
