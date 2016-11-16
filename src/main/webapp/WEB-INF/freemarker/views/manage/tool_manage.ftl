@@ -66,7 +66,7 @@
             <hr>
             <form  action="/toolManage" method="post" class="form-inline">
                 <div class="row">
-                    工具搜索：<input type="text" class="form-control" id="searchId" name="toolseach" value="${toolseach}" placeholder="请输入工具标题或者ID" />&nbsp;&nbsp;
+                    工具搜索：<input type="text" class="form-control" id="searchId" name="seach" value="${toolseach}" placeholder="请输入工具标题或者ID" />&nbsp;&nbsp;
                     <input type="submit" class="form-control" value="搜  索"> </input>
                 </div>
                 <br/>
@@ -87,10 +87,10 @@
                             <td>${tool.createPerson}</td>
                             <td>
                                 <a href="/updateTool?id=${tool.id}" >
-                                    <span class="glyphicon glyphicon-edit" title="编辑" style="font-size: 15"></span></a>
+                                    <span class="glyphicon glyphicon-edit" title="编辑" style="font-size: 18px"></span></a>
                                 &nbsp;&nbsp;
                                 <a href="#" onclick="deleteTool(${tool.id })">
-                                    <span class="glyphicon glyphicon-remove-sign" title="删除" style="font-size: 15"></span></a>
+                                    <span class="glyphicon glyphicon-remove-sign" title="删除" style="font-size: 18px"></span></a>
 
                             </td>
                         </tr>

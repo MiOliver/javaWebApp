@@ -2,6 +2,8 @@ package com.ning.serviceimpl;
 
 import com.ning.dao.Tool;
 import com.ning.dao.ToolExample;
+import com.ning.domain.BlogSubtype;
+import com.ning.mapper.BlogSubtypeMapper;
 import com.ning.mapper.ToolMapper;
 import com.ning.services.BasicService;
 import com.ning.services.IToolService;
@@ -28,6 +30,8 @@ public class ToolService implements IToolService {
 
     @Autowired
     protected ToolMapper toolMapper;
+    @Autowired
+    protected BlogSubtypeMapper subtypeMapper;
 
     @Resource
     private BasicService basicService;
@@ -70,6 +74,11 @@ public class ToolService implements IToolService {
     }
 
     @Override
+    public int deleteSubType(Short id) {
+        return subtypeMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
     public Integer updateTool(Tool tool) {
         return toolMapper.updateByPrimaryKeySelective(tool);
     }
@@ -92,5 +101,20 @@ public class ToolService implements IToolService {
             criteria.andTypeEqualTo(type);
         }
         return example;
+    }
+
+    @Override
+    public void insertSubType(BlogSubtype type, String user) throws Exception {
+        Assert.notNull(type);
+        Date now=new Date();
+        type.setCreateTime(now);
+        type.setUpdateTime(now.toString());
+        type.setCreatePerson(user);
+        if(subtypeMapper.countSubType(type)>0)
+        {
+            logger.debug("insert type exception:this type is exsit.");
+            throw new Exception("type is exist!");
+        }
+        subtypeMapper.insertSelective(type);
     }
 }

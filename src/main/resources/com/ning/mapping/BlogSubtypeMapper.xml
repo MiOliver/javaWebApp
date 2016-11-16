@@ -5,12 +5,13 @@
     <id column="id" property="id" jdbcType="SMALLINT" />
     <result column="category_id" property="categoryId" jdbcType="SMALLINT" />
     <result column="sub_title" property="subTitle" jdbcType="VARCHAR" />
+    <result column="imageurl" property="imageUrl" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="VARCHAR" />
     <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, category_id, sub_title, create_time, update_time, create_person
+    id, category_id, sub_title,imageurl, create_time, update_time, create_person
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Short" >
     select 
@@ -42,6 +43,9 @@
       <if test="subTitle != null" >
         sub_title,
       </if>
+      <if test="imageUrl != null" >
+        imageurl,
+      </if>
       <if test="createTime != null" >
         create_time,
       </if>
@@ -61,6 +65,9 @@
       </if>
       <if test="subTitle != null" >
         #{subTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="imageUrl != null" >
+        #{imageUrl,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
@@ -109,5 +116,26 @@
     <include refid="Base_Column_List" />
     from blog_subtype
     where category_id=#{type}
+  </select>
+
+  <select id="countSubType" resultType="int"  parameterType="com.ning.domain.BlogSubtype" >
+    SELECT  count(*) from blog_subtype where 1=1
+    <if test="subtype.subTitle!=null and subtype.subTitle!='' ">
+        and sub_title=#{subtype.subTitle}
+    </if>
+  </select>
+
+  <select id="getsublistByPage" parameterType="com.ning.domain.BlogSubtype" resultType="list" resultMap="BaseResultMap">
+    SELECT * from blog_subtype where 1=1
+    <if test="type.subTitle!=null and type.subTitle!='' ">
+      and sub_title=#{type.subTitle}
+    </if>
+    <if test="type.categoryId != null" >
+      and category_id = #{type.categoryId}
+    </if>
+    <if test="type.id != null" >
+      and id = #{type.id}
+    </if>
+    order by create_time desc
   </select>
 </mapper>

@@ -9,6 +9,8 @@ public class BlogSubtype {
 
     private String subTitle;
 
+    private String imageUrl;
+
     private Date createTime;
 
     private String updateTime;
@@ -61,5 +63,13 @@ public class BlogSubtype {
 
     public void setCreatePerson(String createPerson) {
         this.createPerson = createPerson == null ? null : createPerson.trim();
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

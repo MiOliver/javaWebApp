@@ -1,6 +1,7 @@
 package com.ning.services;
 
 import com.ning.dao.Tool;
+import com.ning.domain.BlogSubtype;
 import com.xiaomi.platform.xmybatis.plugins.Pagination;
 
 import java.util.List;
@@ -17,7 +18,11 @@ public interface IToolService {
 
      void insertTool(Tool tool, String user) throws Exception;
 
+     void insertSubType(BlogSubtype type, String user) throws Exception;
+
      int deleteTool(Integer id);
+
+     int deleteSubType(Short id);
 
      Integer updateTool(Tool tool);
 

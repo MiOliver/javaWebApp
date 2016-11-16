@@ -3,10 +3,7 @@ package com.ning.controller;
 import com.alibaba.druid.util.StringUtils;
 import com.ning.controller.base.BaseController;
 import com.ning.dao.Tool;
-import com.ning.domain.BlogCategory;
-import com.ning.domain.BlogContent;
-import com.ning.domain.BlogSearchVO;
-import com.ning.domain.User;
+import com.ning.domain.*;
 import com.ning.serviceimpl.BlogServiceImpl;
 import com.ning.serviceimpl.ManageService;
 import com.ning.services.IToolService;
@@ -48,19 +45,23 @@ public class ManageController extends BaseController {
     @Resource
     private IToolService toolService;
 
+
     private static final String PAGE_MANAGE="manage";
     private static final String LOGIN="login";
     private static final String UNAUTHORIZED="unauthorized";
     private static final String BLOGMANAGE="blog_manage";
     private static final String TOOLMANAGE="manage/tool_manage";
+    private static final String TITLEMANAGE="manage/title_manage";
     private static final String LOGOUT="logoutsucc";
     private static final String ADDUSER="add_user";
+    private static final String ADDSUBTITLE="manage/add_title";
     private static final String ADDTOOL="manage/add_tool";
     private static final String ADDBLOG = "add_blog";
 
     private Map<String, Object> map;
     private BlogContent blog;
     private Tool tool;
+    private BlogSubtype type;
     private List<BlogCategory> cateList;
 
 
@@ -445,5 +446,86 @@ public class ManageController extends BaseController {
         return map;
     }
 
+
+    @RequiresRoles("admin")
+    @RequestMapping(value = "/subTitleManage",method= {RequestMethod.GET, RequestMethod.POST })
+    public ModelAndView subTitleManage(String search){
+        ModelAndView mv=new ModelAndView(TITLEMANAGE);
+        BlogSubtype subtype =new BlogSubtype();
+        if(!StringUtils.isEmpty(search)) {
+            if (CommonUtils.isNumeric(search)) {
+                subtype.setId(Short.valueOf(search));
+            } else {
+                subtype.setSubTitle(search);
+            }
+        }
+
+        List<BlogSubtype> typeList=blogService.getSubtypeListbyPage(page,subtype);
+
+        if (typeList != null && typeList.size() > 0) {
+            this.setDisplayPageBar(true);
+        } else {
+            typeList = null;
+            this.setDisplayPageBar(false);
+        }
+
+        mv.addObject("displayPageBar",displayPageBar);
+        mv.addObject("page",page);
+        mv.addObject("typeList",typeList);
+        mv.addObject("search",search);
+        return mv;
+    }
+
+    @RequiresRoles("admin")
+    @RequestMapping(value = "/addSubtitle",method= RequestMethod.GET)
+    public String getSubTitlePage(){
+        return ADDSUBTITLE;
+    }
+
+
+    @RequiresRoles("admin")
+    @RequestMapping(value = "/postSubtitle", method = RequestMethod.POST)
+    public String postObject(@ModelAttribute("subTitle")BlogSubtype subTitle, HttpServletRequest request, HttpServletResponse response) {
+        if (subTitle != null) {
+            try{
+                toolService.insertSubType(subTitle,"Oliver");
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return "redirect:/subTitleManage";
+    }
+
+
+
+    @RequiresRoles("admin")
+    @RequestMapping(value = "/deleteType", method = RequestMethod.POST,  headers="Accept=application/json")
+    public  @ResponseBody Object deleteType(Tool tool, HttpServletRequest request, HttpServletResponse response) {
+        String id =request.getParameter("id");
+        map = new HashMap<String, Object>();
+        if (tool != null) {
+            if(toolService.deleteSubType(Short.valueOf(id))>0) {
+                System.out.println("成功删除");
+                map.put("msg", "成功删除");
+            } else {
+                System.out.println("失败");
+                map.put("msg", "删除失败");
+            }
+        }
+        return map;
+    }
+
+
+    @RequestMapping(value = "/updateType", method = RequestMethod.GET)
+    public ModelAndView updateType(HttpServletRequest request) {
+        String id = request.getParameter("id").toString();
+        if (id != null && (!id.isEmpty())) {
+            type = blogService.getSubtype(Short.valueOf(id));
+        }
+        ModelAndView mv = new ModelAndView(ADDSUBTITLE);
+        mv.addObject("type", type);
+        mv.addObject("update", true);
+        return mv;
+    }
 
 }

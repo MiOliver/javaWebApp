@@ -37,12 +37,21 @@ public class BlogServiceImpl {
     public List<BlogContent> getBlogList(Pagination page,BlogSearchVO searchVO){
         return blogContentMapper.getBlogListByPage(page,searchVO);
     }
+
+    public List<BlogSubtype> getSubtypeListbyPage(Pagination page,BlogSubtype searchVO){
+        return blogSubtypeMapper.getsublistByPage(page,searchVO);
+    }
     public List<BlogContent> getBestList(){
         return blogContentMapper.getBestList();
     }
 
     public List<BlogSubtype> getSubtypeList(int type){
         return blogSubtypeMapper.getsublist(type);
+    }
+
+
+    public BlogSubtype getSubtype(Short id){
+        return blogSubtypeMapper.selectByPrimaryKey(id);
     }
 
     /**
