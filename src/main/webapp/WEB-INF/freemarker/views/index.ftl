@@ -14,8 +14,7 @@
 <div class="container">
 <#include "./common/header.ftl"/>
 
-    <div class="row"
-         style="background-color: white;border-top-left-radius:5px;border-top-right-radius:5px;line-height: 30px;padding: 20px;  ">
+    <div class="row" style="background-color: white;border-top-left-radius:5px;border-top-right-radius:5px;line-height: 30px;padding: 20px;  ">
         <div class="col-xs-9 col-sm-9">
 
         <#if (blogList?? && blogList?size>0) >
@@ -34,7 +33,7 @@
                         </div>
                         <div style="padding-left: 15px;padding-right: 15px;padding-bottom: 10px">
                             <div>
-                            ${blog.blogContent}
+                            ${blog.blogContent} ...
                             </div>
 
                             <hr>

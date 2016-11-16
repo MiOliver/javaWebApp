@@ -45,12 +45,12 @@
 
             <address>
                 <strong>QQ:</strong><br>
-                <a href="${rc.contextPath}#"><img src="${rc.contextPath}/resources/img/qq.png" width="20" height="20">&nbsp;1066114096</a>
+                <a href="#"><img src="${rc.contextPath}/resources/img/qq.png" width="20" height="20">&nbsp;1066114096</a>
             </address>
 
             <address>
                 <strong>Email:</strong><br>
-                <a href="${rc.contextPath}${rc.contextPath}mailto:#">lxnlhr@163.com</a>
+                <a href="${rc.contextPath}${rc.contextPath}mailto:lxnlhr@163.com">lxnlhr@163.com</a>
             </address>
 
 

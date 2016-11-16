@@ -4,8 +4,8 @@
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 <head>
     <title>Twitter Bootstrap Tutorial </title>
-    <link href="${rc.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${rc.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/resources/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
         body {
             background-color: #CCC;
@@ -19,14 +19,14 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">
-                    <img alt="Brand" src="${rc.contextPath}/resources/img/Dolphin.png" width="25" height="25">
+                    <img alt="Brand" src="<%=request.getContextPath()%>/resources/img/Dolphin.png" width="25" height="25">
                 </a>
             </div>
             <ul class="nav navbar-nav">
-                <li ><a href="${rc.contextPath}/index">首页</a></li>
-                <li ><a href="${rc.contextPath}/addblog">生活</a></li>
-                <li ><a href="${rc.contextPath}/timeline">时间轴</a></li>
-                <li><a href="${rc.contextPath}/about">关于</a></li>
+                <li ><a href="<%=request.getContextPath()%>/index">首页</a></li>
+                <li ><a href="<%=request.getContextPath()%>/addblog">生活</a></li>
+                <li ><a href="<%=request.getContextPath()%>/timeline">时间轴</a></li>
+                <li><a href="<%=request.getContextPath()%>/about">关于</a></li>
             </ul>
         </div>
 

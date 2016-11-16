@@ -61,22 +61,24 @@ public class BlogServiceImpl {
      */
     public List<BlogContent> getFixBlogList(List<BlogContent> list){
         for(BlogContent blogContent:list){
-            String regex="(<p.*?>.*?</p>)";
+            String regex="<[a-zA-Z]+.*?>([\\s\\S]*?)</[a-zA-Z]*>";
+            StringBuilder builder=new StringBuilder();
             Pattern p = Pattern.compile(regex);
             Matcher m=p.matcher(blogContent.getBlogContent());
-            boolean result=m.find();
             int length=0;
-            while(result){
-                result=m.find();
-                if(result){
-                    length=m.start();
-                    if(length>1000){
+            while(m.find()) {
+                String data = m.group(1).trim();
+                if(!"".equals(data)) {
+                    System.out.println(data);
+                    length=builder.length();
+                    if(length>200){
                         break;
                     }
+                    builder.append(data);
                 }
             }
-            System.out.println(blogContent.getBlogContent().substring(0,length));
-            blogContent.setBlogContent(blogContent.getBlogContent().substring(0,length));
+
+            blogContent.setBlogContent(builder.toString());
 
         }
         return list;
