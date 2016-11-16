@@ -44,7 +44,10 @@
                             <div class="pull-right">
                                 <#if blog.tags?length &gt;0 >
                                     <#list blog.tags?split(" ") as tag >
-                                        <span class="glyphicon glyphicon-tag" style="margin-right: 5px;color: #337ab7">${tag}</span>
+                                        <#if (tag?trim?length>0)>
+                                            <span class="glyphicon glyphicon-tag" style="margin-right: 5px;color: #337ab7">${tag}</span>
+                                        </#if>
+
                                     </#list>
                                 </#if>
 

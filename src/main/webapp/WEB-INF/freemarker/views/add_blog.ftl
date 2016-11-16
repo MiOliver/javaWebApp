@@ -269,7 +269,7 @@
                                    id="blogImgSrc" required="true">
                         </div>
 
-                        <input type="button" value="更新" class="btn btn-success" onclick="updateBlog()" >/input>
+                        <input type="button" value="更新" class="btn btn-success" onclick="updateBlog()" ></input>
                     </form>
                 </div>
             </#if>

@@ -72,7 +72,9 @@
                 标签：
             <#if blog.tags?length &gt;0 >
                 <#list blog.tags?split(" ") as tag >
-                    <span class="label label-default">${tag}</span>
+                   <#if (tag?trim?length>0)>
+                       <span class="label label-default">${tag}</span>
+                   </#if>
                 </#list>
             </#if>
 

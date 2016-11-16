@@ -25,6 +25,7 @@ public class TestController {
     private static final String TEST = "test";
     private static final String ECHARTEST = "echars_test";
     private static final String REDIS = "redis_test";
+    private static final String TIMELINE = "view_timeline";
 
     @Autowired
     private RedisService redisService;
@@ -100,6 +101,12 @@ public class TestController {
         String key = request.getParameter("key").trim().toString();
         String value = redisService.getString(key);
         modelAndView.addObject("string", value);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/time", method = RequestMethod.GET)
+    public ModelAndView timeline(HttpServletRequest request) {
+        ModelAndView modelAndView = new ModelAndView(TIMELINE);
         return modelAndView;
     }
 
