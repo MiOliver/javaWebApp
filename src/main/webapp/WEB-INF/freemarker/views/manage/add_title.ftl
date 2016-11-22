@@ -3,9 +3,9 @@
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 <head>
     <title>Oliver's Blogs</title>
-<#include "/common/base_static_file.ftl" />
-    <script src="/resources/js/bootstrap-dialog.min.js" type="text/javascript"></script>
-    <link href="/resources/css/bootstrap-dialog.min.css" rel="stylesheet">
+    <#include "/common/base_static_file.ftl" />
+    <script src="${rc.contextPath}/resources/js/bootstrap-dialog.min.js" type="text/javascript"></script>
+    <link href="${rc.contextPath}/resources/css/bootstrap-dialog.min.css" rel="stylesheet">
     <style type="text/css">
         body {
             background-color: #CCC;
@@ -37,7 +37,7 @@
                 },
                 type: "post",
                 dataType: 'json',
-                url: "/updateTool",
+                url: "${rc.contextPath}/updateTool",
                 error: function (XMLHttpRequest, error, errorThrown) {
                     console.log("error " + error + ": " + errorThrown);
                     BootstrapDialog.show({
@@ -74,7 +74,7 @@
             <div style="padding: 30px;">
                 <h3>添加分类</h3>
                 <hr>
-                <form action="/postSubtitle" method="post">
+                <form action="${rc.contextPath}/postSubtitle" method="post">
                     <div class="form-group">
                         <label>分类标题:</label>
                         <input type="text" class="form-control" style="width: 100%" placeholder="title" id="" name="subTitle"

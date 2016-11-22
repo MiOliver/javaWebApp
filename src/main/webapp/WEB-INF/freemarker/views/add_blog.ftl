@@ -7,11 +7,11 @@
     <#include "./common/base_static_file.ftl" />
 
     <!-- include summernote css/js-->
-    <link href="/resources/css/summernote.css" rel="stylesheet"/>
-    <script src="/resources/js/summernote.js"></script>
+    <link href="${rc.contextPath}/resources/css/summernote.css" rel="stylesheet"/>
+    <script src="${rc.contextPath}/resources/js/summernote.js"></script>
 
-    <script src="/resources/js/bootstrap-dialog.min.js" type="text/javascript"></script>
-    <link href="/resources/css/bootstrap-dialog.min.css" rel="stylesheet">
+    <script src="${rc.contextPath}/resources/js/bootstrap-dialog.min.js" type="text/javascript"></script>
+    <link href="${rc.contextPath}/resources/css/bootstrap-dialog.min.css" rel="stylesheet">
 
     <style type="text/css">
         body {
@@ -58,7 +58,7 @@
                     },
                     type: "post",
                     dataType: 'json',
-                    url: "/createblog",
+                    url: "${rc.contextPath}/createblog",
                     error: function (XMLHttpRequest, error, errorThrown) {
                         console.log("error " + error + ": " + errorThrown);
                         BootstrapDialog.show({
@@ -108,7 +108,7 @@
                 },
                 type: "post",
                 dataType: 'json',
-                url: "/updateBlog",
+                url: "${rc.contextPath}/updateBlog",
                 error: function (XMLHttpRequest, error, errorThrown) {
                     console.log("error " + error + ": " + errorThrown);
                     BootstrapDialog.show({
@@ -139,7 +139,7 @@
                 },
                 type: "get",
                 dataType: 'json',
-                url: "/getSublist",
+                url: "${rc.contextPath}/getSublist",
                 error: function (XMLHttpRequest, error, errorThrown) {
                     console.log("error " + error + ": " + errorThrown);
                     BootstrapDialog.show({

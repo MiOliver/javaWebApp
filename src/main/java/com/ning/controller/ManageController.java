@@ -6,6 +6,7 @@ import com.ning.dao.Tool;
 import com.ning.domain.*;
 import com.ning.serviceimpl.BlogServiceImpl;
 import com.ning.serviceimpl.ManageService;
+import com.ning.serviceimpl.RedisService;
 import com.ning.services.IToolService;
 import com.ning.utils.CommonUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -44,6 +45,8 @@ public class ManageController extends BaseController {
     private ManageService manageService;
     @Resource
     private IToolService toolService;
+    @Resource
+    private RedisService redisService;
 
 
     private static final String PAGE_MANAGE="manage";
@@ -55,6 +58,7 @@ public class ManageController extends BaseController {
     private static final String LOGOUT="logoutsucc";
     private static final String ADDUSER="add_user";
     private static final String ADDSUBTITLE="manage/add_title";
+    private static final String REDISMANAGE="manage/redis_manage";
     private static final String ADDTOOL="manage/add_tool";
     private static final String ADDBLOG = "add_blog";
 
@@ -527,5 +531,21 @@ public class ManageController extends BaseController {
         mv.addObject("update", true);
         return mv;
     }
+
+    @RequiresRoles("admin")
+    @RequestMapping(value = "/redisManage",method= RequestMethod.GET)
+    public ModelAndView redisManage(){
+        ModelAndView mv = new ModelAndView(REDISMANAGE);
+        return mv;
+    }
+
+    @RequiresRoles("admin")
+    @RequestMapping(value = "/cleanTags", method = RequestMethod.GET)
+    public String cleanTags(HttpServletRequest request, HttpServletResponse response) {
+        redisService.cleanTags();
+        return "redirect:/redisManage";
+    }
+
+
 
 }

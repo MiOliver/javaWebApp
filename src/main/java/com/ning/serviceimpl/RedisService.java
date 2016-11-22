@@ -103,6 +103,12 @@ public class RedisService {
         return listOps.range(TAGSKEY,0,listOps.size(TAGSKEY)-1);
     }
 
+
+    public boolean cleanTags(){
+        listOps.range(TAGSKEY,0,-1);
+        return true;
+    }
+
     /**
      * Append.
      *

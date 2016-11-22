@@ -7,8 +7,8 @@
     <#include "./common/base_static_file.ftl" />
     <script type="text/javascript" src="/resources/js/jquery.pager.js"></script>
 
-    <script src="/resources/js/bootstrap-dialog.min.js" type="text/javascript"></script>
-    <link href="/resources/css/bootstrap-dialog.min.css" rel="stylesheet">
+    <script src="${rc.contextPath}/resources/js/bootstrap-dialog.min.js" type="text/javascript"></script>
+    <link href="${rc.contextPath}/resources/css/bootstrap-dialog.min.css" rel="stylesheet">
 
     <style type="text/css">
         body {
@@ -24,7 +24,7 @@
                 },
                 type: "post",
                 dataType: 'json',
-                url: "/deleteblog",
+                url: "${rc.contextPath}/deleteblog",
                 error: function (XMLHttpRequest, error, errorThrown) {
                     console.log("error " + error + ": " + errorThrown);
                     BootstrapDialog.show({
@@ -63,7 +63,7 @@
         <div class="col-xs-12 col-md-12">
             <h3>博客管理</h3>
             <hr>
-            <form  action="/blogManage" method="post" class="form-inline">
+            <form  action="${rc.contextPath}/blogManage" method="post" class="form-inline">
                 <div class="row">
                     博客搜索：<input type="text" class="form-control" id="searchId" name="blogseach" value="${blogseach}" placeholder="请输入文章标题或者ID" />&nbsp;&nbsp;
                     <input type="submit" class="form-control" value="搜  索"> </input>
@@ -85,7 +85,7 @@
                             <td>${blog.createTime?string('yyyy-MM-dd HH:mm:ss')}</td>
                             <td>${blog.createPerson}</td>
                             <td>
-                                <a href="/updateBlog?id=${blog.id}" >
+                                <a href="${rc.contextPath}/updateBlog?id=${blog.id}" >
                                     <span class="glyphicon glyphicon-edit" title="编辑" style="font-size: 18px"></span></a>
                                 &nbsp;&nbsp;
                                 <a href="#" onclick="deleteBlog(${blog.id })">
