@@ -2,6 +2,7 @@ package com.ning.controller;
 
 import com.ning.domain.BlogContent;
 import com.ning.serviceimpl.RedisService;
+import com.ning.services.ICrawlerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,10 +31,19 @@ public class TestController {
     @Autowired
     private RedisService redisService;
 
+    @Autowired
+    private ICrawlerService crawlerService;
+
     private Map<String, Object> map;
 
     @RequestMapping(value = "/testbs", method = RequestMethod.GET)
     public String testPage() {
+        try {
+            crawlerService.crawling();
+//            Thread.sleep(10000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return TEST;
     }
 
@@ -109,5 +119,6 @@ public class TestController {
         ModelAndView modelAndView = new ModelAndView(TIMELINE);
         return modelAndView;
     }
+
 
 }

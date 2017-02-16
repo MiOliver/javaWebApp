@@ -2,11 +2,13 @@ package com.ning.controller;
 
 import com.alibaba.druid.util.StringUtils;
 import com.ning.controller.base.BaseController;
+import com.ning.dao.HouseRecord;
 import com.ning.dao.Tool;
 import com.ning.domain.*;
 import com.ning.serviceimpl.BlogServiceImpl;
 import com.ning.serviceimpl.ManageService;
 import com.ning.serviceimpl.RedisService;
+import com.ning.services.ILjService;
 import com.ning.services.IToolService;
 import com.ning.utils.CommonUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -48,6 +50,9 @@ public class ManageController extends BaseController {
     @Resource
     private RedisService redisService;
 
+    @Resource
+    private ILjService ljService;
+
 
     private static final String PAGE_MANAGE="manage";
     private static final String LOGIN="login";
@@ -62,9 +67,12 @@ public class ManageController extends BaseController {
     private static final String ADDTOOL="manage/add_tool";
     private static final String ADDBLOG = "add_blog";
 
+    private static final String LJManage="manage/lianjia_manage";
+
     private Map<String, Object> map;
     private BlogContent blog;
     private Tool tool;
+    private HouseRecord houseRecord;
     private BlogSubtype type;
     private List<BlogCategory> cateList;
 
@@ -341,6 +349,40 @@ public class ManageController extends BaseController {
         mv.addObject("displayPageBar",displayPageBar);
         mv.addObject("page",page);
         mv.addObject("toolList",toolList);
+        mv.addObject("toolsearch",toolsearch);
+        return mv;
+    }
+
+    /**
+     * Get blog manage model and view.
+     *
+     * @return the model and view
+     */
+    @RequiresRoles("admin")
+    @RequestMapping(value = "/lianjiaManage",method= {RequestMethod.GET, RequestMethod.POST })
+    public ModelAndView getLJManage(String toolsearch){
+        ModelAndView mv=new ModelAndView(LJManage);
+        HouseRecord houseRecord=new HouseRecord();
+        if(!StringUtils.isEmpty(toolsearch)) {
+            if (CommonUtils.isNumeric(toolsearch)) {
+                houseRecord.setId(Integer.valueOf(toolsearch));
+            } else {
+                houseRecord.setTitle(toolsearch);
+            }
+        }
+
+        List<HouseRecord> houseList= ljService.getHouseRecordListByPage(page,houseRecord);
+
+        if (houseList != null && houseList.size() > 0) {
+            this.setDisplayPageBar(true);
+        } else {
+            houseList = null;
+            this.setDisplayPageBar(false);
+        }
+
+        mv.addObject("displayPageBar",displayPageBar);
+        mv.addObject("page",page);
+        mv.addObject("houseList",houseList);
         mv.addObject("toolsearch",toolsearch);
         return mv;
     }

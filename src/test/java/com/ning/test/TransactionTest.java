@@ -1,6 +1,7 @@
 package com.ning.test;
 
 import com.ning.serviceimpl.TestServiceImp;
+import com.ning.services.ICrawlerService;
 import com.ning.test.thread.TestReadThread;
 import com.ning.test.thread.TestWriteThread;
 import org.junit.Test;
@@ -17,6 +18,8 @@ public class TransactionTest extends TestConfiguration{
 
     @Autowired
     private TestServiceImp testService;
+    @Autowired
+    private ICrawlerService crawlerService;
 
     @Test
     public void testUncommit(){
@@ -24,6 +27,15 @@ public class TransactionTest extends TestConfiguration{
         TestWriteThread writeThread=new TestWriteThread(testService);
         readThread.start();
         writeThread.start();
+    }
+
+    @Test
+    public void testCrawler(){
+        try {
+            crawlerService.crawling();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
